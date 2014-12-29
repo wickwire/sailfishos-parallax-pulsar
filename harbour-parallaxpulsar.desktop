@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-parallaxpulsar
+Exec=harbour-parallaxpulsar
+Name=harbour-parallaxpulsar
+# translation example:
+# your app name in German locale (de)
+Name[de]=harbour-parallaxpulsar
+
