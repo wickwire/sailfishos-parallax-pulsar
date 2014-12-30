@@ -75,48 +75,63 @@ Page {
         active: true
     }
 
-//    TiltSensor {
-//        id: tilt
-//        active: true
-//    }
-
     Accelerometer{
         id: xMeter
         active: true
     }
 
-       Text {
-           id: proxitext
-           height: 30
-           verticalAlignment: Text.AlignVCenter
-           color: "white"
-           text: "Proximity: " +
-                 (proxi.active ? (proxi.reading.near ? "Near" : "Far") : "Unknown")
-       }
+    Text {
+        id: proxitext
+        height: 30
+        verticalAlignment: Text.AlignVCenter
+        color: "white"
+        text: "Proximity: " +
+              (proxi.active ? (proxi.reading.near ? "Near" : "Far") : "Unknown")
+    }
 
-       Text {
-           id: xAccel
-           height: 100
-           verticalAlignment: Text.AlignVCenter
-           color: "white"
-           text: "xAccel: " + xMeter.reading.x
-       }
+    Text {
+        id: xAccel
+        height: 100
+        verticalAlignment: Text.AlignVCenter
+        color: "white"
+        text: "xAccel: " + xMeter.reading.x.toFixed(1)
+    }
 
-       Text {
-           id: yAccel
-           height: 150
-           verticalAlignment: Text.AlignVCenter
-           color: "white"
-           text: "yAccel: " + xMeter.reading.y
-       }
+    Text {
+        id: yAccel
+        height: 150
+        verticalAlignment: Text.AlignVCenter
+        color: "white"
+        text: "yAccel: " + xMeter.reading.y.toFixed(1)
+    }
 
-       Text {
-           id: zAccel
-           height: 200
-           verticalAlignment: Text.AlignVCenter
-           color: "white"
-           text: "zAccel: " + xMeter.reading.z
-       }
+    Text {
+        id: zAccel
+        height: 200
+        verticalAlignment: Text.AlignVCenter
+        color: "white"
+        text: "zAccel: " + xMeter.reading.z.toFixed(1)
+    }
+
+    //phone with screen facing up
+    Rectangle{
+        id: square
+        width:50
+        height: 50
+        color: "yellow"
+        x: -(xMeter.reading.x.toFixed(1)*100 - parent.width/2 + width/2)
+        y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
+    }
+
+    //phone with screen facing sideways
+//    Rectangle{
+//      id: square
+//      width:50
+//      height: 50
+//      color: "yellow"
+//      x: -(xMeter.reading.z.toFixed(1)*100 - parent.width/2 + width/2)
+//      y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
+//    }
 }
 
 
