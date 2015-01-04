@@ -30,7 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtSensors 5.2
+import QtSensors 5.0
 
 
 Page {
@@ -77,7 +77,7 @@ Page {
 
     Accelerometer{
         id: xMeter
-        active: true
+        active: false
     }
 
     Text {
@@ -89,39 +89,39 @@ Page {
               (proxi.active ? (proxi.reading.near ? "Near" : "Far") : "Unknown")
     }
 
-    Text {
-        id: xAccel
-        height: 100
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "xAccel: " + xMeter.reading.x.toFixed(1)
-    }
+//    Text {
+//        id: xAccel
+//        height: 100
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "xAccel: " + xMeter.reading.x.toFixed(1)
+//    }
 
-    Text {
-        id: yAccel
-        height: 150
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "yAccel: " + xMeter.reading.y.toFixed(1)
-    }
+//    Text {
+//        id: yAccel
+//        height: 150
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "yAccel: " + xMeter.reading.y.toFixed(1)
+//    }
 
-    Text {
-        id: zAccel
-        height: 200
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "zAccel: " + xMeter.reading.z.toFixed(1)
-    }
+//    Text {
+//        id: zAccel
+//        height: 200
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "zAccel: " + xMeter.reading.z.toFixed(1)
+//    }
 
     //phone with screen facing up
-    Rectangle{
-        id: square
-        width:50
-        height: 50
-        color: "yellow"
-        x: -(xMeter.reading.x.toFixed(1)*100 - parent.width/2 + width/2)
-        y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
-    }
+//    Rectangle{
+//        id: square
+//        width:50
+//        height: 50
+//        color: "yellow"
+//        x: -(xMeter.reading.x.toFixed(1)*100 - parent.width/2 + width/2)
+//        y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
+//    }
 
     //phone with screen facing sideways
 //    Rectangle{

@@ -14,7 +14,8 @@ TARGET = harbour-parallaxpulsar
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-parallaxpulsar.cpp
+SOURCES += src/harbour-parallaxpulsar.cpp \
+    src/parallaxcontrols.cpp
 
 OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/cover/CoverPage.qml \
@@ -32,3 +33,6 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-parallaxpulsar-de.ts
 
 QT += sensors
+
+HEADERS += \
+    src/parallaxcontrols.h

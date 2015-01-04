@@ -33,7 +33,7 @@
 #endif
 
 #include <sailfishapp.h>
-
+#include "parallaxcontrols.h"
 
 int main(int argc, char *argv[])
 {
@@ -46,6 +46,28 @@ int main(int argc, char *argv[])
     //
     // To display the view, call "show()" (will show fullscreen on device).
 
-    return SailfishApp::main(argc, argv);
-}
+//    foreach (QByteArray sensor, QSensor::sensorTypes())
+//        qDebug() << sensor;
 
+    //return SailfishApp::main(argc, argv);
+
+
+
+// For this example, wizard-generates single line code would be good enough,
+// but very soon it won't be enough for you anyway, so use this more detailed example from start
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+
+// Here's how you will add QML components whenever you start using them
+// Check https://github.com/amarchen/Wikipedia for a more full example
+// view->engine()->addImportPath(SailfishApp::pathTo("qml/components").toString());
+
+    ParallaxControls controls;
+
+    view->setSource(SailfishApp::pathTo("qml/harbour-parallaxpulsar.qml"));
+
+    view->show();
+
+
+    return app->exec();
+}
