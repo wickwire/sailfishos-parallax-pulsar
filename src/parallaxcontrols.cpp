@@ -28,10 +28,25 @@ ParallaxControls::ParallaxControls(QObject *parent) :
 void ParallaxControls::UpdateAccelerometer()
 {
     QAccelerometerReading *reading = accel->reading();
-    qreal x = reading->property("x").value<qreal>();
-    qreal y = reading->property("y").value<qreal>();
-    qreal z = reading->property("z").value<qreal>();
+    valAccelX = reading->property("x").value<qreal>();
+    valAccelY = reading->property("y").value<qreal>();
+    valAccelZ = reading->property("z").value<qreal>();
     //qreal y = reading->value(1).value<qreal>();
 
-    qDebug() << "Accel..." << x << "+" << y << "+" << z;
+    qDebug() << "Accel..." << valAccelX << "+" << valAccelY << "+" << valAccelZ;
+}
+
+qreal ParallaxControls::getValAccelX(){
+    return valAccelX;
+    emit finished();
+}
+
+qreal ParallaxControls::getValAccelY(){
+    return valAccelY;
+    emit finished();
+}
+
+qreal ParallaxControls::getValAccelZ(){
+    return valAccelZ;
+    emit finished();
 }

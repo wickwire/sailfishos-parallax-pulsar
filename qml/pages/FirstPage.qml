@@ -124,14 +124,18 @@ Page {
 //    }
 
     //phone with screen facing sideways
-//    Rectangle{
-//      id: square
-//      width:50
-//      height: 50
-//      color: "yellow"
-//      x: -(xMeter.reading.z.toFixed(1)*100 - parent.width/2 + width/2)
-//      y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
-//    }
+    Rectangle{
+      id: square
+      width:50
+      height: 50
+      color: "yellow"
+      //x: -(qmlAccelcontrols.GetAccelX().toFixed(1)*100 - parent.width/2 + width/2)
+      //y: (qmlAccelcontrols.GetAccelY().toFixed(1)*100 + parent.height/2 - height/2)
+
+      x: -(parent.width/2 + width/2)
+      y: (parent.height/2 - height/2)
+
+    }
 }
 
 
