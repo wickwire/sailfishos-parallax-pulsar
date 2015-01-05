@@ -14,14 +14,6 @@
         <source>Show Page 2</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>UI Template</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hello Sailors</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SecondPage</name>
