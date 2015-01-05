@@ -26,6 +26,8 @@ public:
     qreal valAccelZ;
     QProximitySensor *proxim;
     bool valProxim;
+    int screenWidth;
+    int screenHeight;
 
 signals:
     qreal valAccelXChanged(qreal valAccelX);

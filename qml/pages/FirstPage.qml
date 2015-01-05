@@ -125,15 +125,17 @@ Page {
 
     //phone with screen facing up
     Rectangle{
-        property int screenX : -(qmlAccelcontrols.valAccelX*1000 - parent.width/2 + width/2)
-        property int screenY : (qmlAccelcontrols.valAccelY*1000 + parent.height/2 - height/2)
+        //property int screenX : -(qmlAccelcontrols.valAccelX*1000 - parent.width/2 + width/2)
+        //property int screenY : (qmlAccelcontrols.valAccelY*1000 + parent.height/2 - height/2)
         //property double screenZ: (qmlAccelcontrols.valAccelZ-9)*2
         id: square
         width:50
         height: 50
         color: "yellow"
-        x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
-        y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
+        //x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
+        //y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
+        x: qmlAccelcontrols.valAccelX;
+        y: qmlAccelcontrols.valAccelY;
         //scale: screenZ
     }
 }

@@ -65,12 +65,28 @@ void ParallaxControls::UpdateAccelerometer()
 
 qreal ParallaxControls::getValAccelX(){
     //qDebug() << "C++ X Signal working..." << valAccelX;
+    int parallaxX = -(valAccelX*1000-screenWidth/2+50/2);
+    if( parallaxX > screenWidth-50){
+        parallaxX = screenWidth-50;
+    }
+    else if( parallaxX < 0){
+        parallaxX = 0;
+    }
+    valAccelX = parallaxX;
     return valAccelX;
     emit finished();
 }
 
 qreal ParallaxControls::getValAccelY(){
     //qDebug() << "C++ Y Signal working..." << valAccelY;
+    int parallaxY = (valAccelY*1000+screenHeight/2-50/2);
+    if(parallaxY > screenHeight-50){
+        parallaxY = screenHeight-50;
+    }
+    else if(parallaxY < 0){
+        parallaxY = 0;
+    }
+    valAccelY = parallaxY;
     return valAccelY;
     emit finished();
 }

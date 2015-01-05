@@ -34,6 +34,7 @@
 
 #include <sailfishapp.h>
 #include "parallaxcontrols.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -41,6 +42,10 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 
     ParallaxControls *accelControls = new ParallaxControls();
+
+    accelControls->screenWidth = view->screen()->availableSize().width();
+    accelControls->screenHeight = view->screen()->availableSize().height();
+    //qDebug() << "main.cpp >> ScreenWidthHeight: " << accelControls->screenWidth << "x" << accelControls->screenHeight;
 
     view->rootContext()->setContextProperty("qmlAccelcontrols", accelControls);
 
