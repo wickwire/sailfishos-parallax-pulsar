@@ -13,6 +13,11 @@ ParallaxControls::ParallaxControls(QObject *parent) :
 //    // msec
 //    timer->start(1000);
 
+    valProxim = false;
+    valAccelX = 0;
+    valAccelY = 0;
+    valAccelZ = 0;
+
     accel = new QAccelerometer(this);
     connect(accel, SIGNAL(readingChanged()),
             this, SLOT(UpdateAccelerometer()));
@@ -27,6 +32,13 @@ ParallaxControls::ParallaxControls(QObject *parent) :
             this, SLOT(getValAccelZ()));
 
     accel->start();
+
+    proxim = new QProximitySensor(this);
+    connect(proxim, SIGNAL(readingChanged()),
+            this, SLOT(UpdateProximitySensor()));
+
+    proxim->start();
+
 }
 
 //void ParallaxControls::MyTimerSlot()
@@ -50,19 +62,39 @@ void ParallaxControls::UpdateAccelerometer()
 }
 
 qreal ParallaxControls::getValAccelX(){
-    qDebug() << "C++ X Signal working..." << valAccelX;
+    //qDebug() << "C++ X Signal working..." << valAccelX;
     return valAccelX;
     emit finished();
 }
 
 qreal ParallaxControls::getValAccelY(){
-    qDebug() << "C++ Y Signal working..." << valAccelY;
+    //qDebug() << "C++ Y Signal working..." << valAccelY;
     return valAccelY;
     emit finished();
 }
 
 qreal ParallaxControls::getValAccelZ(){
-    qDebug() << "C++ Z Signal working..." << valAccelZ;
+    //qDebug() << "C++ Z Signal working..." << valAccelZ;
     return valAccelZ;
     emit finished();
+}
+
+
+void ParallaxControls::UpdateProximitySensor()
+{
+    QProximityReading *reading = proxim->reading();
+    valProxim = reading->property("close").value<bool>();
+    qDebug() << "Near..." << valProxim;
+    emit valProximChanged(valProxim);
+}
+
+bool ParallaxControls::getValProxim(){
+    qDebug() << "C++ Proxim Signal working..." << valProxim;
+    return valProxim;
+    emit finished();
+}
+
+void ParallaxControls::CloseSensors(){
+    accel->stop();
+    proxim->stop();
 }

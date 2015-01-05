@@ -72,7 +72,7 @@ Page {
 
     ProximitySensor {
         id: proxi
-        active: true
+        active: false
     }
 
     Accelerometer{
@@ -85,8 +85,7 @@ Page {
         height: 30
         verticalAlignment: Text.AlignVCenter
         color: "white"
-        text: "Proximity: " +
-              (proxi.active ? (proxi.reading.near ? "Near" : "Far") : "Unknown")
+        text: "Proximity: " + (qmlAccelcontrols.valProxim ? "Near" : "Far")
     }
 
     Text {
