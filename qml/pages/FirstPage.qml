@@ -94,7 +94,7 @@ Page {
         height: 100
         verticalAlignment: Text.AlignVCenter
         color: "white"
-        text: "xAccel: "
+        text: "xAccel: " + qmlAccelcontrols.valAccelX
     }
 
     Text {
@@ -102,7 +102,7 @@ Page {
         height: 150
         verticalAlignment: Text.AlignVCenter
         color: "white"
-        text: "yAccel: "
+        text: "yAccel: " + qmlAccelcontrols.valAccelY
     }
 
     Text {
@@ -110,7 +110,7 @@ Page {
         height: 200
         verticalAlignment: Text.AlignVCenter
         color: "white"
-        text: "zAccel: "
+        text: "zAccel: " + qmlAccelcontrols.valAccelZ
     }
 
     //phone with screen facing up
@@ -129,11 +129,9 @@ Page {
       width:50
       height: 50
       color: "yellow"
-      //x: -(qmlAccelcontrols.GetAccelX().toFixed(1)*100 - parent.width/2 + width/2)
-      //y: (qmlAccelcontrols.GetAccelY().toFixed(1)*100 + parent.height/2 - height/2)
 
-      x: -(- parent.width/2 + width/2)
-      y: (+ parent.height/2 - height/2)
+      x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
+      y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
 
     }
 }
