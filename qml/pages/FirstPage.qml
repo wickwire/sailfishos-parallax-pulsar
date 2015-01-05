@@ -70,47 +70,47 @@ Page {
         }
     }
 
-    ProximitySensor {
-        id: proxi
-        active: false
-    }
+//    ProximitySensor {
+//        id: proxi
+//        active: false
+//    }
 
-    Accelerometer{
-        id: xMeter
-        active: false
-    }
+//    Accelerometer{
+//        id: xMeter
+//        active: false
+//    }
 
-    Text {
-        id: proxitext
-        height: 30
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "Proximity: " + (qmlAccelcontrols.valProxim ? "Near" : "Far")
-    }
+//    Text {
+//        id: proxitext
+//        height: 30
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "Proximity: " + (qmlAccelcontrols.valProxim ? "Near" : "Far")
+//    }
 
-    Text {
-        id: xAccel
-        height: 100
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "xAccel: " + qmlAccelcontrols.valAccelX
-    }
+//    Text {
+//        id: xAccel
+//        height: 100
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "xAccel: " + qmlAccelcontrols.valAccelX
+//    }
 
-    Text {
-        id: yAccel
-        height: 150
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "yAccel: " + qmlAccelcontrols.valAccelY
-    }
+//    Text {
+//        id: yAccel
+//        height: 150
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "yAccel: " + qmlAccelcontrols.valAccelY
+//    }
 
-    Text {
-        id: zAccel
-        height: 200
-        verticalAlignment: Text.AlignVCenter
-        color: "white"
-        text: "zAccel: " + qmlAccelcontrols.valAccelZ
-    }
+//    Text {
+//        id: zAccel
+//        height: 200
+//        verticalAlignment: Text.AlignVCenter
+//        color: "white"
+//        text: "zAccel: " + qmlAccelcontrols.valAccelZ
+//    }
 
     //phone with screen facing sideways
 //    Rectangle{
@@ -137,6 +137,16 @@ Page {
         x: qmlAccelcontrols.valAccelX;
         y: qmlAccelcontrols.valAccelY;
         //scale: screenZ
+
+
+        Rectangle{
+            id: shot
+            width: 26
+            height: 6
+            color: "red"
+            x: -parent.width+width
+            y: parent.height/2-height/2
+        }
     }
 }
 
