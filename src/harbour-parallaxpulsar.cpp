@@ -42,8 +42,7 @@ int main(int argc, char *argv[])
 
     ParallaxControls *accelControls = new ParallaxControls();
 
-    view->rootContext()->setContextProperty("qmlAccelcontrolsX", accelControls->getValAccelX());
-    view->rootContext()->setContextProperty("qmlAccelcontrolsY", accelControls->getValAccelY());
+    view->rootContext()->setContextProperty("qmlAccelcontrols", accelControls);
 
     view->setSource(SailfishApp::pathTo("qml/harbour-parallaxpulsar.qml"));
 

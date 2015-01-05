@@ -9,9 +9,9 @@
 
 class ParallaxControls : public QObject
 {
-    Q_PROPERTY(qreal valAccelX READ getValAccelX NOTIFY valAccelXUpdated)
-    Q_PROPERTY(qreal valAccelY READ getValAccelY NOTIFY valAccelYUpdated)
-    Q_PROPERTY(qreal valAccelZ READ getValAccelZ NOTIFY valAccelZUpdated)
+    Q_PROPERTY(qreal valAccelX READ getValAccelX NOTIFY valAccelXChanged)
+    Q_PROPERTY(qreal valAccelY READ getValAccelY NOTIFY valAccelYChanged)
+    Q_PROPERTY(qreal valAccelZ READ getValAccelZ NOTIFY valAccelZChanged)
     Q_OBJECT
 public:
     explicit ParallaxControls(QObject *parent = 0);
@@ -22,9 +22,9 @@ public:
     qreal valAccelZ;
 
 signals:
-    qreal valAccelXUpdated(qreal valAccelX);
-    qreal valAccelYUpdated(qreal valAccelY);
-    qreal valAccelZUpdated(qreal valAccelZ);
+    qreal valAccelXChanged(qreal valAccelX);
+    qreal valAccelYChanged(qreal valAccelY);
+    qreal valAccelZChanged(qreal valAccelZ);
     void finished();
 
 public slots:

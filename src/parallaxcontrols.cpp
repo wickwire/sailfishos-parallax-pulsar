@@ -17,6 +17,15 @@ ParallaxControls::ParallaxControls(QObject *parent) :
     connect(accel, SIGNAL(readingChanged()),
             this, SLOT(UpdateAccelerometer()));
 
+    connect(this, SIGNAL(valAccelXChanged(qreal)),
+            this, SLOT(getValAccelX()));
+
+    connect(this, SIGNAL(valAccelYChanged(qreal)),
+            this, SLOT(getValAccelY()));
+
+    connect(this, SIGNAL(valAccelZChanged(qreal)),
+            this, SLOT(getValAccelZ()));
+
     accel->start();
 }
 
@@ -33,20 +42,27 @@ void ParallaxControls::UpdateAccelerometer()
     valAccelZ = reading->property("z").value<qreal>();
     //qreal y = reading->value(1).value<qreal>();
 
-    qDebug() << "Accel..." << valAccelX << "+" << valAccelY << "+" << valAccelZ;
+    //qDebug() << "Accel..." << valAccelX << "+" << valAccelY << "+" << valAccelZ;
+
+    emit valAccelXChanged(valAccelX);
+    emit valAccelYChanged(valAccelY);
+    emit valAccelZChanged(valAccelX);
 }
 
 qreal ParallaxControls::getValAccelX(){
+    qDebug() << "C++ X Signal working..." << valAccelX;
     return valAccelX;
     emit finished();
 }
 
 qreal ParallaxControls::getValAccelY(){
+    qDebug() << "C++ Y Signal working..." << valAccelY;
     return valAccelY;
     emit finished();
 }
 
 qreal ParallaxControls::getValAccelZ(){
+    qDebug() << "C++ Z Signal working..." << valAccelZ;
     return valAccelZ;
     emit finished();
 }
