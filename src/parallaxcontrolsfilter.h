@@ -26,11 +26,12 @@ public:
             qreal xdiff = reading->x() - prevX;
             qreal ydiff = reading->y() - prevY;
             qreal zdiff = reading->z() - prevZ;
-#define threshold 0.196133f
+//#define threshold 0.196133f
+         #define threshold 1000.0f
             if (qAbs(xdiff) < threshold && qAbs(ydiff) < threshold && qAbs(zdiff) < threshold) {
-                reading->setX(prevX + xdiff * 0.1f);
-                reading->setY(prevY + ydiff * 0.1f);
-                reading->setZ(prevZ + zdiff * 0.1f);
+                reading->setX(prevX + xdiff * 0.008f);
+                reading->setY(prevY + ydiff * 0.008f);
+                reading->setZ(prevZ + zdiff * 0.008f);
             }
         }
         prevX = reading->x();

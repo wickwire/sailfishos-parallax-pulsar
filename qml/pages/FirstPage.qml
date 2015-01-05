@@ -112,27 +112,27 @@ Page {
         text: "zAccel: " + qmlAccelcontrols.valAccelZ
     }
 
-    //phone with screen facing up
+    //phone with screen facing sideways
 //    Rectangle{
-//        id: square
-//        width:50
-//        height: 50
-//        color: "yellow"
-//        x: -(xMeter.reading.x.toFixed(1)*100 - parent.width/2 + width/2)
-//        y: (xMeter.reading.y.toFixed(1)*100 + parent.height/2 - height/2)
+//      id: square
+//      width:50
+//      height: 50
+//      color: "yellow"
+//      x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
+//      y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
 //    }
 
-    //phone with screen facing sideways
-    Rectangle{
-      id: square
-      width:50
-      height: 50
-      color: "yellow"
-      //x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
-      //y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
-      x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
-      y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
 
+    //phone with screen facing up
+    Rectangle{
+        property int screenX : -(qmlAccelcontrols.valAccelX*1000 - parent.width/2 + width/2)
+        property int screenY : (qmlAccelcontrols.valAccelY*1000 + parent.height/2 - height/2)
+        id: square
+        width:50
+        height: 50
+        color: "yellow"
+        x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
+        y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
     }
 }
 
