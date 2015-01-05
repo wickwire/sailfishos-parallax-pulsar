@@ -31,6 +31,8 @@ ParallaxControls::ParallaxControls(QObject *parent) :
     connect(this, SIGNAL(valAccelZChanged(qreal)),
             this, SLOT(getValAccelZ()));
 
+    accel->addFilter(new ParallaxControlsFilter(this));
+
     accel->start();
 
     proxim = new QProximitySensor(this);

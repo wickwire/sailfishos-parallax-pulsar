@@ -128,7 +128,8 @@ Page {
       width:50
       height: 50
       color: "yellow"
-
+      //x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
+      //y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
       x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
       y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
 

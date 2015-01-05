@@ -8,6 +8,7 @@
 #include <QAccelerometerReading>
 #include <QProximitySensor>
 #include <QProximityReading>
+#include "parallaxcontrolsfilter.h"
 
 class ParallaxControls : public QObject
 {
