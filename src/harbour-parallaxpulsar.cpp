@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("qmlAccelcontrols", accelControls);
     view->rootContext()->setContextProperty("qmlWeaponTrigger", weaponTrigger);
 
-
+    qmlRegisterType<ParallaxWeapon>("Weapon", 1, 0, "ParallaxWeapon");
 
     view->setSource(SailfishApp::pathTo("qml/harbour-parallaxpulsar.qml"));
 

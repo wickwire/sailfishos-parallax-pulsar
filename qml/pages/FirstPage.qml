@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtSensors 5.0
+import Weapon 1.0
 
 Page {
     id: page
@@ -133,25 +134,50 @@ Page {
         color: "yellow"
         //x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
         //y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
-        x: qmlAccelcontrols.valAccelZ;
-        y: qmlAccelcontrols.valAccelY;
+//        x: qmlAccelcontrols.valAccelZ;
+//        y: qmlAccelcontrols.valAccelY;
+            x: qmlAccelcontrols.valAccelX;
+            y: qmlAccelcontrols.valAccelY;
         //scale: screenZ
 
 
-        Rectangle{
-            id: shot
-            width: 18
-            height: 6
-            color: "red"
 
-            //onValProximChanged: console.log("Image changed!")
+//        ParallaxWeapon{
+//            onValProximChanged: console.log("C++ Proxim Signal on QML working..." + valProxim)
+//        }
 
-            Connections {
-                target: qmlWeaponTrigger
-                onValProximChanged: console.log(qmlWeaponTrigger.valProxim)
+}
+
+    Rectangle{
+        id: shot
+        width: 18
+        height: 6
+        color: "red"
+        property double squareInitX : square.x-square.height/2
+        property double squareInitY
+        //x: shot.squareInitX
+        y: shot.squareInitY
+        Connections {
+            target: qmlWeaponTrigger
+            onValProximChanged: {
+                if(qmlWeaponTrigger.valProxim == true){
+                    shot.squareInitY = square.y+square.width/2
+                    shotFired.running = true;
+                }
+                console.log(qmlWeaponTrigger.valProxim + ":" + shot.squareInitX + shot.squareInitY);
             }
         }
+
+            PropertyAnimation on x{
+                id: shotFired
+                from: shot.squareInitX
+                to: 0-shot.width
+                duration: ((-1)*((0-shot.width)-shot.squareInitX)/page.width*300)
+                running: false
+            }
     }
+
+
 }
 
 
