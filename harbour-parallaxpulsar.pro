@@ -16,7 +16,8 @@ CONFIG += sailfishapp
 
 SOURCES += src/harbour-parallaxpulsar.cpp \
     src/parallaxcontrols.cpp \
-    src/parallaxcontrolsfilter.cpp
+    src/parallaxcontrolsfilter.cpp \
+    src/parallaxweapon.cpp
 
 OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/cover/CoverPage.qml \
@@ -37,4 +38,5 @@ QT += sensors
 
 HEADERS += \
     src/parallaxcontrols.h \
-    src/parallaxcontrolsfilter.h
+    src/parallaxcontrolsfilter.h \
+    src/parallaxweapon.h

@@ -34,6 +34,7 @@
 
 #include <sailfishapp.h>
 #include "parallaxcontrols.h"
+#include "parallaxweapon.h"
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -43,9 +44,10 @@ int main(int argc, char *argv[])
 
     ParallaxControls *accelControls = new ParallaxControls();
 
+    ParallaxWeapon *weaponTrigger = new ParallaxWeapon();
+
     accelControls->screenWidth = view->screen()->availableSize().width();
     accelControls->screenHeight = view->screen()->availableSize().height();
-    //qDebug() << "main.cpp >> ScreenWidthHeight: " << accelControls->screenWidth << "x" << accelControls->screenHeight;
 
     view->rootContext()->setContextProperty("qmlAccelcontrols", accelControls);
 

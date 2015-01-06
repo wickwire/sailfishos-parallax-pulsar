@@ -134,18 +134,16 @@ Page {
         color: "yellow"
         //x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
         //y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
-        x: qmlAccelcontrols.valAccelX;
+        x: qmlAccelcontrols.valAccelZ;
         y: qmlAccelcontrols.valAccelY;
         //scale: screenZ
 
 
         Rectangle{
             id: shot
-            width: 26
+            width: 18
             height: 6
             color: "red"
-            x: -parent.width+width
-            y: parent.height/2-height/2
         }
     }
 }
