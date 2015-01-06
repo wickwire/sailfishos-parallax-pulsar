@@ -73,8 +73,8 @@ qreal ParallaxControls::getValAccelX(){
         parallaxX = 0;
     }
     valAccelX = parallaxX;
-    return valAccelX;
     emit finished();
+    return valAccelX;
 }
 
 qreal ParallaxControls::getValAccelY(){
@@ -87,8 +87,8 @@ qreal ParallaxControls::getValAccelY(){
         parallaxY = 0;
     }
     valAccelY = parallaxY;
-    return valAccelY;
     emit finished();
+    return valAccelY;
 }
 
 qreal ParallaxControls::getValAccelZ(){
@@ -101,8 +101,8 @@ qreal ParallaxControls::getValAccelZ(){
         parallaxZ = 0;
     }
     valAccelZ = parallaxZ;
-    return valAccelZ;
     emit finished();
+    return valAccelZ;
 }
 
 

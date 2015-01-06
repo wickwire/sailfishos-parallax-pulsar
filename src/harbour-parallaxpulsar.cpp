@@ -50,6 +50,9 @@ int main(int argc, char *argv[])
     accelControls->screenHeight = view->screen()->availableSize().height();
 
     view->rootContext()->setContextProperty("qmlAccelcontrols", accelControls);
+    view->rootContext()->setContextProperty("qmlWeaponTrigger", weaponTrigger);
+
+
 
     view->setSource(SailfishApp::pathTo("qml/harbour-parallaxpulsar.qml"));
 

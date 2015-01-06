@@ -32,7 +32,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtSensors 5.0
 
-
 Page {
     id: page
 
@@ -144,6 +143,13 @@ Page {
             width: 18
             height: 6
             color: "red"
+
+            //onValProximChanged: console.log("Image changed!")
+
+            Connections {
+                target: qmlWeaponTrigger
+                onValProximChanged: console.log(qmlWeaponTrigger.valProxim)
+            }
         }
     }
 }

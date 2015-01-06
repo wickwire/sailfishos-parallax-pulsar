@@ -17,12 +17,12 @@ void ParallaxWeapon::UpdateProximitySensor()
 {
     QProximityReading *reading = proxim->reading();
     valProxim = reading->property("close").value<bool>();
-    qDebug() << "Near..." << valProxim;
+    //qDebug() << "Near..." << valProxim;
     emit valProximChanged(valProxim);
 }
 
 bool ParallaxWeapon::getValProxim(){
     qDebug() << "C++ Proxim Signal working..." << valProxim;
-    return valProxim;
     emit finished();
+    return valProxim;
 }
