@@ -73,7 +73,7 @@ public:
            prevYdiff = ydiff;
            prevZdiff = zdiff;
 
-           qDebug() << "IntegralX: " << integralX << " DerivativeX: " << derivativeX << " xdiff: " << xdiff;
+           //qDebug() << "IntegralX: " << integralX << " DerivativeX: " << derivativeX << " xdiff: " << xdiff;
 
         }
         prevX = reading->x();

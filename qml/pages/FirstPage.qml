@@ -30,8 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtSensors 5.0
-import Weapon 1.0
+import "../components"
 
 Page {
     id: page
@@ -58,116 +57,17 @@ Page {
 
             width: page.width
             spacing: Theme.paddingLarge
-//            PageHeader {
-//                title: qsTr("UI Template")
-//            }
-//            Label {
-//                x: Theme.paddingLarge
-//                text: qsTr("Hello Sailors")
-//                color: Theme.secondaryHighlightColor
-//                font.pixelSize: Theme.fontSizeExtraLarge
-//            }
         }
     }
 
-//    ProximitySensor {
-//        id: proxi
-//        active: false
-//    }
+    PPulsarShip{
+        id: parallaxPulsar
+    }
 
-//    Accelerometer{
-//        id: xMeter
-//        active: false
-//    }
-
-//    Text {
-//        id: proxitext
-//        height: 30
-//        verticalAlignment: Text.AlignVCenter
-//        color: "white"
-//        text: "Proximity: " + (qmlAccelcontrols.valProxim ? "Near" : "Far")
-//    }
-
-//    Text {
-//        id: xAccel
-//        height: 100
-//        verticalAlignment: Text.AlignVCenter
-//        color: "white"
-//        text: "xAccel: " + qmlAccelcontrols.valAccelX
-//    }
-
-//    Text {
-//        id: yAccel
-//        height: 150
-//        verticalAlignment: Text.AlignVCenter
-//        color: "white"
-//        text: "yAccel: " + qmlAccelcontrols.valAccelY
-//    }
-
-//    Text {
-//        id: zAccel
-//        height: 200
-//        verticalAlignment: Text.AlignVCenter
-//        color: "white"
-//        text: "zAccel: " + qmlAccelcontrols.valAccelZ
-//    }
-
-    //phone with screen facing sideways
-//    Rectangle{
-//      id: square
-//      width:50
-//      height: 50
-//      color: "yellow"
-//      x: -(qmlAccelcontrols.valAccelZ*100 - parent.width/2 + width/2)
-//      y: (qmlAccelcontrols.valAccelY*100 + parent.height/2 - height/2)
-//    }
-
-
-    //phone with screen facing up
-    Rectangle{
-        id: square
-        width:50
-        height: 50
-        color: "yellow"
-            x: qmlAccelcontrols.valAccelX;
-            y: qmlAccelcontrols.valAccelY;
-
-
-}
-
-    Rectangle{
-        id: shot
-        width: 18
-        height: 6
-        color: "red"
-        visible: false
-        property double squareInitX : square.x-square.height/2
-        property double squareInitY
-        y: shot.squareInitY
-        Connections {
-            target: qmlWeaponTrigger
-            onValProximChanged: {
-                if(qmlWeaponTrigger.valProxim == true){
-                    shot.squareInitY = square.y+square.width/2
-                    shot.visible = true;
-                    shotFired.running = true;
-                    shotFired.running = true;
-                    shotFired.running = true;
-                }else{
-                    shotFired.running = false;
-                }
-
-                console.log(qmlWeaponTrigger.valProxim + ":" + shot.squareInitX + shot.squareInitY);
-            }
-        }
-
-            PropertyAnimation on x{
-                id: shotFired
-                from: shot.squareInitX
-                to: 0-shot.width
-                duration: (Math.abs(((shot.width)-shot.squareInitX))/page.width*300)
-                running: false
-            }
+    PPulsarShot{
+        id : parallaxPulsarShot
+        squareInitX: parallaxPulsar.x-parallaxPulsar.height/2
+        squareY: parallaxPulsar.y+parallaxPulsar.width/2
     }
 
 

@@ -22,7 +22,7 @@ void ParallaxWeapon::UpdateProximitySensor()
 }
 
 bool ParallaxWeapon::getValProxim(){
-    qDebug() << "C++ Proxim Signal working..." << valProxim;
+    //qDebug() << "C++ Proxim Signal working..." << valProxim;
     emit finished();
     return valProxim;
 }
