@@ -27,7 +27,7 @@ public:
             qreal ydiff = reading->y() - prevY;
             qreal zdiff = reading->z() - prevZ;
 //#define threshold 0.196133f
-         #define threshold 1000.0f
+         #define threshold 20.0f
             if (qAbs(xdiff) < threshold && qAbs(ydiff) < threshold && qAbs(zdiff) < threshold) {
                 reading->setX(prevX + xdiff * 0.008f);
                 reading->setY(prevY + ydiff * 0.008f);

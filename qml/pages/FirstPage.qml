@@ -125,26 +125,13 @@ Page {
 
     //phone with screen facing up
     Rectangle{
-        //property int screenX : -(qmlAccelcontrols.valAccelX*1000 - parent.width/2 + width/2)
-        //property int screenY : (qmlAccelcontrols.valAccelY*1000 + parent.height/2 - height/2)
-        //property double screenZ: (qmlAccelcontrols.valAccelZ-9)*2
         id: square
         width:50
         height: 50
         color: "yellow"
-        //x: (screenX > parent.width-width ? parent.width-width : (screenX < 0 ? 0 : screenX))
-        //y: (screenY > parent.height-height ? parent.height-height : (screenY < 0 ? 0 : screenY))
-//        x: qmlAccelcontrols.valAccelZ;
-//        y: qmlAccelcontrols.valAccelY;
             x: qmlAccelcontrols.valAccelX;
             y: qmlAccelcontrols.valAccelY;
-        //scale: screenZ
 
-
-
-//        ParallaxWeapon{
-//            onValProximChanged: console.log("C++ Proxim Signal on QML working..." + valProxim)
-//        }
 
 }
 
@@ -153,17 +140,23 @@ Page {
         width: 18
         height: 6
         color: "red"
+        visible: false
         property double squareInitX : square.x-square.height/2
         property double squareInitY
-        //x: shot.squareInitX
         y: shot.squareInitY
         Connections {
             target: qmlWeaponTrigger
             onValProximChanged: {
                 if(qmlWeaponTrigger.valProxim == true){
                     shot.squareInitY = square.y+square.width/2
+                    shot.visible = true;
                     shotFired.running = true;
+                    shotFired.running = true;
+                    shotFired.running = true;
+                }else{
+                    shotFired.running = false;
                 }
+
                 console.log(qmlWeaponTrigger.valProxim + ":" + shot.squareInitX + shot.squareInitY);
             }
         }
@@ -172,7 +165,7 @@ Page {
                 id: shotFired
                 from: shot.squareInitX
                 to: 0-shot.width
-                duration: ((-1)*((0-shot.width)-shot.squareInitX)/page.width*300)
+                duration: (Math.abs(((shot.width)-shot.squareInitX))/page.width*300)
                 running: false
             }
     }
