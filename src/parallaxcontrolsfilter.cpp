@@ -8,4 +8,9 @@ ParallaxControlsFilter::ParallaxControlsFilter(QObject *parent) :
   , prevZ(0)
   , havePrev(false)
 {
+    accelTime.start();
+
+    integralX = 0;
+    integralY = 0;
+    integralZ = 0;
 }

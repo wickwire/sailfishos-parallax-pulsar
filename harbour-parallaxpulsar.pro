@@ -27,7 +27,11 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     rpm/harbour-parallaxpulsar.spec \
     rpm/harbour-parallaxpulsar.yaml \
     translations/*.ts \
-    harbour-parallaxpulsar.desktop
+    harbour-parallaxpulsar.desktop \
+    qml/components/* \
+    svgs/* \
+    qml/components/PPulsarShip.qml \
+    qml/components/PPulsarShot.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
