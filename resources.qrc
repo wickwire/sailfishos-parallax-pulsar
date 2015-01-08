@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>images/sandaarScum.svg</file>
         <file>images/star.png</file>
     </qresource>
 </RCC>
