@@ -29,9 +29,9 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     translations/*.ts \
     harbour-parallaxpulsar.desktop \
     qml/components/* \
-    svgs/* \
     qml/components/PPulsarShip.qml \
-    qml/components/PPulsarShot.qml
+    qml/components/PPulsarShot.qml \
+    qml/components/ppShot.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -44,3 +44,6 @@ HEADERS += \
     src/parallaxcontrols.h \
     src/parallaxcontrolsfilter.h \
     src/parallaxweapon.h
+
+RESOURCES += \
+    resources.qrc

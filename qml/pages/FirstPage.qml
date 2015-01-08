@@ -68,6 +68,10 @@ Page {
         id : parallaxPulsarShot
         squareInitX: parallaxPulsar.x-parallaxPulsar.height/2
         squareY: parallaxPulsar.y+parallaxPulsar.width/2
+        shipX: parallaxPulsar.x
+        shipY: parallaxPulsar.y
+        shipWidth: parallaxPulsar.width
+        shipHeight: parallaxPulsar.height
     }
 
 
