@@ -60,10 +60,6 @@ Page {
         }
     }
 
-    PPulsarShip{
-        id: parallaxPulsar
-    }
-
     PPulsarShot{
         id : parallaxPulsarShot
         squareInitX: parallaxPulsar.x-parallaxPulsar.height/2
@@ -87,7 +83,9 @@ Page {
         gruntState: "target2"
     }
 
-
+    PPulsarShip{
+        id: parallaxPulsar
+    }
 }
 
 
