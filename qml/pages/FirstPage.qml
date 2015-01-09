@@ -74,6 +74,19 @@ Page {
         shipHeight: parallaxPulsar.height
     }
 
+    EnemyGrunt{
+        id: sandaarShip1
+        sequence1.running: true
+        gruntState: "target1"
+    }
+
+    EnemyGrunt{
+        id: sandaarShip2
+        x: 165
+        sequence2.running: true
+        gruntState: "target2"
+    }
+
 
 }
 

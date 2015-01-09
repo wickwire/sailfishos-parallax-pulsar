@@ -5,6 +5,8 @@ Item{
 
     property alias sequence1 : seq1
     property alias sequence2 : seq2
+    property alias gruntState: groupGoal.goalState
+    property int score
 
     Rectangle{
         id: sandaarScumHolder
@@ -31,7 +33,7 @@ Item{
             NumberAnimation{
                 target: sandaarScumHolder
                 property: "y"
-                to: root.height
+                to: page.height
                 duration: 5000
             }
         }
@@ -45,7 +47,7 @@ Item{
             NumberAnimation{
                 target: sandaarScumHolder
                 property: "y"
-                to: root.height
+                to: page.height
                 duration: 3000
             }
 
@@ -74,9 +76,9 @@ Item{
     }
 
     GroupGoal {
+        id: groupGoal
         groups: ["shot"]
-        system: particles
-        goalState: "target"
+        system: parallaxPulsarShot.shotParticles
         jump: true
         anchors.fill: sandaarScum
     }

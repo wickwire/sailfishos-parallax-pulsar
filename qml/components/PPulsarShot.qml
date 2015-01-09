@@ -22,6 +22,8 @@ Rectangle{
 
     property int score
 
+    property alias shotParticles: particles
+
     ParticleSystem {
 
         id: particles
@@ -29,7 +31,7 @@ Rectangle{
 
         ImageParticle {
             system: particles
-            groups: ["shot","target"]
+            groups: ["shot"]
             source: "qrc:///images/star.png"
             color: "#0FF06600"
             colorVariation: 0.3
@@ -47,19 +49,16 @@ Rectangle{
         }
 
         ParticleGroup{
-            name: "target"
-            onEntered: score++
+            name: "target1"
+            onEntered: {
+                sandaarShip1.score++
+            }
         }
-
-        EnemyGrunt{
-            id: sandaarShip
-            sequence1.running: true
-        }
-
-        EnemyGrunt{
-            id: sandaarShip2
-            x: 165
-            sequence2.running: true
+        ParticleGroup{
+            name: "target2"
+            onEntered: {
+                sandaarShip2.score++
+            }
         }
 
     }
