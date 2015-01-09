@@ -57,6 +57,12 @@ Item{
             }
         }
 
+        Text {
+            color: "white"
+            text: score
+            rotation: 180
+            anchors.bottom: parent.bottom
+        }
 
     }
 
@@ -74,5 +80,7 @@ Item{
         jump: true
         anchors.fill: sandaarScum
     }
+
+
 
 }

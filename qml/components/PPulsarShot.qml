@@ -20,17 +20,7 @@ Rectangle{
     property int sandaarScumWidth
     property int sandaarScumHeight
 
-    property int score: 0
-
-    Text {
-        anchors.left: parent.left
-        anchors.top: parent.top
-        color: "white"
-        rotation: 270
-        text: "Hits: " + score
-        height: 110
-        width: 150
-    }
+    property int score
 
     ParticleSystem {
 
