@@ -29,7 +29,7 @@ Rectangle{
         rotation: 270
         text: "Hits: " + score
         height: 110
-        width: 110
+        width: 150
     }
 
     ParticleSystem {
@@ -61,53 +61,16 @@ Rectangle{
             onEntered: score++
         }
 
-
-
-        Rectangle{
-            id: sandaarScumHolder
-            color: "lightblue"
-            opacity: 0.5
-            x: parent.width/2-width/1.2
-            y: parent.height/2-height/2
-            width: 300
-            height: 150
-            rotation: 90
-
-            SequentialAnimation{
-                running: true
-                loops: Animation.Infinite
-
-                NumberAnimation{
-                    target: sandaarScumHolder
-                    property: "y"
-                    to: 0
-                    duration: 5000
-                }
-
-                NumberAnimation{
-                    target: sandaarScumHolder
-                    property: "y"
-                    to: root.height
-                    duration: 5000
-                }
-            }
-
-
+        EnemyGrunt{
+            id: sandaarShip
+            sequence1.running: true
         }
 
-        GroupGoal {
-            groups: ["shot"]
-            system: particles
-            goalState: "target"
-            jump: true
-            anchors.fill: sandaarScum
+        EnemyGrunt{
+            id: sandaarShip2
+            x: 165
+            sequence2.running: true
         }
 
-        Image {
-            id: sandaarScum
-            source: "qrc:///images/sandaarScum.svg"
-            rotation: 270
-            anchors.centerIn: sandaarScumHolder
-        }
     }
 }
