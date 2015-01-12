@@ -72,14 +72,14 @@ Page {
 
     EnemyGrunt{
         id: sandaarShip1
-        sequence1.running: true
+        sequence1.running: applicationActive
         gruntState: "target1"
     }
 
     EnemyGrunt{
         id: sandaarShip2
         x: 165
-        sequence2.running: true
+        sequence2.running: applicationActive
         gruntState: "target2"
     }
 

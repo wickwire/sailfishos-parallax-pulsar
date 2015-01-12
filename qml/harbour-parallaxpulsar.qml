@@ -34,8 +34,24 @@ import "pages"
 
 ApplicationWindow
 {
+    objectName: "appWindow"
     initialPage: Component { FirstPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    signal appStateSignal(bool appState)
+    onApplicationActiveChanged: {
+        appStateSignal(Qt.application.active);
+        console.log(
+                    ""
+//                    + " Active: " + Qt.ApplicationActive
+//                    + " Suspended: " + Qt.ApplicationSuspended
+//                    + " Hidden: " + Qt.ApplicationHidden
+//                    + " Inactive: " + Qt.ApplicationInactive
+//                    + " Modal: " + Qt.ApplicationModal
+//                    + " Shortcut: " + Qt.ApplicationShortcut
+                    + " Qt.application.active: " + Qt.application.active
+                    );
+    }
 }
 
 

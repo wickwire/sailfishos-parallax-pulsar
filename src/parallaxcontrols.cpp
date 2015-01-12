@@ -124,3 +124,7 @@ void ParallaxControls::CloseSensors(){
     accel->stop();
     //proxim->stop();
 }
+
+void ParallaxControls::getAppState(QString appState){
+    qDebug() << "Application is: " << appState;
+}

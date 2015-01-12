@@ -41,6 +41,7 @@ public slots:
     void UpdateAccelerometer();
     //void UpdateProximitySensor();
     void CloseSensors();
+    void getAppState(QString appState);
 
     qreal getValAccelX();
     qreal getValAccelY();

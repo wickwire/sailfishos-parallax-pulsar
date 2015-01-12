@@ -20,7 +20,7 @@ Item{
 
         SequentialAnimation{
             id: seq1
-            running: false
+            running: applicationActive
             loops: Animation.Infinite
 
             NumberAnimation{
@@ -41,7 +41,7 @@ Item{
 
         SequentialAnimation{
             id: seq2
-            running: false
+            running: applicationActive
             loops: Animation.Infinite
 
             NumberAnimation{
