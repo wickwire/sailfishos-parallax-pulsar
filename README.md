@@ -6,3 +6,5 @@ Parallax Pulsar
 - Using Qt/QML Components and SVG graphical elements for the UI
 - Using the proximity sensor for firing (top right corner, opposite to the front camera)
 - Using the accelerometer sensor for controlling Parallax Pulsar
+
+#EOF
