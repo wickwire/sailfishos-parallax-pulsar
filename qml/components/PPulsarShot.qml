@@ -33,11 +33,11 @@ Rectangle{
             group: "shot"
             emitRate: 6
             lifeSpan: 2000
-            enabled: true
             size: 140
             velocity: PointDirection { x: -512; }
             x: shipX + shipWidth
             y: shipY + shipHeight/2 - 3
+            enabled: qmlWeaponTrigger.valProxim
         }
 
         ParticleGroup{

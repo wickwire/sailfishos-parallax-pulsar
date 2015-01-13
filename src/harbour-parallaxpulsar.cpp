@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 
     ParallaxControls *accelControls = new ParallaxControls();
-
     ParallaxWeapon *weaponTrigger = new ParallaxWeapon();
 
     accelControls->screenWidth = view->screen()->availableSize().width();
@@ -58,12 +57,10 @@ int main(int argc, char *argv[])
 
     QQuickItem *item = qobject_cast<QQuickItem *>(view->rootObject());
 
-    //view->rootContext()->findChild(QString("initialPage"));
     QObject::connect(item, SIGNAL(appStateSignal(bool)), accelControls, SLOT(getAppState(bool)));
+    QObject::connect(item, SIGNAL(appStateSignal(bool)), weaponTrigger, SLOT(getAppState(bool)));
 
     view->show();
-
-
 
     return app->exec();
 }

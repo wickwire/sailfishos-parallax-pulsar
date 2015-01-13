@@ -33,7 +33,7 @@ void ParallaxControls::UpdateAccelerometer()
     valAccelZ = reading->property("z").value<qreal>();
     //qreal y = reading->value(1).value<qreal>();
 
-    //qDebug() << "Accel..." << valAccelX << "+" << valAccelY << "+" << valAccelZ;
+    qDebug() << "Accel..." << valAccelX << "+" << valAccelY << "+" << valAccelZ;
 
     emit valAccelXChanged(valAccelX);
     emit valAccelYChanged(valAccelY);
