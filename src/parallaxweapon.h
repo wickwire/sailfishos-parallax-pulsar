@@ -21,7 +21,6 @@ signals:
 public slots:
     void UpdateProximitySensor();
     bool getValProxim();
-    //void fireShot();
 };
 
 #endif // PARALLAXWEAPON_H

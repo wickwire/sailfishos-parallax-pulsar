@@ -7,18 +7,10 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property double squareInitX
-    property double squareInitY
-    property double squareY
     property int shipX
     property int shipY
     property int shipWidth
     property int shipHeight
-
-    property int sandaarScumX
-    property int sandaarScumY
-    property int sandaarScumWidth
-    property int sandaarScumHeight
 
     property int score
 

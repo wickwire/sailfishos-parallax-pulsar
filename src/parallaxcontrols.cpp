@@ -3,17 +3,6 @@
 ParallaxControls::ParallaxControls(QObject *parent) :
     QObject(parent)
 {
-//    // create a timer
-//    timer = new QTimer(this);
-
-//    // setup signal and slot
-//    connect(timer, SIGNAL(timeout()),
-//          this, SLOT(MyTimerSlot()));
-
-//    // msec
-//    timer->start(1000);
-
-    //valProxim = false;
     valAccelX = 0;
     valAccelY = 0;
     valAccelZ = 0;
@@ -34,19 +23,7 @@ ParallaxControls::ParallaxControls(QObject *parent) :
     accel->addFilter(new ParallaxControlsFilter(this));
 
     accel->start();
-
-//    proxim = new QProximitySensor(this);
-//    connect(proxim, SIGNAL(readingChanged()),
-//            this, SLOT(UpdateProximitySensor()));
-
-//    proxim->start();
-
 }
-
-//void ParallaxControls::MyTimerSlot()
-//{
-//    qDebug() << "Timer...";
-//}
 
 void ParallaxControls::UpdateAccelerometer()
 {
@@ -105,26 +82,21 @@ qreal ParallaxControls::getValAccelZ(){
     return valAccelZ;
 }
 
-
-//void ParallaxControls::UpdateProximitySensor()
-//{
-//    QProximityReading *reading = proxim->reading();
-//    valProxim = reading->property("close").value<bool>();
-//    qDebug() << "Near..." << valProxim;
-//    emit valProximChanged(valProxim);
-//}
-
-//bool ParallaxControls::getValProxim(){
-//    qDebug() << "C++ Proxim Signal working..." << valProxim;
-//    return valProxim;
-//    emit finished();
-//}
-
-void ParallaxControls::CloseSensors(){
+void ParallaxControls::stopAccelerometer(){
     accel->stop();
-    //proxim->stop();
+}
+
+void ParallaxControls::startAccelerometer(){
+    accel->start();
 }
 
 void ParallaxControls::getAppState(bool appState){
     qDebug() << "C++: Application is active? " << appState;
+
+    if(appState == true){
+        startAccelerometer();
+    }
+    else{
+       stopAccelerometer();
+    }
 }
