@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     QQuickItem *item = qobject_cast<QQuickItem *>(view->rootObject());
 
     //view->rootContext()->findChild(QString("initialPage"));
-    QObject::connect(item, SIGNAL(appStateSignal()), accelControls, SLOT(getAppState()));
+    QObject::connect(item, SIGNAL(appStateSignal(bool)), accelControls, SLOT(getAppState(bool)));
 
     view->show();
 
