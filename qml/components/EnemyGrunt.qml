@@ -18,23 +18,24 @@ Item{
         height: sandaarScum.height
         rotation: 90
 
-        SequentialAnimation{
+        PathAnimation {
             id: seq1
-            running: applicationActive
+            duration: 5000
+            easing.type: Easing.InOutQuad
+            target: sandaarShip1
+            orientation: PathAnimation.RightFirst
+            anchorPoint: Qt.point(sandaarShip1.width/2,
+                                  sandaarShip1.height/2)
             loops: Animation.Infinite
-
-            NumberAnimation{
-                target: sandaarScumHolder
-                property: "y"
-                to: 0
-                duration: 5000
-            }
-
-            NumberAnimation{
-                target: sandaarScumHolder
-                property: "y"
-                to: page.height
-                duration: 5000
+            path: Path {
+                startX: sandaarShip1.width/2
+                startY: sandaarShip1.height/2
+                PathCubic {
+                    x: page.height - sandaarShip1.width/2
+                    y: page.width - sandaarShip1.height/2
+                    control1X: x; control1Y: sandaarShip1.height/2
+                    control2X: sandaarShip1.width/2; control2Y: y
+                }
             }
         }
 
