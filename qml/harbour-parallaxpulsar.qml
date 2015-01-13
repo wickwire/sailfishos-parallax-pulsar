@@ -38,9 +38,9 @@ ApplicationWindow
     initialPage: Component { FirstPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
-    signal appStateSignal(bool appState)
+    signal appStateSignal()
     onApplicationActiveChanged: {
-        appStateSignal(Qt.application.active);
+        appStateSignal();
         console.log(
                     ""
 //                    + " Active: " + Qt.ApplicationActive

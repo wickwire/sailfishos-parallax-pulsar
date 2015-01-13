@@ -37,6 +37,7 @@
 #include "parallaxweapon.h"
 #include <QDebug>
 #include <QObject>
+#include <QQuickItem>
 
 int main(int argc, char *argv[])
 {
@@ -55,7 +56,14 @@ int main(int argc, char *argv[])
 
     view->setSource(SailfishApp::pathTo("qml/harbour-parallaxpulsar.qml"));
 
+    QQuickItem *item = qobject_cast<QQuickItem *>(view->rootObject());
+
+    //view->rootContext()->findChild(QString("initialPage"));
+    QObject::connect(item, SIGNAL(appStateSignal()), accelControls, SLOT(getAppState()));
+
     view->show();
+
+
 
     return app->exec();
 }

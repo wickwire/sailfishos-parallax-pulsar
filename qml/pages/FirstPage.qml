@@ -33,6 +33,8 @@ import Sailfish.Silica 1.0
 import "../components"
 
 Page {
+
+    objectName: "initialPage"
     id: page
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
