@@ -27,6 +27,7 @@ Item{
             anchorPoint: Qt.point(sandaarShip1.width/2,
                                   sandaarShip1.height/2)
             loops: Animation.Infinite
+            running: applicationActive
             path: Path {
                 startX: sandaarShip1.width/2
                 startY: sandaarShip1.height/2
