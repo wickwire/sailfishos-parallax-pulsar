@@ -15,7 +15,7 @@ void ParallaxWeapon::UpdateProximitySensor()
 {
     QProximityReading *reading = proxim->reading();
     valProxim = reading->property("close").value<bool>();
-    qDebug() << "Near..." << valProxim;
+    //qDebug() << "Near..." << valProxim;
     emit valProximChanged(valProxim);
 }
 
@@ -32,6 +32,7 @@ void ParallaxWeapon::stopProximitySensor(){
 
 void ParallaxWeapon::startProximitySensor(){
     proxim->start();
+    qDebug() << "proxim data rate: " << proxim->dataRate();
 }
 
 void ParallaxWeapon::getAppState(bool appState){

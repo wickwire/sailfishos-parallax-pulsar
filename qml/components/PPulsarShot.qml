@@ -20,6 +20,7 @@ Rectangle{
 
         id: particles
         anchors.fill: parent
+        paused: !applicationActive
 
         ImageParticle {
             system: particles

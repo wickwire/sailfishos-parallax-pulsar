@@ -62,6 +62,7 @@ Page {
         }
     }
 
+
     PPulsarShot{
         id : parallaxPulsarShot
         shipX: parallaxPulsar.x
