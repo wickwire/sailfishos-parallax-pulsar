@@ -87,10 +87,6 @@ Page {
     PPulsarShip{
         id: parallaxPulsar
     }
-
-    EnemyWave{
-
-    }
 }
 
 
