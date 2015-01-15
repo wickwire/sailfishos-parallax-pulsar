@@ -25,8 +25,13 @@ Rectangle{
         name: "target1"
         system: parallaxPulsarShot.shotParticles
         onEntered: {
-            sandaarShip1.score++;
-            console.log("hit landed on 1: " + sandaarShip1.score);
+            if(sandaarShip1){
+                if(sandaarShip1.score == 0){
+                    sandaarShip1.score++;
+                    console.log("hit landed on 1: " + sandaarShip1.score);
+                }
+                sandaarShip1.destroyShip();
+            }
         }
     }
 
@@ -34,9 +39,19 @@ Rectangle{
         name: "target2"
         system: parallaxPulsarShot.shotParticles
         onEntered: {
-            sandaarShip2.score++;
-            console.log("hit landed on 2: " + sandaarShip2.score);
+            if(sandaarShip2){
+                if(sandaarShip2.score == 0){
+                    sandaarShip2.score++;
+                    console.log("hit landed on 2: " + sandaarShip2.score);
+                }
+                sandaarShip2.destroyShip();
+            }
         }
+    }
+
+    ShipExplosion{
+        id: enemyExplosion
+        explosionEnabled: false
     }
 
 }

@@ -33,7 +33,8 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/components/PPulsarShot.qml \
     qml/components/EnemyWavePath.qml \
     qml/components/EnemyWave.qml \
-    qml/components/EnemyShip.qml
+    qml/components/EnemyShip.qml \
+    qml/components/ShipExplosion.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

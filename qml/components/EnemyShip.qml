@@ -7,14 +7,20 @@ Item{
     property alias sequence2 : seq2
 
     property int score
-    property int enemyShipCount : 2
 
     property alias shipHitState: groupGoal.goalState
 
-    Rectangle{
+    Image {
+        id: sandaarScum
+        source: "qrc:///images/sandaarScum.svg"
+        rotation: 270
+        anchors.centerIn: sandaarScumHolder
+    }
+
+    Item{
         id: sandaarScumHolder
-        color: "lightblue"
-        opacity: 0.5
+//        color: "lightblue"
+//        opacity: 0.5
         x: 0
         y: parent.height-height/2
         width: sandaarScum.width
@@ -93,17 +99,17 @@ Item{
 
     }
 
-    Image {
-        id: sandaarScum
-        source: "qrc:///images/sandaarScum.svg"
-        rotation: 270
-        anchors.centerIn: sandaarScumHolder
-    }
-
     GroupGoal {
         id: groupGoal
         system: parallaxPulsarShot.shotParticles
         jump: true
         anchors.fill: sandaarScum
+    }
+
+    function destroyShip(){
+        enemyExplosion.explosionX = enemyShip.x;
+        enemyExplosion.explosionY = enemyShip.y;
+        enemyShip.destroy();
+        enemyExplosion.explosionEnabled = true;
     }
 }
