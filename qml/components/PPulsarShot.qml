@@ -12,8 +12,6 @@ Rectangle{
     property int shipWidth
     property int shipHeight
 
-    property int score
-
     property alias shotParticles: particles
 
     ParticleSystem {
@@ -44,12 +42,14 @@ Rectangle{
         ParticleGroup{
             name: "target1"
             onEntered: {
-                sandaarShip1.score++
+                console.log("hit1 landed: " + sandaarShip1.score);
+                sandaarShip1.score++;
             }
         }
         ParticleGroup{
             name: "target2"
             onEntered: {
+                console.log("hit2 landed: " + sandaarShip2.score);
                 sandaarShip2.score++
             }
         }
