@@ -2,11 +2,14 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Item{
-
+    id: enemyShip
     property alias sequence1 : seq1
     property alias sequence2 : seq2
-    property alias gruntState: groupGoal.goalState
+
     property int score
+    property int enemyShipCount : 2
+
+    property alias shipHitState: groupGoal.goalState
 
     Rectangle{
         id: sandaarScumHolder
@@ -103,7 +106,4 @@ Item{
         jump: true
         anchors.fill: sandaarScum
     }
-
-
-
 }
