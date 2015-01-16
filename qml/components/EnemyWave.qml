@@ -9,16 +9,38 @@ Rectangle{
 
     EnemyShip{
         id: sandaarShip1
-        sequence1.running: applicationActive
         shipHitState: "target1"
-        y: 200
+        y: 0
+
+        Timer {
+            id: enemyPathGo1
+            interval: 0; running: true; repeat: false
+            onTriggered: sandaarPath1.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath1
+            enemyShip: sandaarShip1
+            running: false
+        }
     }
 
     EnemyShip{
         id: sandaarShip2
-        y: 300
-        sequence2.running: applicationActive
+        y: 0
         shipHitState: "target2"
+
+        Timer {
+            id: enemyPathGo2
+            interval: 1000; running: true; repeat: false
+            onTriggered: sandaarPath2.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath2
+            enemyShip: sandaarShip2
+            running: false
+        }
     }
 
 
