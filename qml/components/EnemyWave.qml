@@ -11,11 +11,12 @@ Rectangle{
         id: sandaarShip1
         sequence1.running: applicationActive
         shipHitState: "target1"
+        y: 200
     }
 
     EnemyShip{
         id: sandaarShip2
-        x: 165
+        y: 300
         sequence2.running: applicationActive
         shipHitState: "target2"
     }
@@ -48,10 +49,4 @@ Rectangle{
             }
         }
     }
-
-    ShipExplosion{
-        id: enemyExplosion
-        explosionEnabled: false
-    }
-
 }

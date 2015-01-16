@@ -3,14 +3,10 @@ import QtQuick.Particles 2.0
 
 Rectangle{
     id: root
-    width: page.width
-    height: page.height
     color: "transparent"
 
     property alias shotParticles: particles
 
-    property int explosionX
-    property int explosionY
     property bool explosionEnabled
 
     ParticleSystem {
@@ -31,7 +27,7 @@ Rectangle{
             id: pulseEmitter
             group: "explosion"
             emitRate: 50
-            maximumEmitted: 50
+            maximumEmitted: 10
             lifeSpan: 700
             enabled: explosionEnabled
             velocity: AngleDirection{magnitude: 64; angleVariation: 360}

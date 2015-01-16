@@ -15,12 +15,12 @@ Item{
         source: "qrc:///images/sandaarScum.svg"
         rotation: 270
         anchors.centerIn: sandaarScumHolder
+        sourceSize.width: 50
+        sourceSize.height: 50
     }
 
     Item{
         id: sandaarScumHolder
-//        color: "lightblue"
-//        opacity: 0.5
         x: 0
         y: parent.height-height/2
         width: sandaarScum.width
@@ -56,15 +56,15 @@ Item{
 
             NumberAnimation{
                 target: sandaarScumHolder
-                property: "y"
+                property: "x"
                 to: 0
                 duration: 5000
             }
 
             NumberAnimation{
                 target: sandaarScumHolder
-                property: "y"
-                to: page.height
+                property: "x"
+                to: page.width
                 duration: 5000
             }
         }
@@ -77,24 +77,30 @@ Item{
 
             NumberAnimation{
                 target: sandaarScumHolder
-                property: "y"
-                to: page.height
+                property: "x"
+                to: page.width
                 duration: 3000
             }
 
             NumberAnimation{
                 target: sandaarScumHolder
-                property: "y"
+                property: "x"
                 to: 0
                 duration: 3000
             }
         }
 
-        Text {
-            color: "white"
-            text: score
-            rotation: 180
-            anchors.bottom: parent.bottom
+//        Text {
+//            color: "white"
+//            text: score
+//            rotation: 180
+//            anchors.bottom: parent.bottom
+//        }
+
+        ShipExplosion{
+            id: enemyExplosion
+            explosionEnabled: false
+            anchors.centerIn: parent
         }
 
     }
@@ -106,10 +112,20 @@ Item{
         anchors.fill: sandaarScum
     }
 
+
+    Timer {
+        id: shipExplode
+        interval: 500; running: exploding; repeat: false
+        onTriggered: enemyShip.destroy();
+
+        property bool exploding
+    }
+
     function destroyShip(){
-        enemyExplosion.explosionX = enemyShip.x;
-        enemyExplosion.explosionY = enemyShip.y;
-        enemyShip.destroy();
+        sandaarScum.visible=false;
+        seq1.running=false;
+        seq2.running=false;
         enemyExplosion.explosionEnabled = true;
+        shipExplode.exploding=true;
     }
 }
