@@ -4,7 +4,7 @@ import QtQuick 2.0
 
         property variant enemyShip
 
-        running: true
+        running: false
         duration: 10000
         easing.type: Easing.InOutQuad
         target: enemyShip

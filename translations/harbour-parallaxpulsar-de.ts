@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.0">
 <context>
     <name>CoverPage</name>
     <message>
@@ -16,11 +16,11 @@
     </message>
     <message>
         <source>UI Template</source>
-        <translation type="vanished">UI-Vorlage</translation>
+        <translation type="obsolete">UI-Vorlage</translation>
     </message>
     <message>
         <source>Hello Sailors</source>
-        <translation type="vanished">Hallo Matrosen</translation>
+        <translation type="obsolete">Hallo Matrosen</translation>
     </message>
 </context>
 <context>

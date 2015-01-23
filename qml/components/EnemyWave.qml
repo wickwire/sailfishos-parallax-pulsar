@@ -50,7 +50,7 @@ Rectangle{
                 }
             );
 
-            spriteWavePath = componentEnemyPath.createObject(root,
+            spriteWavePath = componentEnemyPath.createObject(spriteShip,
                 {
                     "id": wavePath,
                     "enemyShip": spriteShip,
@@ -58,7 +58,7 @@ Rectangle{
                 }
             );
 
-            enemyPathGo.running=true;
+            //enemyPathGo.running=true;
 
         }
     }
