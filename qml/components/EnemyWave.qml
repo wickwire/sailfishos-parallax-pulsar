@@ -7,6 +7,8 @@ Rectangle{
     height: page.height
     color: "transparent"
 
+    property int waveDelay : 300
+
     EnemyShip{
         id: sandaarShip1
         shipHitState: "target1"
@@ -14,7 +16,7 @@ Rectangle{
 
         Timer {
             id: enemyPathGo1
-            interval: 0; running: true; repeat: false
+            interval: 0*waveDelay; running: true; repeat: false
             onTriggered: sandaarPath1.running=true
         }
 
@@ -32,7 +34,7 @@ Rectangle{
 
         Timer {
             id: enemyPathGo2
-            interval: 1000; running: true; repeat: false
+            interval: 1*waveDelay; running: true; repeat: false
             onTriggered: sandaarPath2.running=true
         }
 
@@ -43,32 +45,39 @@ Rectangle{
         }
     }
 
+    EnemyShip{
+        id: sandaarShip3
+        y: 0
+        shipHitState: "target3"
 
-    ParticleGroup{
-        name: "target1"
-        system: parallaxPulsarShot.shotParticles
-        onEntered: {
-            if(sandaarShip1){
-                if(sandaarShip1.score == 0){
-                    sandaarShip1.score++;
-                    console.log("hit landed on 1: " + sandaarShip1.score);
-                }
-                sandaarShip1.destroyShip();
-            }
+        Timer {
+            id: enemyPathGo3
+            interval: 2*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath3.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath3
+            enemyShip: sandaarShip3
+            running: false
         }
     }
 
-    ParticleGroup{
-        name: "target2"
-        system: parallaxPulsarShot.shotParticles
-        onEntered: {
-            if(sandaarShip2){
-                if(sandaarShip2.score == 0){
-                    sandaarShip2.score++;
-                    console.log("hit landed on 2: " + sandaarShip2.score);
-                }
-                sandaarShip2.destroyShip();
-            }
+    EnemyShip{
+        id: sandaarShip4
+        y: 0
+        shipHitState: "target4"
+
+        Timer {
+            id: enemyPathGo4
+            interval: 3*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath4.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath4
+            enemyShip: sandaarShip4
+            running: false
         }
     }
 }

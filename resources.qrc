@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>images/sandaarScum.svg</file>
         <file>images/star.png</file>
+        <file>images/spaceship.svg</file>
     </qresource>
 </RCC>

@@ -18,8 +18,6 @@ Item{
 
     Item{
         id: sandaarScumHolder
-        x: 0
-        y: parent.height-height/2
         width: sandaarScum.width
         height: sandaarScum.height
         rotation: 90
@@ -50,5 +48,24 @@ Item{
         sandaarScum.visible=false;
         enemyExplosion.explosionEnabled = true;
         shipExplode.exploding=true;
+    }
+
+    ParticleGroup{
+        name: shipHitState
+        system: parallaxPulsarShot.shotParticles
+        onEntered: {
+            if(enemyShip){
+                if(enemyShip.score == 0){
+                    enemyShip.score++;
+                    console.log("hit landed on: " + enemyShip + " : " + enemyShip.score);
+                }/*else{
+                    console.log("fire skipping! " + enemyShip + " : " + enemyShip.score);
+                }*/
+
+                enemyShip.destroyShip();
+            }/*else{
+                console.log("not on enemyship!");
+            }*/
+        }
     }
 }

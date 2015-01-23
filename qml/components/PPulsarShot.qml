@@ -34,8 +34,8 @@ Rectangle{
             lifeSpan: 2000
             size: 140
             velocity: PointDirection { y: -512; }
-            x: shipX + shipWidth
-            y: shipY + shipHeight/2 - 3
+            x: shipX + shipWidth/2
+            y: shipY + shipHeight/2
             enabled: qmlWeaponTrigger.valProxim
         }
     }
