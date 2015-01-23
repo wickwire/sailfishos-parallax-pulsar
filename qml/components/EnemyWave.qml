@@ -7,7 +7,7 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveDelay : 500
+    property int waveDelay : 300
 
     property variant componentEnemyShip;
     property variant componentEnemyPath;
@@ -27,7 +27,7 @@ Rectangle{
         id: enemyPathGo
         interval: waveDelay;
         running: false;
-        repeat: false;
+        repeat: true;
         onTriggered: spriteWavePath.running=true
     }
 
@@ -42,9 +42,6 @@ Rectangle{
             shipTarget = "target"+count;
             wavePath = "sandaarPath"+count;
 
-            enemyPathGo.interval=waveDelay*count;
-            enemyPathGo.running=true;
-
             spriteShip = componentEnemyShip.createObject(root,
                 {
                     "id": shipId,
@@ -57,9 +54,11 @@ Rectangle{
                 {
                     "id": wavePath,
                     "enemyShip": spriteShip,
-                    "running": true
+                    "running": false
                 }
             );
+
+            enemyPathGo.running=true;
 
         }
     }
