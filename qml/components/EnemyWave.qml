@@ -7,44 +7,61 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveDelay : 300
+    property int waveDelay : 500
 
     property variant componentEnemyShip;
     property variant componentEnemyPath;
+    property variant componentEnemyTimer;
+
     property variant spriteShip;
     property variant spriteTimer;
     property variant spriteWavePath;
 
+    property string shipId
+    property string shipTarget
+    property string wavePath
+
+    property int totalShips : 10
+
+    Timer {
+        id: enemyPathGo
+        interval: waveDelay;
+        running: false;
+        repeat: false;
+        onTriggered: spriteWavePath.running=true
+    }
+
     function createSpriteObjects() {
+
         componentEnemyShip = Qt.createComponent("EnemyShip.qml");
         componentEnemyPath = Qt.createComponent("EnemyWavePath.qml");
 
-        spriteShip = componentEnemyShip.createObject(root,
-            {
-                "id": "sandaarShip1",
-                "shipHitState": "target1",
-                "y": 0
-            }
-        );
+        for(var count=0; count<totalShips; count++){
 
-//        Qt.createObject(root,
-//            {
-//                "id": "enemyPathGo1",
-//                "shipHitState": "target1",
-//                "interval": 0,
-//                "running": true,
-//                "repeat": false,
-//                "onTriggered": "sandaarPath1.running=true"
-//            }
-//        );
+            shipId = "sandaarShip"+count;
+            shipTarget = "target"+count;
+            wavePath = "sandaarPath"+count;
 
-        spriteWavePath = componentEnemyPath.createObject(root,
-            {
-                "id": "sandaarPath1",
-                "enemyShip": spriteShip,
-                "running": true
-            }
-        );
+            enemyPathGo.interval=waveDelay*count;
+            enemyPathGo.running=true;
+
+            spriteShip = componentEnemyShip.createObject(root,
+                {
+                    "id": shipId,
+                    "shipHitState": shipTarget,
+                    "y": 0
+                }
+            );
+
+            spriteWavePath = componentEnemyPath.createObject(root,
+                {
+                    "id": wavePath,
+                    "enemyShip": spriteShip,
+                    "running": true
+                }
+            );
+
+        }
     }
 
     Component.onCompleted: createSpriteObjects();
