@@ -80,4 +80,113 @@ Rectangle{
             running: false
         }
     }
+
+    EnemyShip{
+        id: sandaarShip5
+        y: 0
+        shipHitState: "target5"
+
+        Timer {
+            id: enemyPathGo5
+            interval: 4*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath5.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath5
+            enemyShip: sandaarShip5
+            running: false
+        }
+    }
+
+
+    EnemyShip{
+        id: sandaarShip6
+        y: 0
+        shipHitState: "target6"
+
+        Timer {
+            id: enemyPathGo6
+            interval: 5*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath6.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath6
+            enemyShip: sandaarShip6
+            running: false
+        }
+    }
+
+    EnemyShip{
+        id: sandaarShip7
+        y: 0
+        shipHitState: "target7"
+
+        Timer {
+            id: enemyPathGo7
+            interval: 6*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath7.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath7
+            enemyShip: sandaarShip7
+            running: false
+        }
+    }
+
+    EnemyShip{
+        id: sandaarShip8
+        y: 0
+        shipHitState: "target8"
+
+        Timer {
+            id: enemyPathGo8
+            interval: 7*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath8.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath8
+            enemyShip: sandaarShip8
+            running: false
+        }
+    }
+
+    EnemyShip{
+        id: sandaarShip9
+        y: 0
+        shipHitState: "target9"
+
+        Timer {
+            id: enemyPathGo9
+            interval: 8*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath9.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath9
+            enemyShip: sandaarShip9
+            running: false
+        }
+    }
+
+    EnemyShip{
+        id: sandaarShip10
+        y: 0
+        shipHitState: "target10"
+
+        Timer {
+            id: enemyPathGo10
+            interval: 9*waveDelay; running: true; repeat: false
+            onTriggered: sandaarPath10.running=true
+        }
+
+        EnemyWavePath{
+            id: sandaarPath10
+            enemyShip: sandaarShip10
+            running: false
+        }
+    }
 }
