@@ -9,184 +9,224 @@ Rectangle{
 
     property int waveDelay : 300
 
-    EnemyShip{
-        id: sandaarShip1
-        shipHitState: "target1"
-        y: 0
+    property variant componentEnemyShip;
+    property variant componentEnemyPath;
+    property variant spriteShip;
+    property variant spriteTimer;
+    property variant spriteWavePath;
 
-        Timer {
-            id: enemyPathGo1
-            interval: 0*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath1.running=true
-        }
+    function createSpriteObjects() {
+        componentEnemyShip = Qt.createComponent("EnemyShip.qml");
+        componentEnemyPath = Qt.createComponent("EnemyWavePath.qml");
 
-        EnemyWavePath{
-            id: sandaarPath1
-            enemyShip: sandaarShip1
-            running: false
-        }
+        spriteShip = componentEnemyShip.createObject(root,
+            {
+                "id": "sandaarShip1",
+                "shipHitState": "target1",
+                "y": 0
+            }
+        );
+
+//        Qt.createObject(root,
+//            {
+//                "id": "enemyPathGo1",
+//                "shipHitState": "target1",
+//                "interval": 0,
+//                "running": true,
+//                "repeat": false,
+//                "onTriggered": "sandaarPath1.running=true"
+//            }
+//        );
+
+        spriteWavePath = componentEnemyPath.createObject(root,
+            {
+                "id": "sandaarPath1",
+                "enemyShip": spriteShip,
+                "running": true
+            }
+        );
     }
 
-    EnemyShip{
-        id: sandaarShip2
-        y: 0
-        shipHitState: "target2"
+    Component.onCompleted: createSpriteObjects();
 
-        Timer {
-            id: enemyPathGo2
-            interval: 1*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath2.running=true
-        }
+//    EnemyShip{
+//        id: sandaarShip1
+//        shipHitState: "target1"
+//        y: 0
 
-        EnemyWavePath{
-            id: sandaarPath2
-            enemyShip: sandaarShip2
-            running: false
-        }
-    }
+//        Timer {
+//            id: enemyPathGo1
+//            interval: 0*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath1.running=true
+//        }
 
-    EnemyShip{
-        id: sandaarShip3
-        y: 0
-        shipHitState: "target3"
+//        EnemyWavePath{
+//            id: sandaarPath1
+//            enemyShip: sandaarShip1
+//            running: false
+//        }
+//    }
 
-        Timer {
-            id: enemyPathGo3
-            interval: 2*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath3.running=true
-        }
+//    EnemyShip{
+//        id: sandaarShip2
+//        y: 0
+//        shipHitState: "target2"
 
-        EnemyWavePath{
-            id: sandaarPath3
-            enemyShip: sandaarShip3
-            running: false
-        }
-    }
+//        Timer {
+//            id: enemyPathGo2
+//            interval: 1*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath2.running=true
+//        }
 
-    EnemyShip{
-        id: sandaarShip4
-        y: 0
-        shipHitState: "target4"
+//        EnemyWavePath{
+//            id: sandaarPath2
+//            enemyShip: sandaarShip2
+//            running: false
+//        }
+//    }
 
-        Timer {
-            id: enemyPathGo4
-            interval: 3*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath4.running=true
-        }
+//    EnemyShip{
+//        id: sandaarShip3
+//        y: 0
+//        shipHitState: "target3"
 
-        EnemyWavePath{
-            id: sandaarPath4
-            enemyShip: sandaarShip4
-            running: false
-        }
-    }
+//        Timer {
+//            id: enemyPathGo3
+//            interval: 2*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath3.running=true
+//        }
 
-    EnemyShip{
-        id: sandaarShip5
-        y: 0
-        shipHitState: "target5"
+//        EnemyWavePath{
+//            id: sandaarPath3
+//            enemyShip: sandaarShip3
+//            running: false
+//        }
+//    }
 
-        Timer {
-            id: enemyPathGo5
-            interval: 4*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath5.running=true
-        }
+//    EnemyShip{
+//        id: sandaarShip4
+//        y: 0
+//        shipHitState: "target4"
 
-        EnemyWavePath{
-            id: sandaarPath5
-            enemyShip: sandaarShip5
-            running: false
-        }
-    }
+//        Timer {
+//            id: enemyPathGo4
+//            interval: 3*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath4.running=true
+//        }
 
+//        EnemyWavePath{
+//            id: sandaarPath4
+//            enemyShip: sandaarShip4
+//            running: false
+//        }
+//    }
 
-    EnemyShip{
-        id: sandaarShip6
-        y: 0
-        shipHitState: "target6"
+//    EnemyShip{
+//        id: sandaarShip5
+//        y: 0
+//        shipHitState: "target5"
 
-        Timer {
-            id: enemyPathGo6
-            interval: 5*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath6.running=true
-        }
+//        Timer {
+//            id: enemyPathGo5
+//            interval: 4*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath5.running=true
+//        }
 
-        EnemyWavePath{
-            id: sandaarPath6
-            enemyShip: sandaarShip6
-            running: false
-        }
-    }
+//        EnemyWavePath{
+//            id: sandaarPath5
+//            enemyShip: sandaarShip5
+//            running: false
+//        }
+//    }
 
-    EnemyShip{
-        id: sandaarShip7
-        y: 0
-        shipHitState: "target7"
+//    EnemyShip{
+//        id: sandaarShip6
+//        y: 0
+//        shipHitState: "target6"
 
-        Timer {
-            id: enemyPathGo7
-            interval: 6*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath7.running=true
-        }
+//        Timer {
+//            id: enemyPathGo6
+//            interval: 5*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath6.running=true
+//        }
 
-        EnemyWavePath{
-            id: sandaarPath7
-            enemyShip: sandaarShip7
-            running: false
-        }
-    }
+//        EnemyWavePath{
+//            id: sandaarPath6
+//            enemyShip: sandaarShip6
+//            running: false
+//        }
+//    }
 
-    EnemyShip{
-        id: sandaarShip8
-        y: 0
-        shipHitState: "target8"
+//    EnemyShip{
+//        id: sandaarShip7
+//        y: 0
+//        shipHitState: "target7"
 
-        Timer {
-            id: enemyPathGo8
-            interval: 7*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath8.running=true
-        }
+//        Timer {
+//            id: enemyPathGo7
+//            interval: 6*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath7.running=true
+//        }
 
-        EnemyWavePath{
-            id: sandaarPath8
-            enemyShip: sandaarShip8
-            running: false
-        }
-    }
+//        EnemyWavePath{
+//            id: sandaarPath7
+//            enemyShip: sandaarShip7
+//            running: false
+//        }
+//    }
 
-    EnemyShip{
-        id: sandaarShip9
-        y: 0
-        shipHitState: "target9"
+//    EnemyShip{
+//        id: sandaarShip8
+//        y: 0
+//        shipHitState: "target8"
 
-        Timer {
-            id: enemyPathGo9
-            interval: 8*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath9.running=true
-        }
+//        Timer {
+//            id: enemyPathGo8
+//            interval: 7*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath8.running=true
+//        }
 
-        EnemyWavePath{
-            id: sandaarPath9
-            enemyShip: sandaarShip9
-            running: false
-        }
-    }
+//        EnemyWavePath{
+//            id: sandaarPath8
+//            enemyShip: sandaarShip8
+//            running: false
+//        }
+//    }
 
-    EnemyShip{
-        id: sandaarShip10
-        y: 0
-        shipHitState: "target10"
+//    EnemyShip{
+//        id: sandaarShip9
+//        y: 0
+//        shipHitState: "target9"
 
-        Timer {
-            id: enemyPathGo10
-            interval: 9*waveDelay; running: true; repeat: false
-            onTriggered: sandaarPath10.running=true
-        }
+//        Timer {
+//            id: enemyPathGo9
+//            interval: 8*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath9.running=true
+//        }
 
-        EnemyWavePath{
-            id: sandaarPath10
-            enemyShip: sandaarShip10
-            running: false
-        }
-    }
+//        EnemyWavePath{
+//            id: sandaarPath9
+//            enemyShip: sandaarShip9
+//            running: false
+//        }
+//    }
+
+//    EnemyShip{
+//        id: sandaarShip10
+//        y: 0
+//        shipHitState: "target10"
+
+//        Timer {
+//            id: enemyPathGo10
+//            interval: 9*waveDelay; running: true; repeat: false
+//            onTriggered: sandaarPath10.running=true
+//        }
+
+//        EnemyWavePath{
+//            id: sandaarPath10
+//            enemyShip: sandaarShip10
+//            running: false
+//        }
+//    }
+
 }
