@@ -2,12 +2,13 @@ import QtQuick 2.0
 
     PathAnimation {
 
-        property variant enemyShip
+        property variant enemyShip : target
+        //property alias enemShip : enemyShip
 
-        running: false
+        running: true
         duration: 10000
         easing.type: Easing.InOutQuad
-        target: enemyShip
+        //target: enemyShip
         orientation: PathAnimation.RightFirst
         anchorPoint: Qt.point(enemyShip.width/2,
                               enemyShip.height/2)
