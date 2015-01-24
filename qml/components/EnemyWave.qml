@@ -48,14 +48,14 @@ Rectangle{
             );
 
             if(componentEnemyShip.status == Component.Ready){
-                console.log("enemyShip ready!! " + componentEnemyPath);
                 spriteWavePath = componentEnemyPath.createObject(spriteShip,
                     {
                         "id": wavePath,
-                        "target": spriteShip,
+                        "enemyShip": spriteShip,
                         "running": true
                     }
             );
+                console.log("enemyShip ready: " + spriteShip + " enemyPath ready:" + spriteWavePath);
 
 //                spriteTimer = componentEnemyTimer.createObject(wavePath,
 //                    {
