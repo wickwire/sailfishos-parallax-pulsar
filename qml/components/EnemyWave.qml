@@ -26,13 +26,17 @@ Rectangle{
 
     property int totalShips : 10
 
+    property int enemyShipDelay;
+
     function generateEnemyWave() {
 
         componentEnemyShip = Qt.createComponent("EnemyShip.qml");
         componentEnemyPath = Qt.createComponent("EnemyWavePath.qml");
-//        componentEnemyTimer = Qt.createComponent("EnemyWaveTimer.qml");
+        componentEnemyTimer = Qt.createComponent("EnemyWaveTimer.qml");
 
-        for(shipCount=0; shipCount<totalShips; shipCount++){
+        for(shipCount=1; shipCount<totalShips; shipCount++){
+
+            enemyShipDelay = waveDelay*shipCount;
 
             shipId = "sandaarShip"+shipCount;
             shipTarget = "target"+shipCount;
@@ -52,20 +56,20 @@ Rectangle{
                     {
                         "id": wavePath,
                         "enemyShip": spriteShip,
-                        "running": true
+                        "running": false
                     }
             );
-                console.log("enemyShip ready: " + spriteShip + " enemyPath ready:" + spriteWavePath);
+                //console.log("enemyShip ready: " + spriteShip + " enemyPath ready:" + spriteWavePath);
 
-//                spriteTimer = componentEnemyTimer.createObject(wavePath,
-//                    {
-//                        "id": shipTimer,
-//                        "running": true,
-//                        "repeat": false,
-//                        "interval": waveDelay*shipCount,
-//                        "onTriggered": wavePath.running=true
-//                    }
-//                );
+                spriteTimer = componentEnemyTimer.createObject(spriteShip,
+                    {
+                        "id": shipTimer,
+                        "interval": waveDelay*shipCount,
+                        "onTriggered": spriteWavePath.running=true
+                    }
+                );
+
+                console.log("enemyShip ready: " + spriteShip + " enemyPath ready:" + spriteWavePath + "spriteTimer: " + spriteTimer + "");
             }
         }
     }
