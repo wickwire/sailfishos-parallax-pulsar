@@ -44,7 +44,7 @@ Item{
         repeat: false
         onTriggered: {
             enemyExplosion.explosionEnabled=false;
-            enemyExplosion.destroy();
+            //enemyExplosion.destroy();
         }
         property bool exploding
     }
