@@ -44,16 +44,27 @@ Item{
         repeat: false
         onTriggered: {
             enemyExplosion.explosionEnabled=false;
-            //enemyExplosion.destroy();
+            enemyExplosion.destroy();
+            if(enemyShip){
+                enemyShip.enabled=false;
+            }
+            if(groupGoal){
+                groupGoal.destroy();
+            }
+
         }
         property bool exploding
     }
 
     function destroyShip(){
-        sandaarPath.running=false;
+        if(sandaarPath){
+            sandaarPath.destroy();
+        }
         sandaarScum.visible=false;
-        enemyExplosion.explosionEnabled = true;
-        shipExplode.exploding=true;
+        if(enemyExplosion){
+            enemyExplosion.explosionEnabled = true;
+            shipExplode.exploding=true;
+        }
     }
 
     ParticleGroup{
