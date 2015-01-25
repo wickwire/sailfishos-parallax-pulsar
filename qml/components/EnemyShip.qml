@@ -6,6 +6,7 @@ Item{
 
     property int score
     property alias shipHitState: groupGoal.goalState
+    signal enemyShipHit
 
     Image {
         id: sandaarScum
@@ -38,13 +39,18 @@ Item{
 
     Timer {
         id: shipExplode
-        interval: 500; running: exploding; repeat: false
-        onTriggered: enemyShip.destroy();
-
+        interval: 500;
+        running: exploding;
+        repeat: false
+        onTriggered: {
+            enemyExplosion.explosionEnabled=false;
+            enemyExplosion.destroy();
+        }
         property bool exploding
     }
 
     function destroyShip(){
+        sandaarPath.running=false;
         sandaarScum.visible=false;
         enemyExplosion.explosionEnabled = true;
         shipExplode.exploding=true;
@@ -69,3 +75,4 @@ Item{
         }
     }
 }
+
