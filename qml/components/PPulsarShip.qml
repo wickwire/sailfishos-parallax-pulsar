@@ -1,15 +1,18 @@
 import QtQuick 2.0
+import QtQuick.Particles 2.0
 
 //phone with screen facing up
 Item{
-
     id: ppulsarShip
-    width:75
-    height: 75
+    width:76
+    height: 76
     //    x: qmlAccelcontrols.valAccelZ;
     //    y: qmlAccelcontrols.valAccelY;
     x: qmlAccelcontrols.valAccelX;
     y: qmlAccelcontrols.valAccelY;
+
+    property int ppulsarShipCenterX : Math.floor(x+height/2)
+    property int ppulsarShipCenterY : Math.floor(y+width/2)
 
     Image {
         id: ppulsarSvg
@@ -17,4 +20,6 @@ Item{
         anchors.centerIn: ppulsarShip
         anchors.fill: parent
     }
+
+    //onXChanged: console.log("PPULSAR: " + x + ":" + y + "-" + ppulsarShipCenterX + ":" + ppulsarShipCenterY);
 }

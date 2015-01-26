@@ -8,13 +8,19 @@ Item{
     property alias shipHitState: groupGoal.goalState
     signal enemyShipHit
 
+    property int enemyShipWidth : sandaarScum.sourceSize.width
+    property int enemyShipHeight : sandaarScum.sourceSize.height
+
     Image {
         id: sandaarScum
         source: "qrc:///images/sandaarScum.svg"
         rotation: 270
         anchors.centerIn: sandaarScumHolder
-        sourceSize.width: 50
-        sourceSize.height: 50
+        sourceSize.width: 76
+        sourceSize.height: 76
+
+        property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
+        property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
     }
 
     Item{
@@ -86,4 +92,3 @@ Item{
         }
     }
 }
-
