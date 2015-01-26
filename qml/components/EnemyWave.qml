@@ -11,7 +11,7 @@ Rectangle{
     property int totalShips : 10
 
     Repeater{
-        model: 1
+        model: 10
 
         EnemyShip{
             id: sandaarShip

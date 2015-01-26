@@ -14,8 +14,8 @@ Item{
     property int ppulsarShipCenterX : Math.floor(x+height/2)
     property int ppulsarShipCenterY : Math.floor(y+width/2)
 
-    property int pulsarDestroyX
-    property int pulsarDestroyY
+    property int pulsarDestroyX : 0
+    property int pulsarDestroyY : 0
 
     Image {
         id: ppulsarSvg
@@ -57,7 +57,10 @@ Item{
 
     function destroyShip(){
         //console.log("destroyShip");
+        if(pulsarDestroyX == 0)
         pulsarDestroyX = ppulsarShip.x;
+
+        if(pulsarDestroyY == 0)
         pulsarDestroyY = ppulsarShip.y;
 
         ppulsarSvg.visible=false;
@@ -68,12 +71,20 @@ Item{
         }
     }
 
-//    onXChanged:
-//        if(ppulsarSvg.visible == false)
-//            ppulsarShip.x = pulsarDestroyX
+    onXChanged:
+        if(ppulsarSvg.visible == false){
+            if(pulsarDestroyX != 0){
+                ppulsarShip.x = pulsarDestroyX
+                console.log(pulsarDestroyX)
+            }
+        }
 
-//    onYChanged:
-//        if(ppulsarSvg.visible == false)
-//            ppulsarShip.y = pulsarDestroyY
+    onYChanged:
+        if(ppulsarSvg.visible == false){
+            if(pulsarDestroyY != 0){
+                ppulsarShip.y = pulsarDestroyY
+                console.log(pulsarDestroyY)
+            }
+        }
 
 }
