@@ -14,12 +14,66 @@ Item{
     property int ppulsarShipCenterX : Math.floor(x+height/2)
     property int ppulsarShipCenterY : Math.floor(y+width/2)
 
+    property int pulsarDestroyX
+    property int pulsarDestroyY
+
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
-        anchors.centerIn: ppulsarShip
-        anchors.fill: parent
+        anchors.centerIn: ppulsarShipHolder
+        sourceSize.width: 76
+        sourceSize.height: 76
     }
 
     //onXChanged: console.log("PPULSAR: " + x + ":" + y + "-" + ppulsarShipCenterX + ":" + ppulsarShipCenterY);
+
+    Item {
+        id: ppulsarShipHolder
+        width: ppulsarSvg.width
+        height: ppulsarSvg.height
+
+        ShipExplosion{
+            id: ppulsarExplosion
+            explosionEnabled: false
+            anchors.centerIn: parent
+        }
+    }
+
+
+    Timer {
+        id: shipExplode
+        interval: 500;
+        running: exploding;
+        repeat: false
+        onTriggered: {
+            ppulsarExplosion.explosionEnabled=false;
+            ppulsarExplosion.destroy();
+            if(ppulsarShip){
+                ppulsarShip.enabled=false;
+            }
+        }
+        property bool exploding
+    }
+
+    function destroyShip(){
+        //console.log("destroyShip");
+        pulsarDestroyX = ppulsarShip.x;
+        pulsarDestroyY = ppulsarShip.y;
+
+        ppulsarSvg.visible=false;
+
+        if(ppulsarExplosion){
+            ppulsarExplosion.explosionEnabled = true;
+            shipExplode.exploding=true;
+        }
+    }
+
+//    onXChanged:
+//        if(ppulsarSvg.visible == false)
+//            ppulsarShip.x = pulsarDestroyX
+
+//    onYChanged:
+//        if(ppulsarSvg.visible == false)
+//            ppulsarShip.y = pulsarDestroyY
+
 }

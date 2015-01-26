@@ -46,7 +46,8 @@ Rectangle{
                 hitDistX = Math.abs(sandaarShipCenterX - parallaxPulsar.ppulsarShipCenterX);
                 hitDistY = Math.abs(sandaarShipCenterY - parallaxPulsar.ppulsarShipCenterY);
                 if(hitDistX < shipHitRadius && hitDistY < shipHitRadius){
-                    console.log("Hit on Y: " + hitDistX + "x" + hitDistY);
+                    //console.log("Hit on Y: " + hitDistX + "x" + hitDistY);
+                    sandaarVSparallaxY();
                 }
             }
 
@@ -54,7 +55,20 @@ Rectangle{
                 hitDistX = Math.abs(sandaarShipCenterX - parallaxPulsar.ppulsarShipCenterX);
                 hitDistY = Math.abs(sandaarShipCenterY - parallaxPulsar.ppulsarShipCenterY);
                 if(hitDistX < shipHitRadius && hitDistY < shipHitRadius){
-                    console.log("Hit on X: " + hitDistX + "x" + hitDistY);
+                    //console.log("Hit on X: " + hitDistX + "x" + hitDistY);
+                    sandaarVSparallaxX();
+                }
+            }
+
+            onSandaarVSparallaxX: {
+                if(parallaxPulsar){
+                    parallaxPulsar.destroyShip();
+                }
+            }
+
+            onSandaarVSparallaxY: {
+                if(parallaxPulsar){
+                    parallaxPulsar.destroyShip();
                 }
             }
         }
