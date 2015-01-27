@@ -4,6 +4,14 @@ import QtQuick.Particles 2.0
 Item{
     id: enemyShip
 
+    EnemyShot{
+        id : enemyShot
+        shipX: sandaarScum.x
+        shipY: sandaarScum.y
+        shipWidth: sandaarScum.width
+        shipHeight: sandaarScum.height
+    }
+
     property int score
     property alias shipHitState: groupGoal.goalState
     signal enemyShipHit
@@ -12,22 +20,22 @@ Item{
     property int enemyShipHeight : sandaarScum.sourceSize.height
 
     Image {
+
         id: sandaarScum
         source: "qrc:///images/sandaarScum.svg"
-        rotation: 270
         anchors.centerIn: sandaarScumHolder
         sourceSize.width: 76
         sourceSize.height: 76
-
+        rotation: 90
         property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
         property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
     }
 
     Item{
+
         id: sandaarScumHolder
         width: sandaarScum.width
         height: sandaarScum.height
-        rotation: 90
 
         ShipExplosion{
             id: enemyExplosion
