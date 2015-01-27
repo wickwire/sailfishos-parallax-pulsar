@@ -39,7 +39,5 @@ Rectangle{
             y: shipY + shipHeight/2
             enabled: true
         }
-
-        Component.onCompleted: parallaxPulsar.ppulsarParticleSystem = particles;
 }
 

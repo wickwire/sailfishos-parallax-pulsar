@@ -11,6 +11,7 @@ Rectangle{
     property int totalShips : 10
 
     Repeater{
+
         id: enemyShipGenerator
         model: totalShips
 
@@ -21,6 +22,10 @@ Rectangle{
                 id : enemyShot
                 x: sandaarShip.x+sandaarShip.enemyShipWidth/2
                 y: sandaarShip.y+sandaarShip.enemyShipHeight/2
+
+                Component.onCompleted:
+                    if(index == 2)
+                    parallaxPulsar.ppulsarParticleSystem = enemyShotParticles;
             }
 
             EnemyShip{
