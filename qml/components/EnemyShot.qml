@@ -30,10 +30,10 @@ Rectangle{
 
         Emitter {
             group: "shot"
-            emitRate: 1
-            lifeSpan: 10000
+            emitRate: 5
+            lifeSpan: 5000
             size: 70
-            velocity: PointDirection { x: 256; }
+            velocity: PointDirection { y: 256; }
             x: shipX + shipWidth/2
             y: shipY + shipHeight/2
             enabled: true

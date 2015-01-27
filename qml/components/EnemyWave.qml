@@ -11,7 +11,18 @@ Rectangle{
     property int totalShips : 10
 
     Repeater{
-        model: 10
+        model:totalShips
+
+        EnemyShot{
+            id : enemyShot
+            x: enemyShipGenerator.itemAt(index).x
+            y: enemyShipGenerator.itemAt(index).y
+        }
+    }
+
+    Repeater{
+        id: enemyShipGenerator
+        model: totalShips
 
         EnemyShip{
             id: sandaarShip
