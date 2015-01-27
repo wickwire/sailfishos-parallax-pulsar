@@ -27,7 +27,7 @@ Rectangle{
             property int hitDistX
             property int hitDistY
 
-            property int shipHitRadius : Math.floor((parallaxPulsar.width+sandaarShip.enemyShipWidth)/2)
+            property int shipHitRadius : Math.floor(((parallaxPulsar.width+sandaarShip.enemyShipWidth)/2)/1.6)
 
             Timer {
                 interval: waveDelay*(index+1);
