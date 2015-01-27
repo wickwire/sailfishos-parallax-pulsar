@@ -74,6 +74,9 @@ Item{
         if(sandaarPath){
             sandaarPath.destroy();
         }
+        if(enemyShot){
+            enemyShot.destroy();
+        }
 
         sandaarScum.visible=false;
         if(enemyExplosion){
