@@ -26,7 +26,7 @@ Item{
         anchors.centerIn: sandaarScumHolder
         sourceSize.width: 76
         sourceSize.height: 76
-        rotation: 90
+        rotation: 180
         property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
         property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
     }
@@ -74,6 +74,7 @@ Item{
         if(sandaarPath){
             sandaarPath.destroy();
         }
+
         sandaarScum.visible=false;
         if(enemyExplosion){
             enemyExplosion.explosionEnabled = true;

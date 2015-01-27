@@ -7,7 +7,7 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveDelay : 300
+    property int waveDelay : 1000
     property int totalShips : 10
 
     Repeater{
@@ -15,8 +15,8 @@ Rectangle{
 
         EnemyShot{
             id : enemyShot
-            x: enemyShipGenerator.itemAt(index).x
-            y: enemyShipGenerator.itemAt(index).y
+            x: enemyShipGenerator.itemAt(index).x+enemyShipGenerator.itemAt(index).enemyShipWidth/2
+            y: enemyShipGenerator.itemAt(index).y+enemyShipGenerator.itemAt(index).enemyShipHeight/2
         }
     }
 

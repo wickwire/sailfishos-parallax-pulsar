@@ -4,11 +4,11 @@ PathAnimation {
 
     property variant enemyShip
 
+    orientation: PathAnimation.Fixed
     running: true
     duration: 10000
     easing.type: Easing.InOutQuad
     target: enemyShip
-    orientation: PathAnimation.RightFirst
     anchorPoint: Qt.point(enemyShip.width/2,
                           enemyShip.height/2)
     path: Path {
