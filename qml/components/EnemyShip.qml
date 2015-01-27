@@ -4,14 +4,6 @@ import QtQuick.Particles 2.0
 Item{
     id: enemyShip
 
-//    EnemyShot{
-//        id : enemyShot
-//        shipX: sandaarScum.x
-//        shipY: sandaarScum.y
-//        shipWidth: sandaarScum.width
-//        shipHeight: sandaarScum.height
-//    }
-
     property int score
     property alias shipHitState: groupGoal.goalState
     signal enemyShipHit

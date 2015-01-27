@@ -15,6 +15,7 @@ Rectangle{
         model: totalShips
 
         Item{
+            id: enemyShotHolder
 
             EnemyShot{
                 id : enemyShot
