@@ -11,10 +11,6 @@ Item{
     property int enemyShipWidth : sandaarScum.sourceSize.width
     property int enemyShipHeight : sandaarScum.sourceSize.height
 
-    EnemyShot{
-        id : enemyShot
-    }
-
     Image {
 
         id: sandaarScum
@@ -25,9 +21,12 @@ Item{
         rotation: 180
         property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
         property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
+    }
 
-        onXChanged: enemyShot.x=sandaarScumCenterX
-        onYChanged: enemyShot.y=sandaarScumCenterY
+    EnemyShot{
+        id : enemyShot
+        x: sandaarScum.sandaarScumCenterX
+        y: sandaarScum.sandaarScumCenterX
     }
 
     Item{
