@@ -11,6 +11,10 @@ Item{
     property int enemyShipWidth : sandaarScum.sourceSize.width
     property int enemyShipHeight : sandaarScum.sourceSize.height
 
+    EnemyShot{
+        id : enemyShot
+    }
+
     Image {
 
         id: sandaarScum
@@ -21,6 +25,9 @@ Item{
         rotation: 180
         property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
         property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
+
+        onXChanged: enemyShot.x=sandaarScumCenterX
+        onYChanged: enemyShot.y=sandaarScumCenterY
     }
 
     Item{
@@ -63,12 +70,10 @@ Item{
     }
 
     function destroyShip(){
+
         if(sandaarPath){
             sandaarPath.destroy();
         }
-//        if(enemyShot){
-//            enemyShot.destroy();
-//        }
 
         sandaarScum.visible=false;
         if(enemyExplosion){
@@ -88,7 +93,6 @@ Item{
                 }/*else{
                     console.log("fire skipping! " + enemyShip + " : " + enemyShip.score);
                 }*/
-
                 enemyShip.destroyShip();
             }/*else{
                 console.log("not on enemyship!");

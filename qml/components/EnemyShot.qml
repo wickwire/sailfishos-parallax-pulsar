@@ -21,6 +21,7 @@ Rectangle{
         }
 
         Emitter {
+            id: enemyShotEmitter
             system: enemyShotParticles
             group: "enemyShot"
             emitRate: 1
@@ -30,6 +31,12 @@ Rectangle{
             x: shipX + shipWidth/2
             y: shipY + shipHeight/2
             enabled: true
+        }
+
+        function destroyEnemyShot(){
+            if(enemyShot){
+                enemyShot.destroy();
+            }
         }
 }
 

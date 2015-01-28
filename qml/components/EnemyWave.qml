@@ -10,15 +10,15 @@ Rectangle{
     property int waveDelay : 1000
     property int totalShips : 10
 
-//    property alias enemyShotParticles: particles
+    property alias enemyShotParticles: particles
 
-//        ParticleSystem {
-//            id: particles
-//            anchors.fill: parent
-//            paused: !applicationActive
+    ParticleSystem {
+        id: particles
+        anchors.fill: parent
+        paused: !applicationActive
 
-//            Component.onCompleted: parallaxPulsar.ppulsarParticleSystem=particles;
-//        }
+        Component.onCompleted: parallaxPulsar.ppulsarParticleSystem=particles;
+    }
 
     Repeater{
 
@@ -27,12 +27,6 @@ Rectangle{
 
         Item{
             id: enemyShotHolder
-
-//            EnemyShot{
-//                id : enemyShot
-//                x: sandaarShip.sandaarShipCenterX
-//                y: sandaarShip.sandaarShipCenterY
-//            }
 
             EnemyShip{
                 id: sandaarShip

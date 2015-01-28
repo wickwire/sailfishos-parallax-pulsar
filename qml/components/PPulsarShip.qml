@@ -17,6 +17,8 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
+    property variant ppulsarParticleSystem
+
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
@@ -90,15 +92,9 @@ Item{
             }
         }
 
-    ParticleSystem {
-        id: parallaxSystem
-        anchors.fill: parent
-        paused: !applicationActive
-    }
-
     GroupGoal {
         id: parallaxGoal
-        system: parallaxSystem
+        system: ppulsarParticleSystem
         jump: true
         anchors.centerIn: ppulsarSvg
         anchors.fill: ppulsarSvg
@@ -108,7 +104,7 @@ Item{
     ParticleGroup{
     id: parallaxGroup
     name: "ppulsarTarget"
-    system: parallaxSystem
+    system: ppulsarParticleSystem
     onEntered: {
         if(ppulsarShip){
             if(ppulsarShip.score == 0){
