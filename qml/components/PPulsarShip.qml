@@ -64,7 +64,7 @@ Item{
         //console.log("destroyShip");
 
         if(parallaxPulsarShot){
-            parallaxPulsarShot.enabled=false;
+            parallaxPulsarShot.destroy(parallaxPulsarShot.ppulsarEmitterLifeSpan)
         }
 
         if(pulsarDestroyX == 0)

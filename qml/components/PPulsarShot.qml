@@ -13,6 +13,7 @@ Rectangle{
     property int shipHeight
 
     property alias shotParticles: particles
+    property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ParticleSystem {
 
@@ -29,6 +30,7 @@ Rectangle{
         }
 
         Emitter {
+            id: parallaxPulsarShotEmitter
             group: "shot"
             emitRate: 5
             lifeSpan: 2000
