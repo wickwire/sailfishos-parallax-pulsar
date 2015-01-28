@@ -12,16 +12,8 @@ Rectangle{
     property int shipWidth
     property int shipHeight
 
-    property alias enemyShotParticles: particles
-
-        ParticleSystem {
-            id: particles
-            anchors.fill: parent
-            paused: !applicationActive
-        }
-
         ImageParticle {
-            system: particles
+            system: enemyShotParticles
             groups: ["enemyShot"]
             source: "qrc:///images/star.png"
             color: "#0FF06600"
@@ -29,12 +21,12 @@ Rectangle{
         }
 
         Emitter {
-            system: particles
+            system: enemyShotParticles
             group: "enemyShot"
-            emitRate: 2
+            emitRate: 5
             lifeSpan: 5000
-            size: 70
-            velocity: PointDirection { y: 256; }
+            size: 40
+            velocity: PointDirection { y: 512; }
             x: shipX + shipWidth/2
             y: shipY + shipHeight/2
             enabled: true

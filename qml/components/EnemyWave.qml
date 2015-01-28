@@ -10,6 +10,14 @@ Rectangle{
     property int waveDelay : 1000
     property int totalShips : 10
 
+    property alias enemyShotParticles: particles
+
+        ParticleSystem {
+            id: particles
+            anchors.fill: parent
+            paused: !applicationActive
+        }
+
     Repeater{
 
         id: enemyShipGenerator
@@ -20,8 +28,9 @@ Rectangle{
 
             EnemyShot{
                 id : enemyShot
-                x: sandaarShip.x+sandaarShip.enemyShipWidth/2
-                y: sandaarShip.y+sandaarShip.enemyShipHeight/2
+                x: sandaarShip.sandaarShipCenterX
+                y: sandaarShip.sandaarShipCenterY
+
 
                 Component.onCompleted:
                     if(index == 2)
@@ -57,6 +66,8 @@ Rectangle{
                     running: false
                 }
 
+
+
                 onYChanged:{
                     hitDistX = Math.abs(sandaarShipCenterX - parallaxPulsar.ppulsarShipCenterX);
                     hitDistY = Math.abs(sandaarShipCenterY - parallaxPulsar.ppulsarShipCenterY);
@@ -87,7 +98,6 @@ Rectangle{
                     }
                 }
             }
-
         }
     }
 }
