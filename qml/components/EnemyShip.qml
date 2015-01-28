@@ -86,6 +86,8 @@ Item{
             enemyExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
         }
+
+        enemyShot.enabled=false;
     }
 
     ParticleGroup{
