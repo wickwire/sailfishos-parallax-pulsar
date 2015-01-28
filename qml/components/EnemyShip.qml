@@ -11,6 +11,12 @@ Item{
     property int enemyShipWidth : sandaarScum.sourceSize.width
     property int enemyShipHeight : sandaarScum.sourceSize.height
 
+    ParticleSystem {
+        id: destroyedShots
+        anchors.fill: parent
+        paused: true
+    }
+
     Image {
 
         id: sandaarScum
@@ -44,7 +50,7 @@ Item{
 
     GroupGoal {
         id: groupGoal
-        system: parallaxPulsarShot.shotParticles
+        system: parallaxPulsarShot? parallaxPulsarShot.shotParticles : destroyedShots
         jump: true
         anchors.fill: sandaarScum
     }
@@ -57,11 +63,12 @@ Item{
         onTriggered: {
             enemyExplosion.explosionEnabled=false;
             enemyExplosion.destroy();
-            if(enemyShip){
-                enemyShip.enabled=false;
-            }
+
             if(groupGoal){
                 groupGoal.destroy();
+            }
+            if(enemyShip){
+                enemyShip.enabled=false;
             }
 
         }
@@ -83,7 +90,7 @@ Item{
 
     ParticleGroup{
         name: shipHitState
-        system: parallaxPulsarShot.shotParticles
+        system: parallaxPulsarShot? parallaxPulsarShot.shotParticles : destroyedShots
         onEntered: {
             if(enemyShip){
                 if(enemyShip.score == 0){

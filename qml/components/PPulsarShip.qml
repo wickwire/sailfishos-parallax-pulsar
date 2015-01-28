@@ -67,7 +67,6 @@ Item{
             parallaxPulsarShot.destroy()
         }
 
-
         if(pulsarDestroyX == 0)
             pulsarDestroyX = ppulsarShip.x;
 
