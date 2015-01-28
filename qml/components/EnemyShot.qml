@@ -23,8 +23,8 @@ Rectangle{
         Emitter {
             system: enemyShotParticles
             group: "enemyShot"
-            emitRate: 5
-            lifeSpan: 5000
+            emitRate: 1
+            lifeSpan: 1000
             size: 40
             velocity: PointDirection { y: 512; }
             x: shipX + shipWidth/2
