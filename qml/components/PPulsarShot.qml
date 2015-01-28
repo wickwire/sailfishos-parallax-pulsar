@@ -41,4 +41,16 @@ Rectangle{
             enabled: qmlWeaponTrigger.valProxim
         }
     }
+
+    Timer{
+        id: shotDestroyDelay
+        interval: parallaxPulsarShotEmitter.lifeSpan
+        running: false
+        repeat: false
+    }
+
+    function destroyShot(){
+        parallaxPulsarShotEmitter.enabled=false
+        shotDestroyDelay.running=true
+    }
 }
