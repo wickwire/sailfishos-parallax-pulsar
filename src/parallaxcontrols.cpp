@@ -23,6 +23,8 @@ ParallaxControls::ParallaxControls(QObject *parent) :
     accel->addFilter(new ParallaxControlsFilter(this));
 
     accel->start();
+    accel->stop();
+    accel->start();
 }
 
 void ParallaxControls::UpdateAccelerometer()

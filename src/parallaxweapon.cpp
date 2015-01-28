@@ -9,6 +9,8 @@ ParallaxWeapon::ParallaxWeapon(QObject *parent) :
             this, SLOT(UpdateProximitySensor()));
 
     proxim->start();
+    proxim->stop();
+    proxim->start();
 }
 
 void ParallaxWeapon::UpdateProximitySensor()
