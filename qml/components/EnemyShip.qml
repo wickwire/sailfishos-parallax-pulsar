@@ -77,17 +77,22 @@ Item{
 
     function destroyShip(){
 
+        if(enemyShot){
+            //enemyShot.destroy(enemyShot.enemyEmitterLifeSpan);
+            enemyShot.enemyEmitter=false;
+        }
+
         if(sandaarPath){
             sandaarPath.destroy();
         }
 
         sandaarScum.visible=false;
+
         if(enemyExplosion){
             enemyExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
         }
 
-        enemyShot.enabled=false;
     }
 
     ParticleGroup{

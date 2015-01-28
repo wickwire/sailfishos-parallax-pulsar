@@ -12,6 +12,9 @@ Rectangle{
     property int shipWidth
     property int shipHeight
 
+    property alias enemyEmitterLifeSpan: enemyShotEmitter.lifeSpan
+    property alias enemyEmitter: enemyShotEmitter.enabled
+
         ImageParticle {
             system: enemyShotParticles
             groups: ["enemyShot"]
@@ -29,12 +32,6 @@ Rectangle{
             size: 40
             velocity: PointDirection { y: 512; }
             enabled: true
-        }
-
-        function destroyEnemyShot(){
-            if(enemyShot){
-                enemyShot.destroy();
-            }
         }
 }
 
