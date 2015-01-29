@@ -2,6 +2,8 @@ import QtQuick 2.0
 
 PathAnimation {
 
+    id: enemyPath
+
     property variant enemyShip
 
     orientation: PathAnimation.Fixed

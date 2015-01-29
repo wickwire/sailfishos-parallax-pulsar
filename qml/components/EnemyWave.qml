@@ -7,10 +7,13 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveDelay : 1000
+    property int waveShipDelay : 1000
+    property int waveDelay: 2000
     property int totalShips : 10
 
     property alias enemyShotParticles: particles
+
+    //property alias waveReloadDelay : enemyShipGenerator.waveReloadDelay
 
     ParticleSystem {
         id: particles
@@ -25,8 +28,12 @@ Rectangle{
         id: enemyShipGenerator
         model: totalShips
 
+        //property alias waveReloadDelay : enemyShotHolder.waveReloadDelay
+
         Item{
             id: enemyShotHolder
+
+            //property alias waveReloadDelay : sandaarShip.waveReloadDelay
 
             EnemyShip{
                 id: sandaarShip
@@ -44,8 +51,10 @@ Rectangle{
 
                 property int shipHitRadius : Math.floor(((parallaxPulsar.width+sandaarShip.enemyShipWidth)/2)/1.6)
 
+                //property alias waveReloadDelay : sandaarPath.waveReloadDelay
+
                 Timer {
-                    interval: waveDelay*(index+1);
+                    interval: waveShipDelay*(index+1);
                     running: true;
                     repeat: false
                     onTriggered:
@@ -54,9 +63,12 @@ Rectangle{
                 }
 
                 EnemyWavePath{
+
                     id: sandaarPath
                     enemyShip: sandaarShip
                     running: false
+
+                    property int waveReloadDelay: totalShips*waveShipDelay+duration+waveDelay
                 }
 
 

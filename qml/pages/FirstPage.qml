@@ -36,6 +36,7 @@ Page {
 
     objectName: "initialPage"
     id: page
+    property variant component
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -62,6 +63,18 @@ Page {
         }
     }
 
+    Timer{
+
+        triggeredOnStart: true
+        interval: 21000
+        running: true
+        repeat: true
+        onTriggered: {
+            component.createObject(page,{"id": "enemyWave"});
+            console.log("created the enemy Wave");
+        }
+    }
+
     PPulsarShot{
         id : parallaxPulsarShot
         shipX: parallaxPulsar.x
@@ -70,13 +83,12 @@ Page {
         shipHeight: parallaxPulsar.height
     }
 
-    EnemyWave{
-        id: enemyWave
-    }
-
     PPulsarShip{
         id: parallaxPulsar
     }
+
+    Component.onCompleted: component = Qt.createComponent("../components/EnemyWave.qml");
+
 }
 
 
