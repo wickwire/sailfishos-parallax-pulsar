@@ -15,6 +15,15 @@ Rectangle{
     property alias enemyEmitterLifeSpan: enemyShotEmitter.lifeSpan
     property alias enemyEmitter: enemyShotEmitter.enabled
 
+
+    onDestroyed: {
+        console.log("Destroying Enemy Shot " + enemyShot);
+    }
+
+    Component.onCompleted:{
+        console.log("Creating Enemy Shot " + enemyShot);
+    }
+
         ImageParticle {
             system: enemyShotParticles
             groups: ["enemyShot"]

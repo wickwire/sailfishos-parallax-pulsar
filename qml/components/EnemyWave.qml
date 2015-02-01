@@ -11,6 +11,10 @@ Rectangle{
     property int waveDelay: 2000
     property int totalShips : 10
 
+    property int waveLastIndex : enemyShipGenerator.index
+
+    signal waveDestroy
+
     Repeater{
 
         id: enemyShipGenerator
@@ -21,62 +25,23 @@ Rectangle{
 
             EnemyShip{
                 id: sandaarShip
-                shipHitState: "target"+index+1
-                y: 0
-
-                signal sandaarVSparallaxX
-                signal sandaarVSparallaxY
-
-                property int sandaarShipCenterX : Math.floor(sandaarShip.x+sandaarShip.enemyShipWidth/2)
-                property int sandaarShipCenterY : Math.floor(sandaarShip.y+sandaarShip.enemyShipHeight/2)
-
-                property int hitDistX
-                property int hitDistY
-
-                property int shipHitRadius : Math.floor(((parallaxPulsar.width+sandaarShip.enemyShipWidth)/2)/1.6)
-
-                EnemyWavePath{
-
-                    id: sandaarPath
-                    enemyShip: sandaarShip
-                    running: true
-
-                    property int waveReloadDelay: totalShips*waveShipDelay+duration+waveDelay
-                }
-
-
-
-                onYChanged:{
-                    hitDistX = Math.abs(sandaarShipCenterX - parallaxPulsar.ppulsarShipCenterX);
-                    hitDistY = Math.abs(sandaarShipCenterY - parallaxPulsar.ppulsarShipCenterY);
-                    if(hitDistX < shipHitRadius && hitDistY < shipHitRadius){
-                        //console.log("Hit on Y: " + hitDistX + "x" + hitDistY);
-                        sandaarVSparallaxY();
-                    }
-                }
-
-                onXChanged:{
-                    hitDistX = Math.abs(sandaarShipCenterX - parallaxPulsar.ppulsarShipCenterX);
-                    hitDistY = Math.abs(sandaarShipCenterY - parallaxPulsar.ppulsarShipCenterY);
-                    if(hitDistX < shipHitRadius && hitDistY < shipHitRadius){
-                        //console.log("Hit on X: " + hitDistX + "x" + hitDistY);
-                        sandaarVSparallaxX();
-                    }
-                }
-
-                onSandaarVSparallaxX: {
-                    if(parallaxPulsar){
-                        parallaxPulsar.destroyShip();
-                    }
-                }
-
-                onSandaarVSparallaxY: {
-                    if(parallaxPulsar){
-                        parallaxPulsar.destroyShip();
-                    }
-                }
             }
 
+
+            EnemyWavePath{
+                id: sandaarPath
+                running: true
+            }
         }
+
+        onCountChanged: {
+            console.log("waveLastIndex > " + waveLastIndex)
+        }
+    }
+
+
+    onWaveDestroy: {
+        console.log("Destroying: Wave > " + root);
+        root.destroy();
     }
 }

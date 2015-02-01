@@ -4,23 +4,32 @@ PathAnimation {
 
     id: enemyPath
 
-    property variant enemyShip
-
+    target: sandaarShip
     orientation: PathAnimation.Fixed
     running: true
     duration: 10000
     easing.type: Easing.InOutQuad
-    target: enemyShip
-    anchorPoint: Qt.point(enemyShip.width/2,
-                          enemyShip.height/2)
+    anchorPoint: Qt.point(sandaarShip.width/2,
+                          sandaarShip.height/2)
     path: Path {
-        startX: enemyShip.width/2
-        startY: enemyShip.height/2
+        startX: sandaarShip.width/2
+        startY: sandaarShip.height/2
         PathCubic {
-            x: page.width - enemyShip.width/2
-            y: page.height - enemyShip.height/2
-            control1X: x; control1Y: enemyShip.height/2
-            control2X: enemyShip.width/2; control2Y: y
+            x: page.width - sandaarShip.width/2
+            y: page.height - sandaarShip.height/2
+            control1X: x
+            control2Y: y
+            control1Y: sandaarShip.height/2
+            control2X: sandaarShip.width/2
         }
+    }
+
+    onStopped: {
+        console.log("Repeater Index > " + waveLastIndex);
+        waveDestroy();
+    }
+
+    Component.onDestruction: {
+        console.log( "Destroying: path > " + enemyPath);
     }
 }
