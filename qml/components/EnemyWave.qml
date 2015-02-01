@@ -7,11 +7,11 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveShipDelay : 1000
+    property int waveShipDelay : 300
     property int waveDelay: 2000
     property int totalShips : 10
-
-    property int waveLastIndex : enemyShipGenerator.index
+    property int waveCounter : 0
+    property int waveLastDelay : waveShipDelay*(totalShips-1)
 
     signal waveDestroy
 
@@ -23,19 +23,24 @@ Rectangle{
         Item{
             id: enemyShotHolder
 
+            Timer{
+                id: sandaarWaveTimer
+                interval: waveShipDelay*index
+                running: true
+                repeat: false
+                onTriggered: {
+                    waveCounter+=1;
+                    sandaarPath.running=true;
+                }
+            }
+
             EnemyShip{
                 id: sandaarShip
             }
-
-
             EnemyWavePath{
                 id: sandaarPath
-                running: true
+                running: false
             }
-        }
-
-        onCountChanged: {
-            console.log("waveLastIndex > " + waveLastIndex)
         }
     }
 

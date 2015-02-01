@@ -25,8 +25,10 @@ PathAnimation {
     }
 
     onStopped: {
-        console.log("Repeater Index > " + waveLastIndex);
-        waveDestroy();
+        if(sandaarWaveTimer.interval == waveLastDelay){
+            console.log("Repeater Index > " + waveCounter);
+            waveDestroy();
+        }
     }
 
     Component.onDestruction: {
