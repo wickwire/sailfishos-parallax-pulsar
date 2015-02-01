@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Rectangle{
-    id: root
+    id: enemyWave
     width: page.width
     height: page.height
     color: "transparent"
@@ -14,6 +14,12 @@ Rectangle{
     property int waveLastDelay : waveShipDelay*(totalShips-1)
 
     signal waveDestroy
+
+    ParticleSystem {
+        id: enemyShotParticles
+        anchors.fill: parent
+        paused: !applicationActive
+    }
 
     Repeater{
 
@@ -38,7 +44,7 @@ Rectangle{
     }
 
     onWaveDestroy: {
-        console.log("Destroying: Wave > " + root);
-        root.destroy();
+        console.log("Destroying: Wave > " + enemyWave);
+        enemyWave.destroy();
     }
 }

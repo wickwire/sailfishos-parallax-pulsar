@@ -4,9 +4,9 @@ import QtQuick.Particles 2.0
 Item{
     id: enemyShip
 
-//    EnemyShot{
-//        id: sandaarShot
-//    }
+    EnemyShot{
+        id: sandaarShot
+    }
 
     Image {
 
@@ -21,7 +21,11 @@ Item{
     }
 
     Component.onDestruction: {
-        console.log( "Destroying: enemy ship > " + enemyShip);
+        console.log( "Destroying: Enemy Ship > " + enemyShip);
+    }
+
+    Component.onCompleted:{
+        console.log("Creating Enemy Ship " + enemyShip);
     }
 
 }

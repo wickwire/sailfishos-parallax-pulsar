@@ -32,6 +32,10 @@ PathAnimation {
     }
 
     Component.onDestruction: {
-        console.log( "Destroying: path > " + enemyPath);
+        console.log( "Destroying: Enemy Path > " + enemyPath);
+    }
+
+    Component.onCompleted:{
+        console.log("Creating Enemy Path " + enemyPath);
     }
 }

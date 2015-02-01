@@ -9,4 +9,12 @@ Timer{
         waveCounter+=1;
         sandaarPath.running=true;
     }
+
+    Component.onCompleted:{
+        console.log("Creating Enemy Wave Timer " + sandaarWaveTimer);
+    }
+
+    Component.onDestruction:{
+        console.log("Destroying Enemy Shot " + sandaarWaveTimer);
+    }
 }
