@@ -31,12 +31,20 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
+import QtQuick.Particles 2.0
 
 Page {
 
     objectName: "initialPage"
     id: page
     property variant component
+
+
+    ParticleSystem {
+        id: particles
+        anchors.fill: parent
+        paused: !applicationActive
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -70,7 +78,7 @@ Page {
         running: true
         repeat: true
         onTriggered: {
-            component.createObject(page,{"id": "enemyWave"});
+            component.createObject(page);
             console.log("created the enemy Wave");
         }
     }
@@ -88,7 +96,4 @@ Page {
     }
 
     Component.onCompleted: component = Qt.createComponent("../components/EnemyWave.qml");
-
 }
-
-

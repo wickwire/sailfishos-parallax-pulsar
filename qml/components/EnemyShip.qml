@@ -11,12 +11,6 @@ Item{
     property int enemyShipWidth : sandaarScum.sourceSize.width
     property int enemyShipHeight : sandaarScum.sourceSize.height
 
-    ParticleSystem {
-        id: destroyedShots
-        anchors.fill: parent
-        paused: true
-    }
-
     Image {
 
         id: sandaarScum

@@ -17,8 +17,6 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
-    property variant ppulsarParticleSystem
-
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
@@ -97,32 +95,32 @@ Item{
             }
         }
 
-    GroupGoal {
-        id: parallaxGoal
-        system: ppulsarParticleSystem
-        jump: true
-        anchors.centerIn: ppulsarSvg
-        anchors.fill: ppulsarSvg
-        goalState: "ppulsarTarget"
-    }
+//    GroupGoal {
+//        id: parallaxGoal
+//        system: particles
+//        jump: true
+//        anchors.centerIn: ppulsarSvg
+//        anchors.fill: ppulsarSvg
+//        goalState: "ppulsarTarget"
+//    }
 
-    ParticleGroup{
-    id: parallaxGroup
-    name: "ppulsarTarget"
-    system: ppulsarParticleSystem
-    onEntered: {
-        if(ppulsarShip){
-            if(ppulsarShip.score == 0){
-                ppulsarShip.score++;
-                console.log("hit landed on: " + ppulsarShip + " : " + ppulsarShip.score);
-            }/*else{
-                console.log("fire skipping! " + ppulsarShip + " : " + ppulsarShip.score);
-            }*/
+//    ParticleGroup{
+//    id: parallaxGroup
+//    name: "ppulsarTarget"
+//    system: particles
+//    onEntered: {
+//        if(ppulsarShip){
+//            if(ppulsarShip.score == 0){
+//                ppulsarShip.score++;
+//                console.log("hit landed on: " + ppulsarShip + " : " + ppulsarShip.score);
+//            }/*else{
+//                console.log("fire skipping! " + ppulsarShip + " : " + ppulsarShip.score);
+//            }*/
 
-            ppulsarShip.destroyShip();
-        }else{
-            console.log("not on ppulsarShip!");
-        }
-    }
-}
+//            ppulsarShip.destroyShip();
+//        }else{
+//            console.log("not on ppulsarShip!");
+//        }
+//    }
+//}
 }

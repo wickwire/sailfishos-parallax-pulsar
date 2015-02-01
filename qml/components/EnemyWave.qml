@@ -11,29 +11,13 @@ Rectangle{
     property int waveDelay: 2000
     property int totalShips : 10
 
-    property alias enemyShotParticles: particles
-
-    //property alias waveReloadDelay : enemyShipGenerator.waveReloadDelay
-
-    ParticleSystem {
-        id: particles
-        anchors.fill: parent
-        paused: !applicationActive
-
-        Component.onCompleted: parallaxPulsar.ppulsarParticleSystem=particles;
-    }
-
     Repeater{
 
         id: enemyShipGenerator
         model: totalShips
 
-        //property alias waveReloadDelay : enemyShotHolder.waveReloadDelay
-
         Item{
             id: enemyShotHolder
-
-            //property alias waveReloadDelay : sandaarShip.waveReloadDelay
 
             EnemyShip{
                 id: sandaarShip
@@ -51,22 +35,11 @@ Rectangle{
 
                 property int shipHitRadius : Math.floor(((parallaxPulsar.width+sandaarShip.enemyShipWidth)/2)/1.6)
 
-                //property alias waveReloadDelay : sandaarPath.waveReloadDelay
-
-                Timer {
-                    interval: waveShipDelay*(index+1);
-                    running: true;
-                    repeat: false
-                    onTriggered:
-                        if(sandaarPath)
-                        sandaarPath.running=true
-                }
-
                 EnemyWavePath{
 
                     id: sandaarPath
                     enemyShip: sandaarShip
-                    running: false
+                    running: true
 
                     property int waveReloadDelay: totalShips*waveShipDelay+duration+waveDelay
                 }
@@ -103,6 +76,7 @@ Rectangle{
                     }
                 }
             }
+
         }
     }
 }
