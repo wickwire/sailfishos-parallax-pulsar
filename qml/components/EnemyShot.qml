@@ -7,15 +7,6 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int shipX
-    property int shipY
-    property int shipWidth
-    property int shipHeight
-
-    property alias enemyEmitterLifeSpan: enemyShotEmitter.lifeSpan
-    property alias enemyEmitter: enemyShotEmitter.enabled
-
-
     onDestroyed: {
         console.log("Destroying Enemy Shot " + enemyShot);
     }

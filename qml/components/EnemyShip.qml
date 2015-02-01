@@ -4,9 +4,13 @@ import QtQuick.Particles 2.0
 Item{
     id: enemyShip
 
+//    EnemyShot{
+//        id: sandaarShot
+//    }
+
     Image {
 
-        id: sandaarScum
+        id: sandaarShip
         source: "qrc:///images/sandaarScum.svg"
         anchors.centerIn: parent
         sourceSize.width: 76

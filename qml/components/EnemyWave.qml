@@ -23,15 +23,8 @@ Rectangle{
         Item{
             id: enemyShotHolder
 
-            Timer{
-                id: sandaarWaveTimer
-                interval: waveShipDelay*index
-                running: true
-                repeat: false
-                onTriggered: {
-                    waveCounter+=1;
-                    sandaarPath.running=true;
-                }
+            EnemyWaveTimer{
+                id: sandaarTimer
             }
 
             EnemyShip{
@@ -43,7 +36,6 @@ Rectangle{
             }
         }
     }
-
 
     onWaveDestroy: {
         console.log("Destroying: Wave > " + root);

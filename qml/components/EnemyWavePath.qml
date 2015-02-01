@@ -25,7 +25,7 @@ PathAnimation {
     }
 
     onStopped: {
-        if(sandaarWaveTimer.interval == waveLastDelay){
+        if(sandaarTimer.interval == waveLastDelay){
             console.log("Repeater Index > " + waveCounter);
             waveDestroy();
         }
