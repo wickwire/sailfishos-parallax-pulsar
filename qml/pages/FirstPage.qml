@@ -38,13 +38,17 @@ Page {
     objectName: "initialPage"
     id: page
 
-    property variant component
+    property variant enemyWaveComponent
+    property variant parallaxShipComponent
+    property variant parallaxShotComponent
+
     property int enemyWaveTotalDelay
 
     signal receiveWaveTotalDelay(int totalDelay)
 
     signal enemyShipXchanged(int enemyShipCurrentX)
     signal enemyShipYchanged(int enemyShipCurrentY)
+    signal respawnParallaxPulsar
 
     onReceiveWaveTotalDelay: {
         enemyWaveTotalDelay=totalDelay;
@@ -83,11 +87,10 @@ Page {
         running: applicationActive
         repeat: true
         onTriggered: {
-            component.createObject(page,{"id":"enemyWave"});
+            enemyWaveComponent.createObject(page,{"id":"enemyWave"});
             console.log("created the enemy Wave");
         }
     }
-
 
     PPulsarShot{
         id : parallaxPulsarShot
@@ -103,7 +106,7 @@ Page {
 
     Component.onCompleted:
     {
-        component = Qt.createComponent("../components/EnemyWave.qml");
+        enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
     }
 
     onEnemyShipXchanged:{

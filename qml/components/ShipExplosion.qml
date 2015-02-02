@@ -37,6 +37,7 @@ Rectangle{
     }
 
     Component.onDestruction:{
-        console.log( "Destroying: Pulsar Explosion > " + shipExplosion);
+        parallaxPulsar.pulsarShipBlasted();
+        console.log( "Destroying: Ship Explosion > " + shipExplosion);
     }
 }

@@ -20,7 +20,11 @@ Item{
     property int enemyShipX
     property int enemyShipY
 
+    property int pulsarLives: 3
+
     signal pulsarCheckCollision
+    signal pulsarShipBlasted
+
 
     ShipExplosion{
         id: ppulsarExplosion
@@ -52,32 +56,43 @@ Item{
         onTriggered: {
             ppulsarExplosion.explosionEnabled=false;
             ppulsarExplosion.destroy();
-            ppulsarShip.destroy();
         }
         property bool exploding
     }
 
+
+    Timer{
+      id: pulsarExplosion
+      running: false
+      repeat: false
+      interval: 3000
+      onTriggered:{
+          pulsarShipBlasted();
+      }
+    }
+
     function destroyShip(){
-        //console.log("destroyShip");
 
         if(parallaxPulsarShot){
-            parallaxPulsarShot.destroyShot()
+            parallaxPulsarShot.disableShot()
         }
-
-        if(pulsarDestroyX == 0)
-            pulsarDestroyX = ppulsarShip.x;
-
-        if(pulsarDestroyY == 0)
-            pulsarDestroyY = ppulsarShip.y;
-
         ppulsarSvg.visible=false;
+        pulsarExplosion.restart();
 
-        if(ppulsarExplosion){
-            ppulsarShip.x=pulsarDestroyX;
-            ppulsarShip.y=pulsarDestroyY;
-            ppulsarExplosion.explosionEnabled = true;
-            shipExplode.exploding=true;
-        }
+
+//        if(pulsarDestroyX == 0)
+//            pulsarDestroyX = ppulsarShip.x;
+
+//        if(pulsarDestroyY == 0)
+//            pulsarDestroyY = ppulsarShip.y;
+
+//        if(ppulsarExplosion){
+//            ppulsarExplosion.x=pulsarDestroyX;
+//            ppulsarExplosion.y=pulsarDestroyY;
+//            ppulsarExplosion.explosionEnabled = true;
+//            shipExplode.exploding=true;
+//        }
+
     }
 
     onPulsarCheckCollision: {
@@ -90,5 +105,25 @@ Item{
 
     Component.onDestruction:{
         console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
+    }
+
+    onPulsarShipBlasted: {
+        console.log( "Pulsar Explosion finished!");
+        if(pulsarLives > 0){
+
+            console.log("Parallax: one live less: " + pulsarLives);
+
+            ppulsarSvg.visible=true;
+
+            if(parallaxPulsarShot){
+                parallaxPulsarShot.enableShot()
+            }
+            pulsarLives--;
+        }
+        else{
+            console.log("No more lives left, game over!");
+            parallaxPulsarShot.destroyShot();
+            ppulsarShip.destroy();
+        }
     }
 }

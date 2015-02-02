@@ -53,6 +53,14 @@ Rectangle{
         shotDestroyDelay.running=true
     }
 
+    function disableShot(){
+        parallaxPulsarShotEmitter.enabled=false
+    }
+
+    function enableShot(){
+        parallaxPulsarShotEmitter.enabled=true
+    }
+
     Component.onDestruction:{
         console.log( "Destroying: Pulsar Shot > " + ppulsarShot);
     }
