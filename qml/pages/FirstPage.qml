@@ -77,7 +77,7 @@ Page {
         id: waveGenTimer
         triggeredOnStart: true
         interval: enemyWaveTotalDelay
-        running: true
+        running: applicationActive
         repeat: true
         onTriggered: {
             component.createObject(page,{"id":"enemyWave"});

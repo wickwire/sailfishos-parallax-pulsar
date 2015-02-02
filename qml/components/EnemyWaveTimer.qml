@@ -3,7 +3,7 @@ import QtQuick 2.0
 Timer{
     id: sandaarWaveTimer
     interval: waveShipDelay*index
-    running: true
+    running: applicationActive
     repeat: false
     onTriggered: {
         waveCounter+=1;

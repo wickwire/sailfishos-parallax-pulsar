@@ -6,7 +6,7 @@ PathAnimation {
 
     target: sandaarShip
     orientation: PathAnimation.Fixed
-    running: true
+    running: ApplicationActive
     duration: 10000
     easing.type: Easing.InOutQuad
     anchorPoint: Qt.point(sandaarShip.width/2,

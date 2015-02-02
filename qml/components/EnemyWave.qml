@@ -12,7 +12,7 @@ Rectangle{
     property int totalShips : 10
     property int waveCounter : 0
     property int waveLastDelay : waveShipDelay*(totalShips-1)
-    property int waitstep : 1000
+    property int waitstep : 3000
     property int wavePathDuration
     property int waveTotalDelay: waveLastDelay+wavePathDuration+waitstep
 
