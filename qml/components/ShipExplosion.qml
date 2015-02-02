@@ -2,21 +2,19 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Rectangle{
-    id: root
+    id: shipExplosion
     color: "transparent"
-
-    property alias shotParticles: particles
 
     property bool explosionEnabled
 
     ParticleSystem {
 
-        id: particles
+        id: explosionParticles
         anchors.fill: parent
         paused: !applicationActive
 
         ImageParticle {
-            system: particles
+            system: explosionParticles
             groups: ["explosion"]
             source: "qrc:///images/star.png"
             color: "#0FF06600"
@@ -25,6 +23,7 @@ Rectangle{
 
         Emitter {
             id: pulseEmitter
+            system: explosionParticles
             group: "explosion"
             emitRate: 50
             maximumEmitted: 10
@@ -35,5 +34,9 @@ Rectangle{
             sizeVariation: 20
             anchors.centerIn: parent
         }
+    }
+
+    Component.onDestruction:{
+        console.log( "Destroying: Pulsar Explosion > " + shipExplosion);
     }
 }

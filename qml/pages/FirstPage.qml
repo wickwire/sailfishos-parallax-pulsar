@@ -91,10 +91,10 @@ Page {
 
     PPulsarShot{
         id : parallaxPulsarShot
-        shipX: parallaxPulsar.x
-        shipY: parallaxPulsar.y
-        shipWidth: parallaxPulsar.width
-        shipHeight: parallaxPulsar.height
+        shipX: parallaxPulsar ? parallaxPulsar.x : 0
+        shipY: parallaxPulsar ? parallaxPulsar.y : 0
+        shipWidth: parallaxPulsar ? parallaxPulsar.width : 0
+        shipHeight: parallaxPulsar ? parallaxPulsar.height : 0
     }
 
     PPulsarShip{
@@ -107,12 +107,16 @@ Page {
     }
 
     onEnemyShipXchanged:{
-        parallaxPulsar.enemyShipX=enemyShipCurrentX;
-        parallaxPulsar.pulsarCheckCollision();
+        if(parallaxPulsar){
+            parallaxPulsar.enemyShipX=enemyShipCurrentX;
+            parallaxPulsar.pulsarCheckCollision();
+        }
     }
 
     onEnemyShipYchanged:{
-        parallaxPulsar.enemyShipY=enemyShipCurrentY;
-        parallaxPulsar.pulsarCheckCollision();
+        if(parallaxPulsar){
+            parallaxPulsar.enemyShipY=enemyShipCurrentY;
+            parallaxPulsar.pulsarCheckCollision();
+        }
     }
 }

@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Rectangle{
-    id: root
+    id: ppulsarShot
     width: page.width
     height: page.height
     color: "transparent"
@@ -45,10 +45,15 @@ Rectangle{
         interval: parallaxPulsarShotEmitter.lifeSpan
         running: false
         repeat: false
+        onTriggered: ppulsarShot.destroy();
     }
 
     function destroyShot(){
         parallaxPulsarShotEmitter.enabled=false
         shotDestroyDelay.running=true
+    }
+
+    Component.onDestruction:{
+        console.log( "Destroying: Pulsar Shot > " + ppulsarShot);
     }
 }

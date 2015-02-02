@@ -22,6 +22,11 @@ Item{
 
     signal pulsarCheckCollision
 
+    ShipExplosion{
+        id: ppulsarExplosion
+        explosionEnabled: false
+    }
+
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
@@ -36,12 +41,6 @@ Item{
         id: ppulsarShipHolder
         width: ppulsarSvg.width
         height: ppulsarSvg.height
-
-        ShipExplosion{
-            id: ppulsarExplosion
-            explosionEnabled: false
-            anchors.centerIn: parent
-        }
     }
 
 
@@ -53,12 +52,7 @@ Item{
         onTriggered: {
             ppulsarExplosion.explosionEnabled=false;
             ppulsarExplosion.destroy();
-            if(ppulsarShip){
-                ppulsarShip.enabled=false;
-            }
-            if(parallaxGoal){
-                parallaxGoal.destroy();
-            }
+            ppulsarShip.destroy();
         }
         property bool exploding
     }
@@ -79,6 +73,8 @@ Item{
         ppulsarSvg.visible=false;
 
         if(ppulsarExplosion){
+            ppulsarShip.x=pulsarDestroyX;
+            ppulsarShip.y=pulsarDestroyY;
             ppulsarExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
         }
@@ -87,8 +83,12 @@ Item{
     onPulsarCheckCollision: {
         if(Math.abs(ppulsarShipCenterX-enemyShipX)<32){
             if(Math.abs(ppulsarShipCenterY-enemyShipY)<32){
-               console.log("Pulsar crashed into Sandaar!");
+                ppulsarShip.destroyShip();
             }
         }
+    }
+
+    Component.onDestruction:{
+        console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
     }
 }
