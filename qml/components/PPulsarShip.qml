@@ -74,24 +74,22 @@ Item{
     function destroyShip(){
 
         if(parallaxPulsarShot){
-            parallaxPulsarShot.disableShot()
+            parallaxPulsarShot.destroyShot()
         }
         ppulsarSvg.visible=false;
-        pulsarExplosion.restart();
 
+        if(pulsarDestroyX == 0)
+            pulsarDestroyX = ppulsarShip.x;
 
-//        if(pulsarDestroyX == 0)
-//            pulsarDestroyX = ppulsarShip.x;
+        if(pulsarDestroyY == 0)
+            pulsarDestroyY = ppulsarShip.y;
 
-//        if(pulsarDestroyY == 0)
-//            pulsarDestroyY = ppulsarShip.y;
-
-//        if(ppulsarExplosion){
-//            ppulsarExplosion.x=pulsarDestroyX;
-//            ppulsarExplosion.y=pulsarDestroyY;
-//            ppulsarExplosion.explosionEnabled = true;
-//            shipExplode.exploding=true;
-//        }
+        if(ppulsarExplosion){
+            ppulsarShip.x=pulsarDestroyX;
+            ppulsarShip.y=pulsarDestroyY;
+            ppulsarExplosion.explosionEnabled = true;
+            shipExplode.exploding=true;
+        }
 
     }
 
@@ -115,9 +113,7 @@ Item{
 
             ppulsarSvg.visible=true;
 
-            if(parallaxPulsarShot){
-                parallaxPulsarShot.enableShot()
-            }
+            parallaxPulsarShot.enabled
             pulsarLives--;
         }
         else{

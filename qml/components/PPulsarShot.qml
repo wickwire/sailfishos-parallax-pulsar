@@ -58,7 +58,7 @@ Rectangle{
     }
 
     function enableShot(){
-        parallaxPulsarShotEmitter.enabled=true
+        parallaxPulsarShotEmitter.enabled=qmlWeaponTrigger.valProxim
     }
 
     Component.onDestruction:{
