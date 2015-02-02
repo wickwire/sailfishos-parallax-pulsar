@@ -17,6 +17,11 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
+    property int enemyShipX
+    property int enemyShipY
+
+    signal pulsarCheckCollision
+
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
@@ -76,6 +81,14 @@ Item{
         if(ppulsarExplosion){
             ppulsarExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
+        }
+    }
+
+    onPulsarCheckCollision: {
+        if(Math.abs(ppulsarShipCenterX-enemyShipX)<32){
+            if(Math.abs(ppulsarShipCenterY-enemyShipY)<32){
+               console.log("Pulsar crashed into Sandaar!");
+            }
         }
     }
 }

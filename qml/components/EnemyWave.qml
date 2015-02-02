@@ -7,15 +7,13 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    property int waveShipDelay : 300
-    property int waveDelay: 2000
+    property int waveShipDelay : 2000
     property int totalShips : 10
     property int waveCounter : 0
     property int waveLastDelay : waveShipDelay*(totalShips-1)
     property int waitstep : 3000
     property int wavePathDuration
     property int waveTotalDelay: waveLastDelay+wavePathDuration+waitstep
-
 
     signal waveDestroy
 
@@ -39,6 +37,16 @@ Rectangle{
 
             EnemyShip{
                 id: sandaarShip
+
+                onXChanged:{
+                    //console.log("sandaarScumCenterX " + sandaarScumCenterX);
+                    enemyShipXchanged(sandaarScumCenterX);
+                }
+
+                onYChanged:{
+                    //console.log("sandaarScumCenterY " + sandaarScumCenterY);
+                    enemyShipYchanged(sandaarScumCenterY);
+                }
             }
             EnemyWavePath{
                 id: sandaarPath

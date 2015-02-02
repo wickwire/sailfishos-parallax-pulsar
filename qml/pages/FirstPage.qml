@@ -43,6 +43,9 @@ Page {
 
     signal receiveWaveTotalDelay(int totalDelay)
 
+    signal enemyShipXchanged(int enemyShipCurrentX)
+    signal enemyShipYchanged(int enemyShipCurrentY)
+
     onReceiveWaveTotalDelay: {
         enemyWaveTotalDelay=totalDelay;
         console.log("@FirstPage > " + enemyWaveTotalDelay);
@@ -101,5 +104,15 @@ Page {
     Component.onCompleted:
     {
         component = Qt.createComponent("../components/EnemyWave.qml");
+    }
+
+    onEnemyShipXchanged:{
+        parallaxPulsar.enemyShipX=enemyShipCurrentX;
+        parallaxPulsar.pulsarCheckCollision();
+    }
+
+    onEnemyShipYchanged:{
+        parallaxPulsar.enemyShipY=enemyShipCurrentY;
+        parallaxPulsar.pulsarCheckCollision();
     }
 }

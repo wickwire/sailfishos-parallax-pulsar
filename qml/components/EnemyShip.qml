@@ -3,6 +3,8 @@ import QtQuick.Particles 2.0
 
 Item{
     id: enemyShip
+    property int sandaarScumCenterX : Math.floor(x+sandaarShip.height/2)
+    property int sandaarScumCenterY : Math.floor(y+sandaarShip.width/2)
 
     EnemyShot{
         id: sandaarShot
@@ -16,8 +18,6 @@ Item{
         sourceSize.width: 76
         sourceSize.height: 76
         rotation: 180
-        property int sandaarScumCenterX : Math.floor(x+sourceSize.height/2)
-        property int sandaarScumCenterY : Math.floor(y+sourceSize.width/2)
     }
 
     Component.onDestruction: {
@@ -27,5 +27,4 @@ Item{
     Component.onCompleted:{
         console.log("Creating Enemy Ship " + enemyShip);
     }
-
 }
