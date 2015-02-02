@@ -37,7 +37,16 @@ Page {
 
     objectName: "initialPage"
     id: page
+
     property variant component
+    property int enemyWaveTotalDelay
+
+    signal receiveWaveTotalDelay(int totalDelay)
+
+    onReceiveWaveTotalDelay: {
+        enemyWaveTotalDelay=totalDelay;
+        console.log("@FirstPage > " + enemyWaveTotalDelay);
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -65,16 +74,17 @@ Page {
     }
 
     Timer{
-
+        id: waveGenTimer
         triggeredOnStart: true
-        interval: 21000
+        interval: enemyWaveTotalDelay
         running: true
         repeat: true
         onTriggered: {
-            component.createObject(page);
+            component.createObject(page,{"id":"enemyWave"});
             console.log("created the enemy Wave");
         }
     }
+
 
     PPulsarShot{
         id : parallaxPulsarShot
@@ -88,5 +98,8 @@ Page {
         id: parallaxPulsar
     }
 
-    Component.onCompleted: component = Qt.createComponent("../components/EnemyWave.qml");
+    Component.onCompleted:
+    {
+        component = Qt.createComponent("../components/EnemyWave.qml");
+    }
 }

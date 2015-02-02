@@ -12,6 +12,10 @@ Rectangle{
     property int totalShips : 10
     property int waveCounter : 0
     property int waveLastDelay : waveShipDelay*(totalShips-1)
+    property int waitstep : 1000
+    property int wavePathDuration
+    property int waveTotalDelay: waveLastDelay+wavePathDuration+waitstep
+
 
     signal waveDestroy
 
@@ -50,5 +54,7 @@ Rectangle{
 
     Component.onCompleted: {
         console.log("Creating Enemy Wave " + enemyWave);
+        console.log("@EnemyWave - Enemy Wave Total Delay: " + waveTotalDelay);
+        receiveWaveTotalDelay(waveTotalDelay);
     }
 }

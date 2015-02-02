@@ -36,6 +36,7 @@ PathAnimation {
     }
 
     Component.onCompleted:{
+        wavePathDuration=enemyPath.duration;
         console.log("Creating Enemy Path " + enemyPath);
     }
 }
