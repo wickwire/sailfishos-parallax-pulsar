@@ -78,49 +78,4 @@ Item{
             shipExplode.exploding=true;
         }
     }
-
-    onXChanged:
-        if(ppulsarSvg.visible == false){
-            if(pulsarDestroyX != 0){
-                ppulsarShip.x = pulsarDestroyX
-                console.log(pulsarDestroyX)
-            }
-        }
-
-    onYChanged:
-        if(ppulsarSvg.visible == false){
-            if(pulsarDestroyY != 0){
-                ppulsarShip.y = pulsarDestroyY
-                console.log(pulsarDestroyY)
-            }
-        }
-
-//    GroupGoal {
-//        id: parallaxGoal
-//        system: particles
-//        jump: true
-//        anchors.centerIn: ppulsarSvg
-//        anchors.fill: ppulsarSvg
-//        goalState: "ppulsarTarget"
-//    }
-
-//    ParticleGroup{
-//    id: parallaxGroup
-//    name: "ppulsarTarget"
-//    system: particles
-//    onEntered: {
-//        if(ppulsarShip){
-//            if(ppulsarShip.score == 0){
-//                ppulsarShip.score++;
-//                console.log("hit landed on: " + ppulsarShip + " : " + ppulsarShip.score);
-//            }/*else{
-//                console.log("fire skipping! " + ppulsarShip + " : " + ppulsarShip.score);
-//            }*/
-
-//            ppulsarShip.destroyShip();
-//        }else{
-//            console.log("not on ppulsarShip!");
-//        }
-//    }
-//}
 }

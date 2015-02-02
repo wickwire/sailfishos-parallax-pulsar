@@ -11,35 +11,33 @@ Rectangle{
     property int shipY
     property int shipWidth
     property int shipHeight
-
-    property alias shotParticles: particles
     property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ParticleSystem {
-
-        id: particles
+        id: pulsarShotparticles
         anchors.fill: parent
         paused: !applicationActive
+    }
 
-        ImageParticle {
-            system: particles
-            groups: ["shot"]
-            source: "qrc:///images/star.png"
-            color: "#0FF06600"
-            colorVariation: 0.3
-        }
+    ImageParticle {
+        system: pulsarShotparticles
+        groups: ["pulsarShot"]
+        source: "qrc:///images/star.png"
+        color: "#0FF06600"
+        colorVariation: 0.3
+    }
 
-        Emitter {
-            id: parallaxPulsarShotEmitter
-            group: "shot"
-            emitRate: 5
-            lifeSpan: 2000
-            size: 140
-            velocity: PointDirection { y: -512; }
-            x: shipX + shipWidth/2
-            y: shipY + shipHeight/2
-            enabled: qmlWeaponTrigger.valProxim
-        }
+    Emitter {
+        id: parallaxPulsarShotEmitter
+        system: pulsarShotparticles
+        group: "pulsarShot"
+        emitRate: 5
+        lifeSpan: 2000
+        size: 140
+        velocity: PointDirection { y: -512; }
+        x: shipX + shipWidth/2
+        y: shipY + shipHeight/2
+        enabled: qmlWeaponTrigger.valProxim
     }
 
     Timer{

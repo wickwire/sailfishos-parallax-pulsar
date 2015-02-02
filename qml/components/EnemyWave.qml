@@ -47,4 +47,8 @@ Rectangle{
         console.log("Destroying: Wave > " + enemyWave);
         enemyWave.destroy();
     }
+
+    Component.onCompleted: {
+        console.log("Creating Enemy Wave " + enemyWave);
+    }
 }

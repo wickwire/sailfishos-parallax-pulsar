@@ -39,13 +39,6 @@ Page {
     id: page
     property variant component
 
-
-    ParticleSystem {
-        id: particles
-        anchors.fill: parent
-        paused: !applicationActive
-    }
-
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent

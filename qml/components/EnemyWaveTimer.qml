@@ -15,6 +15,6 @@ Timer{
     }
 
     Component.onDestruction:{
-        console.log("Destroying Enemy Shot " + sandaarWaveTimer);
+        console.log("Destroying Enemy Wave Timer " + sandaarWaveTimer);
     }
 }
