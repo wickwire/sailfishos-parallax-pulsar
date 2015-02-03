@@ -37,10 +37,7 @@ Rectangle{
     }
 
     Component.onDestruction:{
-        if(parallaxPulsar){
-            parallaxPulsar.pulsarShipBlasted();
-        }
-        else if(parallaxShipObject){
+        if(parallaxShipObject){
            parallaxShipObject.pulsarShipBlasted();
         }
 

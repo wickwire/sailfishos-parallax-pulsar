@@ -108,7 +108,7 @@ Page {
 
     Timer{
         id: ppulsarLivesTimer
-        running: false
+        running: applicationActive
         repeat: false
         interval: 5000
         onTriggered:{
@@ -117,25 +117,16 @@ Page {
         }
     }
 
-//    Repeater{
-//        id: pulsarLiveManager
-//        model: 1
 
-//        Item{
 
             PPulsarShot{
                 id : parallaxPulsarShot
-                shipX: parallaxPulsar ? parallaxPulsar.x : 0
-                shipY: parallaxPulsar ? parallaxPulsar.y : 0
-                shipWidth: parallaxPulsar ? parallaxPulsar.width : 0
-                shipHeight: parallaxPulsar ? parallaxPulsar.height : 0
+                shipX: parallaxShipObject ? parallaxShipObject.x : 0
+                shipY: parallaxShipObject ? parallaxShipObject.y : 0
+                shipWidth: parallaxShipObject ? parallaxShipObject.width : 0
+                shipHeight: parallaxShipObject ? parallaxShipObject.height : 0
             }
 
-            PPulsarShip{
-                id: parallaxPulsar
-            }
-//        }
-//    }
 
     Component.onCompleted:
     {
@@ -144,22 +135,14 @@ Page {
     }
 
     onEnemyShipXchanged:{
-        if(parallaxPulsar){
-            parallaxPulsar.enemyShipX=enemyShipCurrentX;
-            parallaxPulsar.pulsarCheckCollision();
-        }
-        else if(parallaxShipObject){
+        if(parallaxShipObject){
             parallaxShipObject.enemyShipX=enemyShipCurrentX;
             parallaxShipObject.pulsarCheckCollision();
         }
     }
 
     onEnemyShipYchanged:{
-        if(parallaxPulsar){
-            parallaxPulsar.enemyShipY=enemyShipCurrentY;
-            parallaxPulsar.pulsarCheckCollision();
-        }
-        else if(parallaxShipObject){
+            if(parallaxShipObject){
             parallaxShipObject.enemyShipY=enemyShipCurrentY;
             parallaxShipObject.pulsarCheckCollision();
         }
