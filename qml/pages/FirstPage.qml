@@ -41,6 +41,7 @@ Page {
     property variant enemyWaveComponent
     property variant enemyWaveObject
     property variant parallaxShipComponent
+    property variant parallaxShipObject
     property variant parallaxShotComponent
     property int enemyWaveTotalDelay
     property int pulsarLives : 3
@@ -56,7 +57,7 @@ Page {
         if(pulsarLives > 0){
             pulsarLives--;
             console.log("Parallax Blasted, lives left: " + pulsarLives);
-            ppulsarLivesTimer.running=true;
+            ppulsarLivesTimer.restart()
         }
         else{
             console.log("Parallax Blasted, no more lives - Game Over!");
@@ -105,6 +106,17 @@ Page {
         }
     }
 
+    Timer{
+        id: ppulsarLivesTimer
+        running: false
+        repeat: false
+        interval: 5000
+        onTriggered:{
+            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar"});
+            console.log("Parallax Regenerated!")
+        }
+    }
+
 //    Repeater{
 //        id: pulsarLiveManager
 //        model: 1
@@ -128,6 +140,7 @@ Page {
     Component.onCompleted:
     {
         enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
+        parallaxShipComponent = Qt.createComponent("../components/PPulsarShip.qml");
     }
 
     onEnemyShipXchanged:{
@@ -135,12 +148,20 @@ Page {
             parallaxPulsar.enemyShipX=enemyShipCurrentX;
             parallaxPulsar.pulsarCheckCollision();
         }
+        else if(parallaxShipObject){
+            parallaxShipObject.enemyShipX=enemyShipCurrentX;
+            parallaxShipObject.pulsarCheckCollision();
+        }
     }
 
     onEnemyShipYchanged:{
         if(parallaxPulsar){
             parallaxPulsar.enemyShipY=enemyShipCurrentY;
             parallaxPulsar.pulsarCheckCollision();
+        }
+        else if(parallaxShipObject){
+            parallaxShipObject.enemyShipY=enemyShipCurrentY;
+            parallaxShipObject.pulsarCheckCollision();
         }
     }
 }
