@@ -20,16 +20,8 @@ Item{
     property int enemyShipX
     property int enemyShipY
 
-    property int pulsarLives: 3
-
     signal pulsarCheckCollision
     signal pulsarShipBlasted
-
-
-    ShipExplosion{
-        id: ppulsarExplosion
-        explosionEnabled: false
-    }
 
     Image {
         id: ppulsarSvg
@@ -40,6 +32,12 @@ Item{
     }
 
     //onXChanged: console.log("PPULSAR: " + x + ":" + y + "-" + ppulsarShipCenterX + ":" + ppulsarShipCenterY);
+
+    ShipExplosion{
+        id: ppulsarExplosion
+        explosionEnabled: false
+        anchors.centerIn: ppulsarShipHolder
+    }
 
     Item {
         id: ppulsarShipHolder
@@ -58,17 +56,6 @@ Item{
             ppulsarExplosion.destroy();
         }
         property bool exploding
-    }
-
-
-    Timer{
-      id: pulsarExplosion
-      running: false
-      repeat: false
-      interval: 3000
-      onTriggered:{
-          pulsarShipBlasted();
-      }
     }
 
     function destroyShip(){
@@ -107,19 +94,6 @@ Item{
 
     onPulsarShipBlasted: {
         console.log( "Pulsar Explosion finished!");
-        if(pulsarLives > 0){
-
-            console.log("Parallax: one live less: " + pulsarLives);
-
-            ppulsarSvg.visible=true;
-
-            parallaxPulsarShot.enabled
-            pulsarLives--;
-        }
-        else{
-            console.log("No more lives left, game over!");
-            parallaxPulsarShot.destroyShot();
-            ppulsarShip.destroy();
-        }
+        ppulsarShip.destroy();
     }
 }
