@@ -38,7 +38,7 @@ Rectangle{
 
     Component.onDestruction:{
         if(parallaxShipObject){
-           parallaxShipObject.pulsarShipBlasted();
+            parallaxShipObject.pulsarShipBlasted();
         }
 
         console.log( "Destroying: Ship Explosion > " + shipExplosion);

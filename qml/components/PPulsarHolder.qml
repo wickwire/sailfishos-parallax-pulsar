@@ -42,7 +42,7 @@ Rectangle{
 
     onPulsarShipBlasted: {
         console.log( "Pulsar Explosion finished!");
+        pulsarHolder.destroy(parallaxPulsarShot.ppulsarEmitterLifeSpan);
         parallaxPulsarBlasted();
-        pulsarHolder.destroy();
     }
 }

@@ -133,7 +133,7 @@ Page {
     }
 
     onEnemyShipYchanged:{
-            if(parallaxShipObject){
+        if(parallaxShipObject){
             parallaxShipObject.enemyShipY=enemyShipCurrentY;
             parallaxShipObject.pulsarCheckCollision();
         }

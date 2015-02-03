@@ -25,8 +25,6 @@ Item{
         sourceSize.height: 76
     }
 
-    //onXChanged: console.log("PPULSAR: " + x + ":" + y + "-" + ppulsarShipCenterX + ":" + ppulsarShipCenterY);
-
     ShipExplosion{
         id: ppulsarExplosion
         explosionEnabled: false
@@ -54,9 +52,10 @@ Item{
 
     function destroyShip(){
 
-        if(parallaxShotObject){
-            parallaxShotObject.destroyShot()
+        if(parallaxPulsarShot){
+            parallaxPulsarShot.destroyShot()
         }
+
         ppulsarSvg.visible=false;
 
         if(pulsarDestroyX == 0)
