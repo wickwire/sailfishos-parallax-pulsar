@@ -10,6 +10,8 @@ Rectangle{
     property int enemyShipX
     property int enemyShipY
 
+    property variant sandaarShotSystem
+
     signal pulsarCheckCollision
     signal pulsarShipBlasted
 
