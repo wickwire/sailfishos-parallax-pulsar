@@ -60,8 +60,8 @@ Item{
 
     function destroyShip(){
 
-        if(parallaxPulsarShot){
-            parallaxPulsarShot.destroyShot()
+        if(parallaxShotObject){
+            parallaxShotObject.destroyShot()
         }
         ppulsarSvg.visible=false;
 

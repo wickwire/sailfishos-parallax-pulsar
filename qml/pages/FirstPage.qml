@@ -43,6 +43,7 @@ Page {
     property variant parallaxShipComponent
     property variant parallaxShipObject
     property variant parallaxShotComponent
+    property variant parallaxShotObject
     property int enemyWaveTotalDelay
     property int pulsarLives : 3
 
@@ -113,25 +114,33 @@ Page {
         interval: 5000
         onTriggered:{
             parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar"});
-            console.log("Parallax Regenerated!")
+            console.log("Parallax Regenerated!");
+            parallaxShotObject = parallaxShotComponent.createObject(page,{
+                "objectName":"parallaxPulsarShot",
+                "shipX":"200",
+                "shipY":"400",
+                "shipWidth":"76",
+                "shipHeight":"76",
+            });
         }
     }
 
 
 
-            PPulsarShot{
-                id : parallaxPulsarShot
-                shipX: parallaxShipObject ? parallaxShipObject.x : 0
-                shipY: parallaxShipObject ? parallaxShipObject.y : 0
-                shipWidth: parallaxShipObject ? parallaxShipObject.width : 0
-                shipHeight: parallaxShipObject ? parallaxShipObject.height : 0
-            }
+//            PPulsarShot{
+//                id : parallaxPulsarShot
+//                shipX: parallaxShipObject ? parallaxShipObject.x : 0
+//                shipY: parallaxShipObject ? parallaxShipObject.y : 0
+//                shipWidth: parallaxShipObject ? parallaxShipObject.width : 0
+//                shipHeight: parallaxShipObject ? parallaxShipObject.height : 0
+//            }
 
 
     Component.onCompleted:
     {
         enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
         parallaxShipComponent = Qt.createComponent("../components/PPulsarShip.qml");
+        parallaxShotComponent = Qt.createComponent("../components/PPulsarShot.qml");
     }
 
     onEnemyShipXchanged:{
