@@ -17,15 +17,6 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
-
-    PPulsarShot{
-        id: parallaxPulsarShot
-        shipX: ppulsarShip.x
-        shipY: ppulsarShip.y
-        shipWidth: ppulsarSvg.width
-        shipHeight: ppulsarSvg.height
-    }
-
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"

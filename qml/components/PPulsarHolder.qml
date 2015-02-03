@@ -24,6 +24,14 @@ Rectangle{
         id: parallaxPulsar
     }
 
+    PPulsarShot{
+        id: parallaxPulsarShot
+        shipX: parallaxPulsar.x
+        shipY: parallaxPulsar.y
+        shipWidth: parallaxPulsar.width
+        shipHeight: parallaxPulsar.height
+    }
+
     onPulsarCheckCollision: {
         if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<32){
             if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<32){
