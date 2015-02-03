@@ -17,11 +17,14 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
-    property int enemyShipX
-    property int enemyShipY
 
-    signal pulsarCheckCollision
-    signal pulsarShipBlasted
+    PPulsarShot{
+        id: parallaxPulsarShot
+        shipX: ppulsarShip.x
+        shipY: ppulsarShip.y
+        shipWidth: ppulsarSvg.width
+        shipHeight: ppulsarSvg.height
+    }
 
     Image {
         id: ppulsarSvg
@@ -80,21 +83,7 @@ Item{
 
     }
 
-    onPulsarCheckCollision: {
-        if(Math.abs(ppulsarShipCenterX-enemyShipX)<32){
-            if(Math.abs(ppulsarShipCenterY-enemyShipY)<32){
-                ppulsarShip.destroyShip();
-            }
-        }
-    }
-
     Component.onDestruction:{
         console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
-    }
-
-    onPulsarShipBlasted: {
-        console.log( "Pulsar Explosion finished!");
-        parallaxPulsarBlasted();
-        ppulsarShip.destroy();
     }
 }

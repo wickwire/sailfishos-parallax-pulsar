@@ -13,12 +13,6 @@ Rectangle{
     property int shipHeight
     property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
-    ParticleSystem {
-        id: pulsarShotparticles
-        anchors.fill: parent
-        paused: !applicationActive
-    }
-
     ImageParticle {
         system: pulsarShotparticles
         groups: ["pulsarShot"]

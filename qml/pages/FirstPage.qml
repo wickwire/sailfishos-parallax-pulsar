@@ -115,31 +115,13 @@ Page {
         onTriggered:{
             parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar"});
             console.log("Parallax Regenerated!");
-            parallaxShotObject = parallaxShotComponent.createObject(page,{
-                "objectName":"parallaxPulsarShot",
-                "shipX":"200",
-                "shipY":"400",
-                "shipWidth":"76",
-                "shipHeight":"76",
-            });
         }
     }
-
-
-
-//            PPulsarShot{
-//                id : parallaxPulsarShot
-//                shipX: parallaxShipObject ? parallaxShipObject.x : 0
-//                shipY: parallaxShipObject ? parallaxShipObject.y : 0
-//                shipWidth: parallaxShipObject ? parallaxShipObject.width : 0
-//                shipHeight: parallaxShipObject ? parallaxShipObject.height : 0
-//            }
-
 
     Component.onCompleted:
     {
         enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
-        parallaxShipComponent = Qt.createComponent("../components/PPulsarShip.qml");
+        parallaxShipComponent = Qt.createComponent("../components/PPulsarHolder.qml");
         parallaxShotComponent = Qt.createComponent("../components/PPulsarShot.qml");
     }
 
