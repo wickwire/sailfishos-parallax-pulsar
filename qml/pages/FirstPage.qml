@@ -39,16 +39,29 @@ Page {
     id: page
 
     property variant enemyWaveComponent
+    property variant enemyWaveObject
     property variant parallaxShipComponent
     property variant parallaxShotComponent
-
     property int enemyWaveTotalDelay
+    property int pulsarLives : 3
 
     signal receiveWaveTotalDelay(int totalDelay)
-
     signal enemyShipXchanged(int enemyShipCurrentX)
     signal enemyShipYchanged(int enemyShipCurrentY)
-    signal respawnParallaxPulsar
+    signal parallaxPulsarBlasted
+
+
+
+    onParallaxPulsarBlasted:{
+        if(pulsarLives > 0){
+            pulsarLives--;
+            console.log("Parallax Blasted, lives left: " + pulsarLives);
+            ppulsarLivesTimer.running=true;
+        }
+        else{
+            console.log("Parallax Blasted, no more lives - Game Over!");
+        }
+    }
 
     onReceiveWaveTotalDelay: {
         enemyWaveTotalDelay=totalDelay;
@@ -87,22 +100,30 @@ Page {
         running: applicationActive
         repeat: true
         onTriggered: {
-            enemyWaveComponent.createObject(page,{"id":"enemyWave"});
-            console.log("created the enemy Wave");
+            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave2"});
+            console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }
 
-    PPulsarShot{
-        id : parallaxPulsarShot
-        shipX: parallaxPulsar ? parallaxPulsar.x : 0
-        shipY: parallaxPulsar ? parallaxPulsar.y : 0
-        shipWidth: parallaxPulsar ? parallaxPulsar.width : 0
-        shipHeight: parallaxPulsar ? parallaxPulsar.height : 0
-    }
+//    Repeater{
+//        id: pulsarLiveManager
+//        model: 1
 
-    PPulsarShip{
-        id: parallaxPulsar
-    }
+//        Item{
+
+            PPulsarShot{
+                id : parallaxPulsarShot
+                shipX: parallaxPulsar ? parallaxPulsar.x : 0
+                shipY: parallaxPulsar ? parallaxPulsar.y : 0
+                shipWidth: parallaxPulsar ? parallaxPulsar.width : 0
+                shipHeight: parallaxPulsar ? parallaxPulsar.height : 0
+            }
+
+            PPulsarShip{
+                id: parallaxPulsar
+            }
+//        }
+//    }
 
     Component.onCompleted:
     {

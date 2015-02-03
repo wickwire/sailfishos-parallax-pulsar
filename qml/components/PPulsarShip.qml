@@ -94,6 +94,7 @@ Item{
 
     onPulsarShipBlasted: {
         console.log( "Pulsar Explosion finished!");
+        parallaxPulsarBlasted();
         ppulsarShip.destroy();
     }
 }
