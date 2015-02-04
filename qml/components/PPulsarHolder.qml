@@ -24,6 +24,20 @@ Rectangle{
 
     PPulsarShip{
         id: parallaxPulsar
+
+//        GroupGoal{
+//            id: pulsarHitArea
+//            jump: true
+//            anchors.fill: parent
+//            goalState: "pulsarTarget"
+//            system: sandaarShotSystem
+//        }
+
+//        ParticleGroup{
+//            name: "pulsarTarget"
+//            system: sandaarShotSystem
+//            onEntered: console.log("Parallax Pulsar was SHOT DOWN!")
+//        }
     }
 
     PPulsarShot{
@@ -47,4 +61,8 @@ Rectangle{
         pulsarHolder.destroy(parallaxPulsarShot.ppulsarEmitterLifeSpan);
         parallaxPulsarBlasted();
     }
+
+    Component.onCompleted: console.log("Creating Pulsar Holder " + pulsarHolder)
+
+    Component.onDestruction: console.log("Destroying Pulsar Holder " + pulsarHolder)
 }
