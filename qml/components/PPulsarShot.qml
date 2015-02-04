@@ -14,7 +14,7 @@ Rectangle{
     property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ImageParticle {
-        system: pulsarShotparticles
+        system: pulsarShotSystem
         groups: ["pulsarShot"]
         source: "qrc:///images/star.png"
         color: "#0FF06600"
@@ -23,7 +23,7 @@ Rectangle{
 
     Emitter {
         id: parallaxPulsarShotEmitter
-        system: pulsarShotparticles
+        system: pulsarShotSystem
         group: "pulsarShot"
         emitRate: 5
         lifeSpan: 2000
@@ -48,6 +48,10 @@ Rectangle{
     }
 
     Component.onDestruction:{
-        console.log( "Destroying: Pulsar Shot > " + ppulsarShot);
+        console.log( "Destroying Pulsar Shot > " + ppulsarShot);
+    }
+
+    Component.onCompleted:{
+        console.log("Creating Pulsar Shot " + ppulsarShot);
     }
 }

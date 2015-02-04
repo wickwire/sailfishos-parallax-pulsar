@@ -77,10 +77,6 @@ Item{
 
     }
 
-    Component.onDestruction:{
-        console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
-    }
-
 
     GroupGoal{
         id: pulsarHitArea
@@ -96,5 +92,13 @@ Item{
         Component.onDestruction:{
             console.log( "Destroying: Pulsar Group Goal > " + pulsarHitArea);
         }
+    }
+
+    Component.onCompleted:{
+        console.log( "Creating: Pulsar Ship > " + ppulsarShip);
+    }
+
+    Component.onDestruction:{
+        console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
     }
 }

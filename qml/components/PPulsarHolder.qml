@@ -11,15 +11,16 @@ Rectangle{
     property int enemyShipY
 
     property variant sandaarShotSystem
+    property variant pulsarShotSystem
 
     signal pulsarCheckCollision
     signal pulsarShipBlasted
 
-    ParticleSystem {
-        id: pulsarShotparticles
-        anchors.fill: parent
-        paused: !applicationActive
-    }
+//    ParticleSystem {
+//        id: pulsarShotparticles
+//        anchors.fill: parent
+//        paused: !applicationActive
+//    }
 
     PPulsarShip{
         id: parallaxPulsar

@@ -53,6 +53,12 @@ Page {
     signal parallaxPulsarBlasted
 
     ParticleSystem {
+        id: pulsarShotparticles
+        anchors.fill: parent
+        paused: !applicationActive
+    }
+
+    ParticleSystem {
         id: enemyShotParticles
         anchors.fill: parent
         paused: !applicationActive
@@ -136,7 +142,8 @@ Page {
         repeat: false
         interval: 3000
         onTriggered:{
-            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys});
+            pulsarShotparticles.reset();
+            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys,"pulsarShotSystem":pulsarShotparticles});
             console.log("Parallax Regenerated!");
         }
     }
@@ -145,7 +152,6 @@ Page {
     {
         enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
         parallaxShipComponent = Qt.createComponent("../components/PPulsarHolder.qml");
-        parallaxShotComponent = Qt.createComponent("../components/PPulsarShot.qml");
     }
 
     onEnemyShipXchanged:{
