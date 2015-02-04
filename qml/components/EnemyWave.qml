@@ -19,12 +19,6 @@ Rectangle{
 
     signal waveDestroy
 
-    ParticleSystem {
-        id: enemyShotParticles
-        anchors.fill: parent
-        paused: !applicationActive
-    }
-
     Repeater{
 
         id: enemyShipGenerator

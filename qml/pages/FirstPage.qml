@@ -45,19 +45,23 @@ Page {
     property variant parallaxShotComponent
     property variant parallaxShotObject
     property int enemyWaveTotalDelay
-    property int pulsarLives : 3
+    property int pulsarLivesLeft : 2
 
     signal receiveWaveTotalDelay(int totalDelay)
     signal enemyShipXchanged(int enemyShipCurrentX)
     signal enemyShipYchanged(int enemyShipCurrentY)
     signal parallaxPulsarBlasted
 
-
+    ParticleSystem {
+        id: enemyShotParticles
+        anchors.fill: parent
+        paused: !applicationActive
+    }
 
     onParallaxPulsarBlasted:{
-        if(pulsarLives > 0){
-            pulsarLives--;
-            console.log("Parallax Blasted, lives left: " + pulsarLives);
+        if(pulsarLivesLeft > 0){
+            pulsarLivesLeft--;
+            console.log("Parallax Blasted, lives left: " + pulsarLivesLeft);
             ppulsarLivesTimer.restart()
         }
         else{
@@ -68,6 +72,7 @@ Page {
     onReceiveWaveTotalDelay: {
         enemyWaveTotalDelay=totalDelay;
         console.log("@FirstPage > " + enemyWaveTotalDelay);
+        enemyShotParticles.reset();
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -102,7 +107,7 @@ Page {
         running: applicationActive
         repeat: true
         onTriggered: {
-            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave2"});
+            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles});
             console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }
@@ -111,7 +116,7 @@ Page {
         id: ppulsarLivesTimer
         running: applicationActive
         repeat: false
-        interval: 5000
+        interval: 3000
         onTriggered:{
             parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys});
             console.log("Parallax Regenerated!");
