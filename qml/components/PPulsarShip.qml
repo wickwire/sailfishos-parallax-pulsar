@@ -76,4 +76,38 @@ Item{
     Component.onDestruction:{
         console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
     }
+
+
+    GroupGoal{
+        id: pulsarHitArea
+        jump: true
+        anchors.fill: ppulsarShip
+        goalState: "pulsarTarget"
+        system: sandaarShotSystem
+
+        Component.onCompleted:{
+            console.log( "Creating: Pulsar Group Goal > " + pulsarHitArea);
+        }
+
+        Component.onDestruction:{
+            console.log( "Destroying: Pulsar Group Goal > " + pulsarHitArea);
+        }
+    }
+
+//    ParticleGroup{
+//        id: pulsarParticleGroup
+//        name: "pulsarTarget"
+//        system: sandaarShotSystem
+//        onEntered:{
+//            console.log("Parallax Pulsar was SHOT DOWN!")
+//        }
+
+//        Component.onCompleted:{
+//            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
+
+//        Component.onDestruction:{
+//            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
+//    }
 }
