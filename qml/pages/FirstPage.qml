@@ -58,6 +58,23 @@ Page {
         paused: !applicationActive
     }
 
+    ParticleGroup{
+        id: pulsarParticleGroup
+        name: "pulsarTarget"
+        system: enemyShotParticles
+        onEntered:{
+            console.log("Parallax Pulsar was SHOT DOWN!")
+        }
+
+        Component.onCompleted:{
+            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
+        }
+
+        Component.onDestruction:{
+            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
+        }
+    }
+
     onParallaxPulsarBlasted:{
         if(pulsarLivesLeft > 0){
             pulsarLivesLeft--;

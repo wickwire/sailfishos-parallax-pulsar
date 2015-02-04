@@ -52,6 +52,9 @@ Item{
 
     function destroyShip(){
 
+//        parallaxPulsarShot.destroy();
+//        destroy();
+
         if(parallaxPulsarShot){
             parallaxPulsarShot.destroyShot()
         }
@@ -93,21 +96,4 @@ Item{
             console.log( "Destroying: Pulsar Group Goal > " + pulsarHitArea);
         }
     }
-
-//    ParticleGroup{
-//        id: pulsarParticleGroup
-//        name: "pulsarTarget"
-//        system: sandaarShotSystem
-//        onEntered:{
-//            console.log("Parallax Pulsar was SHOT DOWN!")
-//        }
-
-//        Component.onCompleted:{
-//            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
-//        }
-
-//        Component.onDestruction:{
-//            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
-//        }
-//    }
 }
