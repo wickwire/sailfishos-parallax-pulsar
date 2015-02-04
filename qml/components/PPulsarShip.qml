@@ -52,7 +52,9 @@ Item{
 
     function destroyShip(){
 
-        pulsarHitArea.destroy();
+        if(pulsarHitArea){
+            pulsarHitArea.destroy();
+        }
 
         if(parallaxPulsarShot){
             parallaxPulsarShot.destroyShot()
