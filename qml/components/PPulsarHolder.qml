@@ -21,23 +21,25 @@ Rectangle{
         paused: !applicationActive
     }
 
+    GroupGoal{
+        id: pulsarHitArea
+        jump: true
+        anchors.fill: parallaxPulsar
+        goalState: "pulsarTarget"
+        system: sandaarShotSystem
+    }
+
+    ParticleGroup{
+        name: "pulsarTarget"
+        system: sandaarShotSystem
+        onEntered:{
+            console.log("Parallax Pulsar was SHOT DOWN!")
+        }
+    }
+
 
     PPulsarShip{
         id: parallaxPulsar
-
-//        GroupGoal{
-//            id: pulsarHitArea
-//            jump: true
-//            anchors.fill: parent
-//            goalState: "pulsarTarget"
-//            system: sandaarShotSystem
-//        }
-
-//        ParticleGroup{
-//            name: "pulsarTarget"
-//            system: sandaarShotSystem
-//            onEntered: console.log("Parallax Pulsar was SHOT DOWN!")
-//        }
     }
 
     PPulsarShot{
