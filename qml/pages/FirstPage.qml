@@ -64,6 +64,7 @@ Page {
         system: enemyShotParticles
         onEntered:{
             console.log("Parallax Pulsar was SHOT DOWN!")
+            parallaxShipObject.parallaxDestroy();
         }
 
         Component.onCompleted:{

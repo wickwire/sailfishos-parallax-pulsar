@@ -33,6 +33,10 @@ Rectangle{
         shipHeight: parallaxPulsar.height
     }
 
+    function parallaxDestroy(){
+        parallaxPulsar.destroyShip();
+    }
+
     onPulsarCheckCollision: {
         if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<32){
             if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<32){

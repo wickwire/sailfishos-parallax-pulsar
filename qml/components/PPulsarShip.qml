@@ -52,8 +52,7 @@ Item{
 
     function destroyShip(){
 
-//        parallaxPulsarShot.destroy();
-//        destroy();
+        pulsarHitArea.destroy();
 
         if(parallaxPulsarShot){
             parallaxPulsarShot.destroyShot()
