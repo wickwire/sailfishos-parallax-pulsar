@@ -14,6 +14,7 @@ Rectangle{
     property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ImageParticle {
+        id: pulsarShotParticle
         system: pulsarShotParticles
         groups: ["pulsarShot"]
         source: "qrc:///images/star.png"
@@ -32,6 +33,8 @@ Rectangle{
         x: shipX + shipWidth/2
         y: shipY + shipHeight/2
         enabled: qmlWeaponTrigger.valProxim
+
+        onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle);
     }
 
     Timer{
