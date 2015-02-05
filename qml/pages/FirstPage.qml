@@ -139,7 +139,7 @@ Page {
         repeat: false
         interval: 3000
         onTriggered:{
-            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys,"pulsarShotSystem":pulsarShotParticles});
+            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys/*,"pulsarShotSystem":pulsarShotParticles*/});
             console.log("Parallax Regenerated!");
         }
     }

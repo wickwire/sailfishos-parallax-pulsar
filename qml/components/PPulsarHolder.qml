@@ -16,11 +16,11 @@ Rectangle{
     signal pulsarCheckCollision
     signal pulsarShipBlasted
 
-//    ParticleSystem {
-//        id: pulsarShotParticles
-//        anchors.fill: parent
-//        paused: !applicationActive
-//    }
+    ParticleSystem {
+        id: pulsarShotParticles
+        anchors.fill: parent
+        paused: !applicationActive
+    }
 
     PPulsarShip{
         id: parallaxPulsar
