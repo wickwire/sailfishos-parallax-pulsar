@@ -14,7 +14,7 @@ Rectangle{
     property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ImageParticle {
-        system: pulsarShotSystem
+        system: pulsarShotParticles
         groups: ["pulsarShot"]
         source: "qrc:///images/star.png"
         color: "#0FF06600"
@@ -23,7 +23,7 @@ Rectangle{
 
     Emitter {
         id: parallaxPulsarShotEmitter
-        system: pulsarShotSystem
+        system: pulsarShotParticles
         group: "pulsarShot"
         emitRate: 5
         lifeSpan: 2000
