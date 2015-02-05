@@ -34,7 +34,7 @@ Rectangle{
         y: shipY + shipHeight/2
         enabled: qmlWeaponTrigger.valProxim
 
-        onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle);
+        onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle + " Particle System " + pulsarShotParticles);
     }
 
     Timer{

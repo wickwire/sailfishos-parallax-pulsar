@@ -20,6 +20,22 @@ Item{
         rotation: 180
     }
 
+//    GroupGoal{
+//        id: sandaarHitArea
+//        jump: true
+//        anchors.fill: enemyShip
+//        goalState: "pulsarTarget"
+//        system: sandaarShotSystem
+
+//        Component.onCompleted:{
+//            console.log( "Creating: Pulsar Group Goal > " + sandaarHitArea);
+//        }
+
+//        Component.onDestruction:{
+//            console.log( "Destroying: Pulsar Group Goal > " + sandaarHitArea);
+//        }
+//    }
+
     Component.onDestruction: {
         console.log( "Destroying: Enemy Ship > " + enemyShip);
     }

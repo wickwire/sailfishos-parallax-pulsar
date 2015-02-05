@@ -52,16 +52,13 @@ Page {
     signal enemyShipYchanged(int enemyShipCurrentY)
     signal parallaxPulsarBlasted
 
-//    ParticleSystem {
-//        id: pulsarShotParticles
-//        anchors.fill: parent
-//        paused: !applicationActive
-//    }
-
     ParticleSystem {
         id: enemyShotParticles
         anchors.fill: parent
         paused: !applicationActive
+
+        Component.onCompleted: console.log("Creating Sandaar Particle System " + enemyShotParticles)
+        Component.onDestruction: console.log("Destroying Sandaar Particle System " + enemyShotParticles)
     }
 
     ParticleGroup{
@@ -142,7 +139,7 @@ Page {
         repeat: false
         interval: 3000
         onTriggered:{
-            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys/*,"pulsarShotSystem":pulsarShotParticles*/});
+            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys,"pulsarShotSystem":pulsarShotParticles});
             console.log("Parallax Regenerated!");
         }
     }
