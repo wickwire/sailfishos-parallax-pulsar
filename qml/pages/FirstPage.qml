@@ -83,6 +83,16 @@ Page {
         if(pulsarLivesLeft > 0){
             pulsarLivesLeft--;
             console.log("Parallax Blasted, lives left: " + pulsarLivesLeft);
+
+            if(pulsarLivesLeft == 2){
+                ppulsarLivesTimer.interval=0
+            }
+            else{
+                ppulsarLivesTimer.interval=3000
+            }
+
+            console.log("ppulsarLivesTimer.interval: " + ppulsarLivesTimer.interval)
+
             ppulsarLivesTimer.restart()
         }
         else{
@@ -137,7 +147,7 @@ Page {
         id: ppulsarLivesTimer
         running: applicationActive
         repeat: false
-        interval: 3000
+        //interval: 3000
         onTriggered:{
             parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys/*,"pulsarShotSystem":pulsarShotParticles*/});
             console.log("Parallax Regenerated!");
