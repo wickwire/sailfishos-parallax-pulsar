@@ -61,6 +61,23 @@ Page {
         Component.onDestruction: console.log("Destroying Pulsar Particle System " + pulsarShotParticles)
     }
 
+    ParticleGroup{
+        id: sandaarParticleGroup
+        name: "sandaarTarget"
+        system: pulsarShotParticles
+        onEntered:{
+            console.log("Sandaar was SHOT DOWN!");
+        }
+
+        Component.onCompleted:{
+            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
+        }
+
+        Component.onDestruction:{
+            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
+        }
+    }
+
     ParticleSystem {
         id: enemyShotParticles
         anchors.fill: parent
@@ -147,7 +164,7 @@ Page {
         running: applicationActive
         repeat: true
         onTriggered: {
-            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles});
+            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles});
             console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }

@@ -11,7 +11,6 @@ Item{
     property int ppulsarEmitterLifeSpan
 
     property variant sandaarShotSystem
-    property variant pulsarShotSystem
 
     signal pulsarCheckCollision
     signal pulsarShipBlasted

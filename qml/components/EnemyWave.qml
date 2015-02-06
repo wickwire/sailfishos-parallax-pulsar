@@ -15,6 +15,8 @@ Rectangle{
     property int wavePathDuration
     property int waveTotalDelay: waveLastDelay+wavePathDuration+waitstep
 
+    property variant pulsarShotSystem
+
     property variant sandaarShotSys: enemyShotParticles
 
     signal waveDestroy

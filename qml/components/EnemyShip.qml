@@ -25,7 +25,7 @@ Item{
 //        jump: true
 //        anchors.fill: enemyShip
 //        goalState: "pulsarTarget"
-//        system: sandaarShotSystem
+//        system: pulsarShotSystem
 
 //        Component.onCompleted:{
 //            console.log( "Creating: Pulsar Group Goal > " + sandaarHitArea);
