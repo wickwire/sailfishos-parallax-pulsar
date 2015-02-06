@@ -45,7 +45,7 @@ Page {
     property variant parallaxShotComponent
     property variant parallaxShotObject
     property int enemyWaveTotalDelay
-    property int pulsarLivesLeft : 2
+    property int pulsarLives : 3
 
     signal receiveWaveTotalDelay(int totalDelay)
     signal enemyShipXchanged(int enemyShipCurrentX)
@@ -106,11 +106,13 @@ Page {
     }
 
     onParallaxPulsarBlasted:{
-        if(pulsarLivesLeft > 0){
-            pulsarLivesLeft--;
-            console.log("Parallax Blasted, lives left: " + pulsarLivesLeft);
 
-            if(pulsarLivesLeft == 2){
+        pulsarLives--;
+
+        if(pulsarLives > 0){
+            console.log("Parallax Blasted, lives left: " + pulsarLives);
+
+            if(pulsarLives == (pulsarLives-1)){
                 ppulsarLivesTimer.interval=0
             }
             else{
@@ -124,6 +126,7 @@ Page {
         else{
             console.log("Parallax Blasted, no more lives - Game Over!");
         }
+
     }
 
     onReceiveWaveTotalDelay: {
@@ -200,5 +203,24 @@ Page {
             parallaxShipObject.enemyShipY=enemyShipCurrentY;
             parallaxShipObject.pulsarCheckCollision();
         }
+    }
+
+
+    Text{
+        id: pulsarLiveCounter
+        text: pulsarLives > 0 ? "PP Lives: " + pulsarLives : "Game Over!"
+        color: "white"
+        rotation: -90
+        y: parent.height-pulsarLiveCounter.width
+        x: parent.width-pulsarLiveCounter.width
+    }
+
+    Text{
+        id: scoreCounter
+        text: "Score: "
+        color: "white"
+        rotation: -90
+        y: pulsarLiveCounter.width
+        x: parent.width-pulsarLiveCounter.width
     }
 }
