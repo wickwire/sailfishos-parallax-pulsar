@@ -4,12 +4,12 @@ import QtQuick.Particles 2.0
 //phone with screen facing up
 Item{
     id: ppulsarShip
-    width:76
-    height: 76
     //    x: qmlAccelcontrols.valAccelZ;
     //    y: qmlAccelcontrols.valAccelY;
     x: qmlAccelcontrols.valAccelX;
     y: qmlAccelcontrols.valAccelY;
+    width: ppulsarSvg.width
+    height: ppulsarSvg.height
 
     property int ppulsarShipCenterX : Math.floor(x+height/2)
     property int ppulsarShipCenterY : Math.floor(y+width/2)
@@ -17,10 +17,15 @@ Item{
     property int pulsarDestroyX : 0
     property int pulsarDestroyY : 0
 
+    PPulsarShot{
+        id: parallaxPulsarShot
+        anchors.centerIn: parent
+    }
+
     Image {
         id: ppulsarSvg
         source: "qrc:///images/spaceship.svg"
-        anchors.centerIn: ppulsarShipHolder
+        anchors.centerIn: ppulsarShip
         sourceSize.width: 76
         sourceSize.height: 76
     }
@@ -28,15 +33,8 @@ Item{
     ShipExplosion{
         id: ppulsarExplosion
         explosionEnabled: false
-        anchors.centerIn: ppulsarShipHolder
+        anchors.centerIn: ppulsarShip
     }
-
-    Item {
-        id: ppulsarShipHolder
-        width: ppulsarSvg.width
-        height: ppulsarSvg.height
-    }
-
 
     Timer {
         id: shipExplode
@@ -81,7 +79,7 @@ Item{
     GroupGoal{
         id: pulsarHitArea
         jump: true
-        anchors.fill: ppulsarShip
+        anchors.fill: ppulsarSvg
         goalState: "pulsarTarget"
         system: sandaarShotSystem
 

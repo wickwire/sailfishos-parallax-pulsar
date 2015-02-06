@@ -1,14 +1,14 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
 
-Rectangle{
+Item{
     id: pulsarHolder
     width: page.width
     height: page.height
-    color: "transparent"
 
     property int enemyShipX
     property int enemyShipY
+    property int ppulsarEmitterLifeSpan
 
     property variant sandaarShotSystem
     property variant pulsarShotSystem
@@ -18,14 +18,6 @@ Rectangle{
 
     PPulsarShip{
         id: parallaxPulsar
-    }
-
-    PPulsarShot{
-        id: parallaxPulsarShot
-        shipX: parallaxPulsar.x
-        shipY: parallaxPulsar.y
-        shipWidth: parallaxPulsar.width
-        shipHeight: parallaxPulsar.height
     }
 
     function parallaxDestroy(){
@@ -42,7 +34,7 @@ Rectangle{
 
     onPulsarShipBlasted: {
         console.log( "Pulsar Explosion finished!");
-        pulsarHolder.destroy(parallaxPulsarShot.ppulsarEmitterLifeSpan);
+        pulsarHolder.destroy(ppulsarEmitterLifeSpan);
         parallaxPulsarBlasted();
     }
 

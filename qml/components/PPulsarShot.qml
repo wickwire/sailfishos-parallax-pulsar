@@ -1,17 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
 
-Rectangle{
+Item{
     id: ppulsarShot
-    width: page.width
-    height: page.height
-    color: "transparent"
-
-    property int shipX
-    property int shipY
-    property int shipWidth
-    property int shipHeight
-    property alias ppulsarEmitterLifeSpan: parallaxPulsarShotEmitter.lifeSpan
 
     ImageParticle {
         id: pulsarShotParticle
@@ -30,8 +21,6 @@ Rectangle{
         lifeSpan: 2000
         size: 140
         velocity: PointDirection { y: -512; }
-        x: shipX + shipWidth/2
-        y: shipY + shipHeight/2
         enabled: qmlWeaponTrigger.valProxim
 
         onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle + " Particle System " + pulsarShotParticles);
@@ -55,6 +44,7 @@ Rectangle{
     }
 
     Component.onCompleted:{
+        ppulsarEmitterLifeSpan=parallaxPulsarShotEmitter.lifeSpan;
         console.log("Creating Pulsar Shot " + ppulsarShot);
     }
 }
