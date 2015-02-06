@@ -67,6 +67,7 @@ Page {
         system: pulsarShotParticles
         onEntered:{
             console.log("Sandaar was SHOT DOWN!");
+            enemyWaveObject.sandaarDestroy();
         }
 
         Component.onCompleted:{

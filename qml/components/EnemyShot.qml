@@ -33,5 +33,18 @@ Rectangle{
         velocity: PointDirection { y: 512; }
         enabled: true
     }
+
+    Timer{
+        id: shotDestroyDelay
+        interval: enemyShotEmitter.lifeSpan
+        running: false
+        repeat: false
+        onTriggered: enemyShot.destroy();
+    }
+
+    function destroyShot(){
+        enemyShotEmitter.enabled=false
+        shotDestroyDelay.running=true
+    }
 }
 

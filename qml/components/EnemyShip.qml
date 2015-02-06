@@ -6,6 +6,9 @@ Item{
     property int sandaarScumCenterX : Math.floor(x+sandaarShip.height/2)
     property int sandaarScumCenterY : Math.floor(y+sandaarShip.width/2)
 
+    property int sandaarDestroyX : 0
+    property int sandaarDestroyY : 0
+
     EnemyShot{
         id: sandaarShot
     }
@@ -34,6 +37,51 @@ Item{
         Component.onDestruction:{
             console.log( "Destroying: Pulsar Group Goal > " + sandaarHitArea);
         }
+    }
+
+    ShipExplosion{
+        id: sandaarExplosion
+        explosionEnabled: false
+        anchors.centerIn: sandaarShip
+    }
+
+    Timer {
+        id: shipExplode
+        interval: 500;
+        running: exploding;
+        repeat: false
+        onTriggered: {
+            sandaarExplosion.explosionEnabled=false;
+            sandaarExplosion.destroy();
+        }
+        property bool exploding
+    }
+
+    function destroyShip(){
+
+        if(sandaarHitArea){
+            sandaarHitArea.destroy();
+        }
+
+        if(sandaarShot){
+            sandaarShot.destroyShot()
+        }
+
+        sandaarShip.visible=false;
+
+        if(sandaarDestroyX == 0)
+            sandaarDestroyX = enemyShip.x;
+
+        if(sandaarDestroyY == 0)
+            sandaarDestroyY = enemyShip.y;
+
+        if(sandaarExplosion){
+            sandaarShip.x=sandaarDestroyX;
+            sandaarShip.y=sandaarDestroyY;
+            sandaarExplosion.explosionEnabled = true;
+            shipExplode.exploding=true;
+        }
+
     }
 
     Component.onDestruction: {

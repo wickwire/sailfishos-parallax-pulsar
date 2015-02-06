@@ -21,6 +21,11 @@ Rectangle{
 
     signal waveDestroy
 
+    function sandaarDestroy(){
+        console.log("sandaarShip.destroyShip();");
+        sandaarShip.destroyShip();
+    }
+
     Repeater{
 
         id: enemyShipGenerator
