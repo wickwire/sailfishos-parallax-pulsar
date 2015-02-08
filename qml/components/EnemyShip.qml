@@ -9,6 +9,7 @@ Item{
     property int sandaarDestroyX : 0
     property int sandaarDestroyY : 0
 
+
     EnemyShot{
         id: sandaarShot
     }
@@ -29,6 +30,7 @@ Item{
         anchors.fill: sandaarShip
         goalState: "sandaarTarget"
         system: pulsarShotSystem
+        enabled: enemyShotHolder.sandaarHitAreaGoalState
 
         Component.onCompleted:{
             console.log( "Creating: Pulsar Group Goal > " + sandaarHitArea);

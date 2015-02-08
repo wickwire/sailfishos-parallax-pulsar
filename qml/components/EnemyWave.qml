@@ -14,16 +14,16 @@ Rectangle{
     property int waitstep : 3000
     property int wavePathDuration
     property int waveTotalDelay: waveLastDelay+wavePathDuration+waitstep
-
     property variant pulsarShotSystem
-
     property variant sandaarShotSys: enemyShotParticles
 
     signal waveDestroy
 
     function sandaarDestroy(){
-        console.log("sandaarShip.destroyShip();");
-        sandaarShip.destroyShip();
+        console.log("Sandaar 'Destroy'");
+        gameScore=gameScore+50;
+        enemyShipGenerator.itemAt(5).visible=false;
+        enemyShipGenerator.itemAt(5).sandaarHitAreaGoalState=false;
     }
 
     Repeater{
@@ -33,6 +33,8 @@ Rectangle{
 
         Item{
             id: enemyShotHolder
+
+            property bool sandaarHitAreaGoalState : true
 
             EnemyWaveTimer{
                 id: sandaarTimer

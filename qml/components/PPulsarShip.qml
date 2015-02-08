@@ -4,8 +4,8 @@ import QtQuick.Particles 2.0
 //phone with screen facing up
 Item{
     id: ppulsarShip
-    //    x: qmlAccelcontrols.valAccelZ;
-    //    y: qmlAccelcontrols.valAccelY;
+//    x: qmlAccelcontrols.valAccelZ;
+//    y: qmlAccelcontrols.valAccelY;
     x: qmlAccelcontrols.valAccelX;
     y: qmlAccelcontrols.valAccelY;
     width: ppulsarSvg.width

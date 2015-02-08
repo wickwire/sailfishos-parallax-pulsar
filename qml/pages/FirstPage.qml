@@ -46,6 +46,7 @@ Page {
     property variant parallaxShotObject
     property int enemyWaveTotalDelay
     property int pulsarLives : 3
+    property int gameScore : 0
 
     signal receiveWaveTotalDelay(int totalDelay)
     signal enemyShipXchanged(int enemyShipCurrentX)
@@ -168,7 +169,7 @@ Page {
         running: applicationActive
         repeat: true
         onTriggered: {
-            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles});
+            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles,"sandaarHitAreaGoalState":true});
             console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }
@@ -218,7 +219,7 @@ Page {
 
     Text{
         id: scoreCounter
-        text: "Score: "
+        text: "Score: " + gameScore
         color: "white"
         rotation: -90
         y: pulsarLiveCounter.width
