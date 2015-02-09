@@ -58,6 +58,11 @@ Rectangle{
                 id: sandaarPath
                 running: false
             }
+
+            Component.onCompleted: {
+
+                console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
+            }
         }
     }
 
