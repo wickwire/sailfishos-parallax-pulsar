@@ -60,12 +60,16 @@ Rectangle{
                 id: sandaarPath
                 running: false
             }
-
             Component.onCompleted: {
                 var enemyWavePair = [];
-                enemyWavePair.push({"idx":index.toString()+"-"+sandaarShip.toString()})
+                enemyWavePair.push({"idx":
+                  [
+                    {"repeaterIdx":index.toString()},
+                    {"sandaarID":sandaarShip.toString()}
+                  ]
+                })
                 //console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
-                console.log("@EnemyWave > " + enemyWavePair[0].idx);
+                console.log("@EnemyWave : " + enemyWavePair[0].idx[0].repeaterIdx + " >< " + enemyWavePair[0].idx[1].sandaarID);
             }
         }
     }
