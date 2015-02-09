@@ -18,6 +18,8 @@ Rectangle{
     property variant sandaarShotSys: enemyShotParticles
     property string sandaarShotDown
 
+    //property variant enemyWavePair
+
     signal waveDestroy
 
     function sandaarDestroy(){
@@ -60,8 +62,10 @@ Rectangle{
             }
 
             Component.onCompleted: {
-
-                console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
+                var enemyWavePair = [];
+                enemyWavePair.push({"idx":index.toString()+"-"+sandaarShip.toString()})
+                //console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
+                console.log("@EnemyWave > " + enemyWavePair[0].idx);
             }
         }
     }
