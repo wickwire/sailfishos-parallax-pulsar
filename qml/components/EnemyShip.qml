@@ -39,6 +39,11 @@ Item{
         Component.onDestruction:{
             console.log( "Destroying: Pulsar Group Goal > " + sandaarHitArea);
         }
+
+        onAffected: {
+            sandaarShotDown=enemyShip.toString();
+            console.log("SANDAAR WAS HIT!! " + sandaarShotDown);
+        }
     }
 
     ShipExplosion{
