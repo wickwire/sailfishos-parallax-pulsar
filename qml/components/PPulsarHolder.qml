@@ -8,6 +8,8 @@ Item{
 
     property int enemyShipX
     property int enemyShipY
+    property bool enemyShipVisible
+
     property int ppulsarEmitterLifeSpan
 
     property variant sandaarShotSystem
@@ -24,9 +26,11 @@ Item{
     }
 
     onPulsarCheckCollision: {
-        if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<32){
-            if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<32){
-                parallaxPulsar.destroyShip();
+        if(parallaxPulsar.enemyShipVisible == true){
+            if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<32){
+                if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<32){
+                    parallaxPulsar.destroyShip();
+                }
             }
         }
     }

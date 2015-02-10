@@ -5,6 +5,7 @@ Item{
     id: enemyShip
     property int sandaarScumCenterX : Math.floor(x+sandaarShip.height/2)
     property int sandaarScumCenterY : Math.floor(y+sandaarShip.width/2)
+    property bool sandaarScumVisible : sandaarShip.visible
 
     property int sandaarDestroyX : 0
     property int sandaarDestroyY : 0

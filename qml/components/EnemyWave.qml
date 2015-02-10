@@ -17,8 +17,7 @@ Rectangle{
     property variant pulsarShotSystem
     property variant sandaarShotSys: enemyShotParticles
     property string sandaarShotDown
-
-    //property variant enemyWavePair
+    property variant enemyWavePair
 
     signal waveDestroy
 
@@ -29,11 +28,11 @@ Rectangle{
                 gameScore=gameScore+50;
                 enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).visible=false;
                 enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarHitAreaGoalState=false;
+                enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarShotEmitter=false;
             }
         }
     }
 
-    property variant enemyWavePair
 
     Repeater{
 
@@ -44,6 +43,7 @@ Rectangle{
             id: enemyShotHolder
 
             property bool sandaarHitAreaGoalState : true
+            property bool sandaarShotEmitter: true
             property variant enemyWavePairArray : enemyShipGenerator.enemyWavePair
 
             EnemyWaveTimer{
@@ -55,12 +55,12 @@ Rectangle{
 
                 onXChanged:{
                     //console.log("sandaarScumCenterX " + sandaarScumCenterX);
-                    enemyShipXchanged(sandaarScumCenterX);
+                    enemyShipXchanged(sandaarScumCenterX, sandaarScumVisible);
                 }
 
                 onYChanged:{
                     //console.log("sandaarScumCenterY " + sandaarScumCenterY);
-                    enemyShipYchanged(sandaarScumCenterY);
+                    enemyShipYchanged(sandaarScumCenterY, sandaarScumVisible);
                 }
             }
             EnemyWavePath{

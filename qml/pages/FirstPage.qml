@@ -49,8 +49,8 @@ Page {
     property int gameScore : 0
 
     signal receiveWaveTotalDelay(int totalDelay)
-    signal enemyShipXchanged(int enemyShipCurrentX)
-    signal enemyShipYchanged(int enemyShipCurrentY)
+    signal enemyShipXchanged(int enemyShipCurrentX, bool enemyShipCurrentVisibility)
+    signal enemyShipYchanged(int enemyShipCurrentY, bool enemyShipCurrentVisibility)
     signal parallaxPulsarBlasted
 
     ParticleSystem {
@@ -196,6 +196,7 @@ Page {
     onEnemyShipXchanged:{
         if(parallaxShipObject){
             parallaxShipObject.enemyShipX=enemyShipCurrentX;
+            parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
             parallaxShipObject.pulsarCheckCollision();
         }
     }
@@ -203,6 +204,7 @@ Page {
     onEnemyShipYchanged:{
         if(parallaxShipObject){
             parallaxShipObject.enemyShipY=enemyShipCurrentY;
+            parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
             parallaxShipObject.pulsarCheckCollision();
         }
     }

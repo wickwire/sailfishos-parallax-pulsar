@@ -31,7 +31,7 @@ Rectangle{
         lifeSpan: 2000
         size: 40
         velocity: PointDirection { y: 512; }
-        enabled: true
+        enabled: enemyShotHolder.sandaarShotEmitter
     }
 
     Timer{
