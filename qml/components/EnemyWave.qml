@@ -23,10 +23,17 @@ Rectangle{
     signal waveDestroy
 
     function sandaarDestroy(){
-        console.log("Sandaar 'Destroy'");
+        console.log("Sandaar 'Destroy' " + sandaarShotDown);
         gameScore=gameScore+50;
-        enemyShipGenerator.itemAt(5).visible=false;
-        enemyShipGenerator.itemAt(5).sandaarHitAreaGoalState=false;
+
+        for (var repeatArrayCnt = 0; repeatArrayCnt < enemyWavePair.length; repeatArrayCnt++) {
+            if(sandaarShotDown == enemyWavePair[repeatArrayCnt].idx[1].sandaarID){
+                console.log("@EnemyWave MATCH: " + "Sandaar Shot Down: " + sandaarShotDown + " enemyWavePair: " + enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx + " >< " + enemyWavePair[repeatArrayCnt].idx[1].sandaarID);
+            }
+        }
+
+//        enemyShipGenerator.itemAt(5).visible=false;
+//        enemyShipGenerator.itemAt(5).sandaarHitAreaGoalState=false;
     }
 
     property variant enemyWavePair
@@ -82,7 +89,7 @@ Rectangle{
                 enemyWavePair=enemyWavePairTmp;
 
                 //console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
-                console.log("@EnemyWave : " + enemyWavePairTmp[index].idx[0].repeaterIdx + " >< " + enemyWavePairTmp[index].idx[1].sandaarID);
+                //console.log("@EnemyWave : " + enemyWavePairTmp[index].idx[0].repeaterIdx + " >< " + enemyWavePairTmp[index].idx[1].sandaarID);
             }
         }
     }
