@@ -29,6 +29,8 @@ Rectangle{
         enemyShipGenerator.itemAt(5).sandaarHitAreaGoalState=false;
     }
 
+    property variant enemyWavePair
+
     Repeater{
 
         id: enemyShipGenerator
@@ -38,6 +40,7 @@ Rectangle{
             id: enemyShotHolder
 
             property bool sandaarHitAreaGoalState : true
+            property variant enemyWavePairArray : enemyShipGenerator.enemyWavePair
 
             EnemyWaveTimer{
                 id: sandaarTimer
@@ -60,16 +63,26 @@ Rectangle{
                 id: sandaarPath
                 running: false
             }
+
             Component.onCompleted: {
-                var enemyWavePair = [];
-                enemyWavePair.push({"idx":
-                  [
-                    {"repeaterIdx":index.toString()},
-                    {"sandaarID":sandaarShip.toString()}
-                  ]
-                })
+                if(index === 0){
+                    var enemyWavePairTmp = [];
+                }
+                else{
+                    enemyWavePairTmp = enemyWavePair;
+                }
+
+                enemyWavePairTmp.push({"idx":
+                                              [
+                                              {"repeaterIdx":index.toString()},
+                                              {"sandaarID":sandaarShip.toString()}
+                                          ]
+                                      })
+
+                enemyWavePair=enemyWavePairTmp;
+
                 //console.log("@EnemyWave: " + " Repeater Index > " + index + " enemyShotHolder > " + enemyShotHolder + " sandaarTimer > " + sandaarTimer + " sandaarShip > " + sandaarShip + " sandaarPath > " + sandaarPath);
-                console.log("@EnemyWave : " + enemyWavePair[0].idx[0].repeaterIdx + " >< " + enemyWavePair[0].idx[1].sandaarID);
+                console.log("@EnemyWave : " + enemyWavePairTmp[index].idx[0].repeaterIdx + " >< " + enemyWavePairTmp[index].idx[1].sandaarID);
             }
         }
     }
