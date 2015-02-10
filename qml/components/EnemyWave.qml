@@ -23,17 +23,14 @@ Rectangle{
     signal waveDestroy
 
     function sandaarDestroy(){
-        console.log("Sandaar 'Destroy' " + sandaarShotDown);
-        gameScore=gameScore+50;
-
         for (var repeatArrayCnt = 0; repeatArrayCnt < enemyWavePair.length; repeatArrayCnt++) {
             if(sandaarShotDown == enemyWavePair[repeatArrayCnt].idx[1].sandaarID){
                 console.log("@EnemyWave MATCH: " + "Sandaar Shot Down: " + sandaarShotDown + " enemyWavePair: " + enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx + " >< " + enemyWavePair[repeatArrayCnt].idx[1].sandaarID);
+                gameScore=gameScore+50;
+                enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).visible=false;
+                enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarHitAreaGoalState=false;
             }
         }
-
-//        enemyShipGenerator.itemAt(5).visible=false;
-//        enemyShipGenerator.itemAt(5).sandaarHitAreaGoalState=false;
     }
 
     property variant enemyWavePair
