@@ -12,6 +12,8 @@ Item{
 
     property variant sandaarExplosion
 
+    x: -sandaarShip.width
+    y: -sandaarShip.height
 
     EnemyShot{
         id: sandaarShot
@@ -20,11 +22,32 @@ Item{
     Image {
 
         id: sandaarShip
-        source: "qrc:///images/sandaarScum.svg"
+        //source: "qrc:///images/sandaarScum.svg"
         anchors.centerIn: parent
         sourceSize.width: 76
         sourceSize.height: 76
         rotation: 180
+
+        Component.onCompleted: {
+            if(enemyWaveCounter==0){
+               source="qrc:///images/sandaarScum.svg"
+            }
+            else if(enemyWaveCounter==1){
+                source="qrc:///images/sandaarScum001.png"
+             }
+            else if(enemyWaveCounter==2){
+                source="qrc:///images/sandaarScum002.png"
+             }
+            else if(enemyWaveCounter==3){
+                source="qrc:///images/sandaarScum003.png"
+             }
+            else if(enemyWaveCounter==4){
+                source="qrc:///images/sandaarScum004.png"
+             }
+            else{
+                source="qrc:///images/sandaarScum.svg"
+             }
+        }
     }
 
     GroupGoal{

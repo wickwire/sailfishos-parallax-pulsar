@@ -12,8 +12,8 @@ PathAnimation {
     anchorPoint: Qt.point(sandaarShip.width/2,
                           sandaarShip.height/2)
     path: Path {
-        startX: sandaarShip.width/2
-        startY: sandaarShip.height/2
+        startX: -sandaarShip.width/2
+        startY: -sandaarShip.height/2
 
         PathLine {id: checkpoint1}
         PathLine {id: checkpoint2}
@@ -21,46 +21,49 @@ PathAnimation {
 
         Component.onCompleted: {
             if(enemyWaveCounter==0){
-                checkpoint1.x=0
-                checkpoint1.y=page.height/5
-                checkpoint2.x=page.width
+                startX=-page.width*0.25
+                checkpoint1.x=-page.width*0.25
+                checkpoint1.y=page.height*0.2
+                checkpoint2.x=page.width*0.75
                 checkpoint2.y=checkpoint1.y
                 checkpoint3.x=checkpoint2.x
-                checkpoint3.y=page.height
+                checkpoint3.y=page.height*1.2
             }
             else if(enemyWaveCounter==1){
-                startX=page.width
-                checkpoint1.x=page.width
-                checkpoint1.y=page.height/6
-                checkpoint2.x=0
-                checkpoint2.y=checkpoint1.y
-                checkpoint3.x=checkpoint2.x
-                checkpoint3.y=page.height
+                startX=page.width*1.2
+                checkpoint1.x=-page.width*(Math.random(0.25))
+                checkpoint1.y=-page.height*(Math.random(0.25))
+                checkpoint2.x=page.width*(Math.random(0.25))
+                checkpoint2.y=page.height*(Math.random(0.25))
+                checkpoint3.x=page.width*(Math.random(0.25))
+                checkpoint3.y=page.height*1.2
             }
             else if(enemyWaveCounter==2){
-                checkpoint1.x=page.width/3
-                checkpoint1.y=page.height/2
-                checkpoint2.x=page.width/1.5
-                checkpoint2.y=checkpoint1.y
-                checkpoint3.x=checkpoint2.x
-                checkpoint3.y=page.height
+                startX=page.width*1.2
+                checkpoint1.x=-page.width*(Math.random(0.15))
+                checkpoint1.y=-page.height*(Math.random(0.15))
+                checkpoint2.x=page.width*(Math.random(0.35))
+                checkpoint2.y=page.height*(Math.random(0.35))
+                checkpoint3.x=page.width*(Math.random(0.3))
+                checkpoint3.y=page.height*1.2
             }
             else if(enemyWaveCounter==3){
-                startX=page.width
-                checkpoint1.x=page.width/2
-                checkpoint1.y=page.height/4
-                checkpoint2.x=page.width/2
-                checkpoint2.y=checkpoint1.y
-                checkpoint3.x=page.width/3
-                checkpoint3.y=page.height/3
+                startX=-page.width*0.25
+                checkpoint1.x=page.width*0.5
+                checkpoint1.y=page.height*0.25
+                checkpoint2.x=page.width*0.25
+                checkpoint2.y=page.height*0.16
+                checkpoint3.x=page.width*1.2
+                checkpoint3.y=page.height*1.2
             }
             else{
-                checkpoint1.x=page.width
-                checkpoint1.y=page.height
-                checkpoint2.x=page.width/2
-                checkpoint2.y=checkpoint1.y
-                checkpoint3.x=checkpoint2.x
-                checkpoint3.y=page.height/4
+                startX=-page.width*0.25
+                checkpoint1.x=-page.width*(Math.random(0.3))
+                checkpoint1.y=-page.height*(Math.random(0.3))
+                checkpoint2.x=page.width*(Math.random(0.3))
+                checkpoint2.y=page.height*(Math.random(0.3))
+                checkpoint3.x=page.width*(Math.random(0.3))
+                checkpoint3.y=page.height*1.2
             }
         }
     }
