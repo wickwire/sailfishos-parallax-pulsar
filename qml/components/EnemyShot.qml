@@ -27,7 +27,7 @@ Rectangle{
         id: enemyShotEmitter
         system: enemyShotParticles
         group: "enemyShot"
-        emitRate: 1
+        emitRate: 2
         lifeSpan: 2000
         size: 40
         velocity: PointDirection { y: 512; }

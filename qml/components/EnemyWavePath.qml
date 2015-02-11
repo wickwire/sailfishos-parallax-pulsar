@@ -31,19 +31,19 @@ PathAnimation {
             }
             else if(enemyWaveCounter==1){
                 startX=page.width*1.2
-                checkpoint1.x=-page.width*(Math.random(0.25))
-                checkpoint1.y=-page.height*(Math.random(0.25))
-                checkpoint2.x=page.width*(Math.random(0.25))
-                checkpoint2.y=page.height*(Math.random(0.25))
-                checkpoint3.x=page.width*(Math.random(0.25))
+                checkpoint1.x=-page.width*(Math.random(0.10))
+                checkpoint1.y=page.height*(Math.random(0.50))
+                checkpoint2.x=page.width*(Math.random(0.10))
+                checkpoint2.y=-page.height*(Math.random(0.10))
+                checkpoint3.x=page.width*(Math.random(0.10))
                 checkpoint3.y=page.height*1.2
             }
             else if(enemyWaveCounter==2){
                 startX=page.width*1.2
-                checkpoint1.x=-page.width*(Math.random(0.15))
-                checkpoint1.y=-page.height*(Math.random(0.15))
-                checkpoint2.x=page.width*(Math.random(0.35))
-                checkpoint2.y=page.height*(Math.random(0.35))
+                checkpoint1.x=-page.width*(Math.random(0.10))
+                checkpoint1.y=page.height*(Math.random(0.50))
+                checkpoint2.x=page.width*(Math.random(0.25))
+                checkpoint2.y=-page.height*(Math.random(0.25))
                 checkpoint3.x=page.width*(Math.random(0.3))
                 checkpoint3.y=page.height*1.2
             }
@@ -59,9 +59,9 @@ PathAnimation {
             else{
                 startX=-page.width*0.25
                 checkpoint1.x=-page.width*(Math.random(0.3))
-                checkpoint1.y=-page.height*(Math.random(0.3))
+                checkpoint1.y=page.height*(Math.random(0.3))
                 checkpoint2.x=page.width*(Math.random(0.3))
-                checkpoint2.y=page.height*(Math.random(0.3))
+                checkpoint2.y=-page.height*(Math.random(0.3))
                 checkpoint3.x=page.width*(Math.random(0.3))
                 checkpoint3.y=page.height*1.2
             }
