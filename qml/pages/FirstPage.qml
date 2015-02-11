@@ -52,6 +52,7 @@ Page {
     signal enemyShipXchanged(int enemyShipCurrentX, bool enemyShipCurrentVisibility)
     signal enemyShipYchanged(int enemyShipCurrentY, bool enemyShipCurrentVisibility)
     signal parallaxPulsarBlasted
+    property int enemyWaveCounter
 
     ParticleSystem {
         id: pulsarShotParticles
@@ -170,6 +171,7 @@ Page {
         repeat: true
         onTriggered: {
             enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles,"sandaarHitAreaGoalState":true});
+            enemyWaveCounter++;
 //            console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }

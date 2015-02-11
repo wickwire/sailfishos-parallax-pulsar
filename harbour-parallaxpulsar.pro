@@ -38,7 +38,8 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/components/EnemyWaveTimer.qml \
     qml/components/PPulsarHolder.qml \
     qml/components/PPulsarExplosion.qml \
-    qml/components/EnemyExplosion.qml
+    qml/components/EnemyExplosion.qml \
+    qml/components/EnemyWavePathFunction.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
