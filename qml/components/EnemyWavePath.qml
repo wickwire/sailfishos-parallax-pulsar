@@ -26,17 +26,17 @@ PathAnimation {
 
     onStopped: {
         if(sandaarTimer.interval == waveLastDelay){
-            console.log("Repeater Index > " + waveCounter);
+            //            console.log("Repeater Index > " + waveCounter);
             waveDestroy();
         }
     }
 
-    Component.onDestruction: {
-        console.log( "Destroying: Enemy Path > " + enemyPath);
-    }
+    //    Component.onDestruction: {
+    //        console.log( "Destroying: Enemy Path > " + enemyPath);
+    //    }
 
     Component.onCompleted:{
         wavePathDuration=enemyPath.duration;
-        console.log("Creating Enemy Path " + enemyPath);
+        //        console.log("Creating Enemy Path " + enemyPath);
     }
 }

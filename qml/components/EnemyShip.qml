@@ -35,17 +35,17 @@ Item{
         system: pulsarShotSystem
         enabled: enemyShotHolder.sandaarHitAreaGoalState
 
-        Component.onCompleted:{
-            console.log( "Creating: Pulsar Group Goal > " + sandaarHitArea);
-        }
+        //        Component.onCompleted:{
+        //            console.log( "Creating: Pulsar Group Goal > " + sandaarHitArea);
+        //        }
 
-        Component.onDestruction:{
-            console.log( "Destroying: Pulsar Group Goal > " + sandaarHitArea);
-        }
+        //        Component.onDestruction:{
+        //            console.log( "Destroying: Pulsar Group Goal > " + sandaarHitArea);
+        //        }
 
         onAffected: {
             sandaarShotDown=enemyShip.toString();
-            console.log("SANDAAR WAS HIT!! " + sandaarShotDown);
+            //            console.log("SANDAAR WAS HIT!! " + sandaarShotDown);
         }
     }
 
@@ -62,7 +62,7 @@ Item{
     }
 
     function destroyShip(){
-        console.log("@EnemyShip - destroyShip()");
+//        console.log("@EnemyShip - destroyShip()");
 
         sandaarShip.visible=false;
 
@@ -72,7 +72,7 @@ Item{
         if(sandaarDestroyY == 0)
             sandaarDestroyY = enemyShip.y;
 
-        console.log("sandaarDestroyX " + sandaarDestroyX + "sandaarDestroyY " + sandaarDestroyY);
+//        console.log("sandaarDestroyX " + sandaarDestroyX + "sandaarDestroyY " + sandaarDestroyY);
 
         if(sandaarExplosion){
             sandaarExplosion.x=sandaarDestroyX;
@@ -83,11 +83,11 @@ Item{
 
     }
 
-    Component.onDestruction: {
-        console.log( "Destroying: Enemy Ship > " + enemyShip);
-    }
+    //    Component.onDestruction: {
+    //        console.log( "Destroying: Enemy Ship > " + enemyShip);
+    //    }
 
-    Component.onCompleted:{
-        console.log("Creating Enemy Ship " + enemyShip);
-    }
+    //    Component.onCompleted:{
+    //        console.log("Creating Enemy Ship " + enemyShip);
+    //    }
 }

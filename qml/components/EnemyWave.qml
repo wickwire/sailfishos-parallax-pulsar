@@ -24,7 +24,7 @@ Rectangle{
     function sandaarDestroy(){
         for (var repeatArrayCnt = 0; repeatArrayCnt < enemyWavePair.length; repeatArrayCnt++) {
             if(sandaarShotDown == enemyWavePair[repeatArrayCnt].idx[1].sandaarID){
-                console.log("@EnemyWave MATCH: " + "Sandaar Shot Down: " + sandaarShotDown + " enemyWavePair: " + enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx + " >< " + enemyWavePair[repeatArrayCnt].idx[1].sandaarID);
+                //console.log("@EnemyWave MATCH: " + "Sandaar Shot Down: " + sandaarShotDown + " enemyWavePair: " + enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx + " >< " + enemyWavePair[repeatArrayCnt].idx[1].sandaarID);
                 gameScore=gameScore+50;
                 //enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).visible=false;
                 enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarHitAreaGoalState=false;
@@ -73,7 +73,7 @@ Rectangle{
             }
 
             function sandaarShipDestroy(){
-                console.log("@sandaarShipDestroy");
+                //console.log("@sandaarShipDestroy");
                 sandaarShip.destroyShip();
             }
 
@@ -107,13 +107,13 @@ Rectangle{
     }
 
     onWaveDestroy: {
-        console.log("Destroying: Wave > " + enemyWave);
+        //console.log("Destroying: Wave > " + enemyWave);
         enemyWave.destroy();
     }
 
     Component.onCompleted: {
-        console.log("Creating Enemy Wave " + enemyWave);
-        console.log("@EnemyWave - Enemy Wave Total Delay: " + waveTotalDelay);
+        //console.log("Creating Enemy Wave " + enemyWave);
+        //console.log("@EnemyWave - Enemy Wave Total Delay: " + waveTotalDelay);
         receiveWaveTotalDelay(waveTotalDelay);
     }
 }

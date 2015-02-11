@@ -23,7 +23,7 @@ Item{
         velocity: PointDirection { y: -512; }
         enabled: qmlWeaponTrigger.valProxim
 
-        onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle + " Particle System " + pulsarShotParticles);
+//        onEmitParticles: console.log("Pulsar Shot Fired!" + pulsarShotParticle + " Particle System " + pulsarShotParticles);
     }
 
     Timer{
@@ -39,12 +39,12 @@ Item{
         shotDestroyDelay.running=true
     }
 
-    Component.onDestruction:{
-        console.log( "Destroying Pulsar Shot > " + ppulsarShot);
-    }
+//    Component.onDestruction:{
+//        console.log( "Destroying Pulsar Shot > " + ppulsarShot);
+//    }
 
     Component.onCompleted:{
         ppulsarEmitterLifeSpan=parallaxPulsarShotEmitter.lifeSpan;
-        console.log("Creating Pulsar Shot " + ppulsarShot);
+//        console.log("Creating Pulsar Shot " + ppulsarShot);
     }
 }

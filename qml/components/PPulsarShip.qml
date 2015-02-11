@@ -4,8 +4,8 @@ import QtQuick.Particles 2.0
 //phone with screen facing up
 Item{
     id: ppulsarShip
-//    x: qmlAccelcontrols.valAccelZ;
-//    y: qmlAccelcontrols.valAccelY;
+    //    x: qmlAccelcontrols.valAccelZ;
+    //    y: qmlAccelcontrols.valAccelY;
     x: qmlAccelcontrols.valAccelX;
     y: qmlAccelcontrols.valAccelY;
     width: ppulsarSvg.width
@@ -83,20 +83,20 @@ Item{
         goalState: "pulsarTarget"
         system: sandaarShotSystem
 
-        Component.onCompleted:{
-            console.log( "Creating: Pulsar Group Goal > " + pulsarHitArea);
-        }
+        //        Component.onCompleted:{
+        //            console.log( "Creating: Pulsar Group Goal > " + pulsarHitArea);
+        //        }
 
-        Component.onDestruction:{
-            console.log( "Destroying: Pulsar Group Goal > " + pulsarHitArea);
-        }
+        //        Component.onDestruction:{
+        //            console.log( "Destroying: Pulsar Group Goal > " + pulsarHitArea);
+        //        }
     }
 
-    Component.onCompleted:{
-        console.log( "Creating: Pulsar Ship > " + ppulsarShip);
-    }
+    //    Component.onCompleted:{
+    //        console.log( "Creating: Pulsar Ship > " + ppulsarShip);
+    //    }
 
-    Component.onDestruction:{
-        console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
-    }
+    //    Component.onDestruction:{
+    //        console.log( "Destroying: Pulsar Ship > " + ppulsarShip);
+    //    }
 }

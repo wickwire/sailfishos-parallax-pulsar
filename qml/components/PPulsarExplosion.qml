@@ -40,7 +40,6 @@ Rectangle{
         if(parallaxShipObject){
             parallaxShipObject.pulsarShipBlasted();
         }
-
-        console.log( "Destroying: Pulsar Explosion > " + pulsarExplosion);
+        //        console.log( "Destroying: Pulsar Explosion > " + pulsarExplosion);
     }
 }

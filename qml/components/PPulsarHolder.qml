@@ -36,12 +36,12 @@ Item{
     }
 
     onPulsarShipBlasted: {
-        console.log( "Pulsar Explosion finished!");
+        //        console.log( "Pulsar Explosion finished!");
         pulsarHolder.destroy(ppulsarEmitterLifeSpan);
         parallaxPulsarBlasted();
     }
 
-    Component.onCompleted: console.log("Creating Pulsar Holder " + pulsarHolder)
+    //    Component.onCompleted: console.log("Creating Pulsar Holder " + pulsarHolder)
 
-    Component.onDestruction: console.log("Destroying Pulsar Holder " + pulsarHolder)
+    //    Component.onDestruction: console.log("Destroying Pulsar Holder " + pulsarHolder)
 }

@@ -36,9 +36,8 @@ Rectangle{
         }
     }
 
-    Component.onDestruction:{
-
-        console.log( "Destroying: Sandaar Explosion > " + sandaarExplosion);
-    }
+    //    Component.onDestruction:{
+    //        console.log( "Destroying: Sandaar Explosion > " + sandaarExplosion);
+    //    }
 }
 

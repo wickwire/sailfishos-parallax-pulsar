@@ -58,8 +58,8 @@ Page {
         anchors.fill: parent
         paused: !applicationActive
 
-        Component.onCompleted: console.log("Creating Pulsar Particle System " + pulsarShotParticles)
-        Component.onDestruction: console.log("Destroying Pulsar Particle System " + pulsarShotParticles)
+//        Component.onCompleted: console.log("Creating Pulsar Particle System " + pulsarShotParticles)
+//        Component.onDestruction: console.log("Destroying Pulsar Particle System " + pulsarShotParticles)
     }
 
     ParticleGroup{
@@ -67,17 +67,17 @@ Page {
         name: "sandaarTarget"
         system: pulsarShotParticles
         onEntered:{
-            console.log("Sandaar was SHOT DOWN!");
+            //console.log("Sandaar was SHOT DOWN!");
             enemyWaveObject.sandaarDestroy();
         }
 
-        Component.onCompleted:{
-            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
-        }
+//        Component.onCompleted:{
+//            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
 
-        Component.onDestruction:{
-            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
-        }
+//        Component.onDestruction:{
+//            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
     }
 
     ParticleSystem {
@@ -85,8 +85,8 @@ Page {
         anchors.fill: parent
         paused: !applicationActive
 
-        Component.onCompleted: console.log("Creating Sandaar Particle System " + enemyShotParticles)
-        Component.onDestruction: console.log("Destroying Sandaar Particle System " + enemyShotParticles)
+//        Component.onCompleted: console.log("Creating Sandaar Particle System " + enemyShotParticles)
+//        Component.onDestruction: console.log("Destroying Sandaar Particle System " + enemyShotParticles)
     }
 
     ParticleGroup{
@@ -94,17 +94,17 @@ Page {
         name: "pulsarTarget"
         system: enemyShotParticles
         onEntered:{
-            console.log("Parallax Pulsar was SHOT DOWN!")
+//            console.log("Parallax Pulsar was SHOT DOWN!")
             parallaxShipObject.parallaxDestroy();
         }
 
-        Component.onCompleted:{
-            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
-        }
+//        Component.onCompleted:{
+//            console.log( "Creating: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
 
-        Component.onDestruction:{
-            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
-        }
+//        Component.onDestruction:{
+//            console.log( "Destroying: Pulsar ParticleGroup > " + pulsarParticleGroup);
+//        }
     }
 
     onParallaxPulsarBlasted:{
@@ -112,7 +112,7 @@ Page {
         pulsarLives--;
 
         if(pulsarLives > 0){
-            console.log("Parallax Blasted, lives left: " + pulsarLives);
+//            console.log("Parallax Blasted, lives left: " + pulsarLives);
 
             if(pulsarLives == (pulsarLives-1)){
                 ppulsarLivesTimer.interval=0
@@ -121,19 +121,19 @@ Page {
                 ppulsarLivesTimer.interval=3000
             }
 
-            console.log("ppulsarLivesTimer.interval: " + ppulsarLivesTimer.interval)
+//            console.log("ppulsarLivesTimer.interval: " + ppulsarLivesTimer.interval)
 
             ppulsarLivesTimer.restart()
         }
-        else{
-            console.log("Parallax Blasted, no more lives - Game Over!");
-        }
+//        else{
+//            console.log("Parallax Blasted, no more lives - Game Over!");
+//        }
 
     }
 
     onReceiveWaveTotalDelay: {
         enemyWaveTotalDelay=totalDelay;
-        console.log("@FirstPage > " + enemyWaveTotalDelay);
+        //console.log("@FirstPage > " + enemyWaveTotalDelay);
         enemyShotParticles.reset();
     }
 
@@ -170,7 +170,7 @@ Page {
         repeat: true
         onTriggered: {
             enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles,"sandaarHitAreaGoalState":true});
-            console.log("created the enemy Wave " + enemyWaveObject.objectName);
+//            console.log("created the enemy Wave " + enemyWaveObject.objectName);
         }
     }
 
@@ -181,7 +181,7 @@ Page {
         //interval: 3000
         onTriggered:{
             parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys});
-            console.log("Parallax Regenerated!");
+//            console.log("Parallax Regenerated!");
             pulsarShotParticles.reset();
 
         }

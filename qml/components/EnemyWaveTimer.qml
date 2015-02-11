@@ -10,11 +10,11 @@ Timer{
         sandaarPath.running=true;
     }
 
-    Component.onCompleted:{
-        console.log("Creating Enemy Wave Timer " + sandaarWaveTimer);
-    }
+    //    Component.onCompleted:{
+    //        console.log("Creating Enemy Wave Timer " + sandaarWaveTimer);
+    //    }
 
-    Component.onDestruction:{
-        console.log("Destroying Enemy Wave Timer " + sandaarWaveTimer);
-    }
+    //    Component.onDestruction:{
+    //        console.log("Destroying Enemy Wave Timer " + sandaarWaveTimer);
+    //    }
 }

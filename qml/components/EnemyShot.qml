@@ -7,13 +7,13 @@ Rectangle{
     height: page.height
     color: "transparent"
 
-    Component.onDestruction: {
-        console.log("Destroying Enemy Shot " + enemyShot);
-    }
+    //    Component.onDestruction: {
+    //        console.log("Destroying Enemy Shot " + enemyShot);
+    //    }
 
-    Component.onCompleted:{
-        console.log("Creating Enemy Shot " + enemyShot);
-    }
+    //    Component.onCompleted:{
+    //        console.log("Creating Enemy Shot " + enemyShot);
+    //    }
 
     ImageParticle {
         system: enemyShotParticles
