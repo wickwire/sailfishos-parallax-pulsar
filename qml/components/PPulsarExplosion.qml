@@ -2,19 +2,19 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Rectangle{
-    id: shipExplosion
+    id: pulsarExplosion
     color: "transparent"
 
     property bool explosionEnabled
 
     ParticleSystem {
 
-        id: explosionParticles
+        id: pulsarExplosionParticles
         anchors.fill: parent
         paused: !applicationActive
 
         ImageParticle {
-            system: explosionParticles
+            system: pulsarExplosionParticles
             groups: ["explosion"]
             source: "qrc:///images/star.png"
             color: "#0FF06600"
@@ -23,7 +23,7 @@ Rectangle{
 
         Emitter {
             id: pulseEmitter
-            system: explosionParticles
+            system: pulsarExplosionParticles
             group: "explosion"
             emitRate: 50
             maximumEmitted: 10
@@ -41,6 +41,6 @@ Rectangle{
             parallaxShipObject.pulsarShipBlasted();
         }
 
-        console.log( "Destroying: Ship Explosion > " + shipExplosion);
+        console.log( "Destroying: Pulsar Explosion > " + pulsarExplosion);
     }
 }

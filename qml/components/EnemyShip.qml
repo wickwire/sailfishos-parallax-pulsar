@@ -47,7 +47,7 @@ Item{
         }
     }
 
-    ShipExplosion{
+    EnemyExplosion{
         id: sandaarExplosion
         explosionEnabled: false
         anchors.centerIn: sandaarShip
@@ -66,14 +66,7 @@ Item{
     }
 
     function destroyShip(){
-
-        if(sandaarHitArea){
-            sandaarHitArea.destroy();
-        }
-
-        if(sandaarShot){
-            sandaarShot.destroyShot()
-        }
+        console.log("@EnemyShip - destroyShip()");
 
         sandaarShip.visible=false;
 
@@ -83,9 +76,11 @@ Item{
         if(sandaarDestroyY == 0)
             sandaarDestroyY = enemyShip.y;
 
+        console.log("sandaarDestroyX " + sandaarDestroyX + "sandaarDestroyY " + sandaarDestroyY);
+
         if(sandaarExplosion){
-            sandaarShip.x=sandaarDestroyX;
-            sandaarShip.y=sandaarDestroyY;
+            enemyShip.x=sandaarDestroyX;
+            enemyShip.y=sandaarDestroyY;
             sandaarExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
         }

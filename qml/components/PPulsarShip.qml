@@ -30,7 +30,7 @@ Item{
         sourceSize.height: 76
     }
 
-    ShipExplosion{
+    PPulsarExplosion{
         id: ppulsarExplosion
         explosionEnabled: false
         anchors.centerIn: ppulsarShip

@@ -26,9 +26,10 @@ Rectangle{
             if(sandaarShotDown == enemyWavePair[repeatArrayCnt].idx[1].sandaarID){
                 console.log("@EnemyWave MATCH: " + "Sandaar Shot Down: " + sandaarShotDown + " enemyWavePair: " + enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx + " >< " + enemyWavePair[repeatArrayCnt].idx[1].sandaarID);
                 gameScore=gameScore+50;
-                enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).visible=false;
+                //enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).visible=false;
                 enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarHitAreaGoalState=false;
                 enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarShotEmitter=false;
+                enemyShipGenerator.itemAt(enemyWavePair[repeatArrayCnt].idx[0].repeaterIdx).sandaarShipDestroy();
             }
         }
     }
@@ -63,6 +64,13 @@ Rectangle{
                     enemyShipYchanged(sandaarScumCenterY, sandaarScumVisible);
                 }
             }
+
+            function sandaarShipDestroy(){
+                console.log("@sandaarShipDestroy");
+                sandaarShip.destroyShip();
+            }
+
+
             EnemyWavePath{
                 id: sandaarPath
                 running: false
