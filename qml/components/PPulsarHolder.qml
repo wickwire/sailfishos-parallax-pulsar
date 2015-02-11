@@ -26,9 +26,9 @@ Item{
     }
 
     onPulsarCheckCollision: {
-        if(parallaxPulsar.enemyShipVisible == true){
-            if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<32){
-                if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<32){
+        if(enemyShipVisible == true){
+            if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<parallaxPulsar.width/2){
+                if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<parallaxPulsar.height/2){
                     parallaxPulsar.destroyShip();
                 }
             }

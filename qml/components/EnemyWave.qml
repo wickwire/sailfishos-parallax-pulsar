@@ -62,12 +62,12 @@ Rectangle{
                 sandaarExplosion: sandaarShipExplosion
 
                 onXChanged:{
-                    //console.log("sandaarScumCenterX " + sandaarScumCenterX);
+                    //console.log("sandaarScumCenterX " + sandaarScumCenterX + sandaarScumVisible);
                     enemyShipXchanged(sandaarScumCenterX, sandaarScumVisible);
                 }
 
                 onYChanged:{
-                    //console.log("sandaarScumCenterY " + sandaarScumCenterY);
+                    //console.log("sandaarScumCenterY " + sandaarScumCenterY + sandaarScumVisible);
                     enemyShipYchanged(sandaarScumCenterY, sandaarScumVisible);
                 }
             }
