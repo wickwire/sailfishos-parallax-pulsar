@@ -10,6 +10,8 @@ Item{
     property int sandaarDestroyX : 0
     property int sandaarDestroyY : 0
 
+    property variant sandaarExplosion
+
 
     EnemyShot{
         id: sandaarShot
@@ -47,12 +49,6 @@ Item{
         }
     }
 
-    EnemyExplosion{
-        id: sandaarExplosion
-        explosionEnabled: false
-        anchors.centerIn: sandaarShip
-    }
-
     Timer {
         id: shipExplode
         interval: 500;
@@ -79,8 +75,8 @@ Item{
         console.log("sandaarDestroyX " + sandaarDestroyX + "sandaarDestroyY " + sandaarDestroyY);
 
         if(sandaarExplosion){
-            enemyShip.x=sandaarDestroyX;
-            enemyShip.y=sandaarDestroyY;
+            sandaarExplosion.x=sandaarDestroyX;
+            sandaarExplosion.y=sandaarDestroyY;
             sandaarExplosion.explosionEnabled = true;
             shipExplode.exploding=true;
         }

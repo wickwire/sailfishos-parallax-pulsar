@@ -51,8 +51,15 @@ Rectangle{
                 id: sandaarTimer
             }
 
+            EnemyExplosion{
+                id: sandaarShipExplosion
+                explosionEnabled: false
+            }
+
             EnemyShip{
                 id: sandaarShip
+
+                sandaarExplosion: sandaarShipExplosion
 
                 onXChanged:{
                     //console.log("sandaarScumCenterX " + sandaarScumCenterX);
