@@ -7,5 +7,7 @@
         <file>images/sandaarScum002.png</file>
         <file>images/sandaarScum003.png</file>
         <file>images/sandaarScum004.png</file>
+        <file>3Dmodels/parallax.pulsar/parallax.pulsar.3ds</file>
+        <file>images/space.jpg</file>
     </qresource>
 </RCC>
