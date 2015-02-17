@@ -9,6 +9,12 @@
         <file>images/sandaarScum004.png</file>
         <file>3Dmodels/parallax.pulsar/parallax.pulsar.3ds</file>
         <file>images/space.jpg</file>
-        <file>images/space001.jpg</file>
+        <file>images/background001.jpg</file>
+        <file>images/background002.jpg</file>
+        <file>images/asteroids001.png</file>
+        <file>images/asteroids002.png</file>
+        <file>images/planet001.png</file>
+        <file>images/planet002.png</file>
+        <file>images/background003.jpg</file>
     </qresource>
 </RCC>

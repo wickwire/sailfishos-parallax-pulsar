@@ -54,9 +54,13 @@ Page {
     signal parallaxPulsarBlasted
     property int enemyWaveCounter
 
-    Image{
-        anchors.fill: parent
-        source: "qrc:///images/space001.jpg"
+//    Image{
+//        anchors.fill: parent
+//        source: "qrc:///images/space001.jpg"
+//    }
+
+    GameBackground{
+        id: gameBg
     }
 
     ParticleSystem {
