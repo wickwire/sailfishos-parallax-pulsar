@@ -30,8 +30,8 @@ Item{
     onPulsarCheckCollision: {
         shipDistX=Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX);
         shipDistY=Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY);
-        if(shipDistX == parallaxPulsar.width){
-            if(shipDistY == parallaxPulsar.height){
+        if(Math.abs(shipDistX-parallaxPulsar.width) < 3){
+            if(Math.abs(shipDistY-parallaxPulsar.height) < 3){
                 console.log("shipDistX: " + shipDistX + "shipDistY: " + shipDistY + "|" + parallaxPulsar.width + "x" + parallaxPulsar.height);
                 parallaxPulsar.destroyShip();
             }
