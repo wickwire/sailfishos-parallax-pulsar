@@ -59,12 +59,12 @@ Rectangle {
     Image{
         id: planet1
         source: "qrc:///images/planet001.png"
-        x: canvas.width/2.3
+        x: canvas.width*0.0005
 
         PropertyAnimation on y{
             id: planet1run
             running: true
-            duration: initialRunDuration*4
+            duration: initialRunDuration*3
             from: -canvas.height
             to: canvas.height*1.5
             loops: Animation.Infinite
@@ -75,14 +75,14 @@ Rectangle {
     Image{
         id: planet2
         source: "qrc:///images/planet002.png"
-        x: canvas.width*0.01
+        x: canvas.width*0.5
 
         PropertyAnimation on y{
             id: planet2run
             running: true
-            duration: initialRunDuration*4
-            from: -canvas.height*1.5
-            to: canvas.height*1.5
+            duration: initialRunDuration*6
+            from: -canvas.height*2.2
+            to: canvas.height*2.2
             loops: Animation.Infinite
         }
     }
@@ -90,14 +90,14 @@ Rectangle {
     Image{
         id: asteroids1
         source: "qrc:///images/asteroids001.png"
-        x: canvas.width*0.01
+        x: canvas.width*0.007
 
         PropertyAnimation on y{
             id: asteroids001run
             running: true
-            duration: initialRunDuration/3
-            from: -canvas.height*1.4
-            to: canvas.height*1.4
+            duration: initialRunDuration/1.5
+            from: -canvas.height
+            to: canvas.height
             loops: Animation.Infinite
         }
     }
@@ -111,8 +111,8 @@ Rectangle {
             id: asteroids002run
             running: true
             duration: initialRunDuration/3
-            from: -canvas.height*2
-            to: canvas.height*2
+            from: -canvas.height*1.2
+            to: canvas.height*1.2
             loops: Animation.Infinite
         }
     }
