@@ -43,7 +43,8 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/pages/HomePage.qml \
     qml/components/Parallax3D.qml \
     qml/components/Parallax3DMesh.qml \
-    qml/components/GameBackground.qml
+    qml/components/GameBackground.qml \
+    qml/components/PPulsarGodGlow.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

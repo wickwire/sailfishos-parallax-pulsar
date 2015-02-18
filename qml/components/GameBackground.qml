@@ -25,7 +25,7 @@ Rectangle {
 
         onYChanged: {
             if(Math.floor(y) == 0){
-                console.log("resetting image1");
+                //console.log("resetting image1");
                 img1run.from=-canvas.height;
                 img1run.duration=initialRunDuration*2;
                 img1run.restart();
@@ -49,7 +49,7 @@ Rectangle {
 
         onYChanged: {
             if(Math.floor(y) == 0){
-                console.log("resetting image2");
+                //console.log("resetting image2");
                 img2run.duration=initialRunDuration*2;
                 img2run.restart();
             }

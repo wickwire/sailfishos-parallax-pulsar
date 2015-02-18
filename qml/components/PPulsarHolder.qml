@@ -11,13 +11,22 @@ Item{
     property bool enemyShipVisible
     property int shipDistX
     property int shipDistY
-
     property int ppulsarEmitterLifeSpan
-
     property variant sandaarShotSystem
+    property bool pulsarInvencibility : true
 
     signal pulsarCheckCollision
     signal pulsarShipBlasted
+
+    Timer{
+        id: pulsarRespawnTimer
+        running: Qt.application.active
+        repeat: false
+        interval: 5000
+        onTriggered: {
+            pulsarInvencibility=false;
+        }
+    }
 
     PPulsarShip{
         id: parallaxPulsar
@@ -30,9 +39,9 @@ Item{
     onPulsarCheckCollision: {
         shipDistX=Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX);
         shipDistY=Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY);
-        if(Math.abs(shipDistX-parallaxPulsar.width) < 3){
-            if(Math.abs(shipDistY-parallaxPulsar.height) < 3){
-                console.log("shipDistX: " + shipDistX + "shipDistY: " + shipDistY + "|" + parallaxPulsar.width + "x" + parallaxPulsar.height);
+        if(Math.abs(shipDistX-parallaxPulsar.width) < 2.5){
+            if(Math.abs(shipDistY-parallaxPulsar.height) < 2.5){
+                //console.log("shipDistX: " + shipDistX + "shipDistY: " + shipDistY + "|" + parallaxPulsar.width + "x" + parallaxPulsar.height);
                 parallaxPulsar.destroyShip();
             }
         }

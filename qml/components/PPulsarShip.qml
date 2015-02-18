@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
+import QtGraphicalEffects 1.0
 
 //phone with screen facing up
 Item{
@@ -28,6 +29,12 @@ Item{
         anchors.centerIn: ppulsarShip
         sourceSize.width: 76
         sourceSize.height: 76
+        smooth: true
+        visible: !pulsarInvencibility
+    }
+
+    PPulsarGodGlow{
+        id: pulsarGodMode
     }
 
     PPulsarExplosion{
@@ -82,6 +89,7 @@ Item{
         anchors.fill: ppulsarSvg
         goalState: "pulsarTarget"
         system: sandaarShotSystem
+        enabled: !pulsarInvencibility
 
         //        Component.onCompleted:{
         //            console.log( "Creating: Pulsar Group Goal > " + pulsarHitArea);

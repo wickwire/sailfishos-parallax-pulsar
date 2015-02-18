@@ -206,19 +206,31 @@ Page {
 
     onEnemyShipXchanged:{
         if(parallaxShipObject){
-            if(enemyShipCurrentVisibility==true){
-                parallaxShipObject.enemyShipX=enemyShipCurrentX;
-                parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
-                parallaxShipObject.pulsarCheckCollision();
+            if(parallaxShipObject.pulsarInvencibility == false){
+                if(enemyShipCurrentVisibility==true){
+                    parallaxShipObject.enemyShipX=enemyShipCurrentX;
+                    parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
+                    parallaxShipObject.pulsarCheckCollision();
+                }
             }
+//            else{
+//                console.log("Invencible!");
+//            }
         }
     }
 
     onEnemyShipYchanged:{
         if(parallaxShipObject){
-            parallaxShipObject.enemyShipY=enemyShipCurrentY;
-            parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
-            parallaxShipObject.pulsarCheckCollision();
+            if(parallaxShipObject.pulsarInvencibility == false){
+                if(enemyShipCurrentVisibility==true){
+                    parallaxShipObject.enemyShipY=enemyShipCurrentY;
+                    parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
+                    parallaxShipObject.pulsarCheckCollision();
+                }
+            }
+//            else{
+//                console.log("Invencible!");
+//            }
         }
     }
 
