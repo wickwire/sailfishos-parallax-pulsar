@@ -9,6 +9,8 @@ Item{
     property int enemyShipX
     property int enemyShipY
     property bool enemyShipVisible
+    property int shipDistX
+    property int shipDistY
 
     property int ppulsarEmitterLifeSpan
 
@@ -26,11 +28,12 @@ Item{
     }
 
     onPulsarCheckCollision: {
-        if(enemyShipVisible == true){
-            if(Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX)<parallaxPulsar.width/4){
-                if(Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY)<parallaxPulsar.height/4){
-                    parallaxPulsar.destroyShip();
-                }
+        shipDistX=Math.abs(parallaxPulsar.ppulsarShipCenterX-enemyShipX);
+        shipDistY=Math.abs(parallaxPulsar.ppulsarShipCenterY-enemyShipY);
+        if(shipDistX == parallaxPulsar.width){
+            if(shipDistY == parallaxPulsar.height){
+                console.log("shipDistX: " + shipDistX + "shipDistY: " + shipDistY + "|" + parallaxPulsar.width + "x" + parallaxPulsar.height);
+                parallaxPulsar.destroyShip();
             }
         }
     }

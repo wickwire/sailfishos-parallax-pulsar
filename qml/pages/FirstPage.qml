@@ -206,9 +206,11 @@ Page {
 
     onEnemyShipXchanged:{
         if(parallaxShipObject){
-            parallaxShipObject.enemyShipX=enemyShipCurrentX;
-            parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
-            parallaxShipObject.pulsarCheckCollision();
+            if(enemyShipCurrentVisibility==true){
+                parallaxShipObject.enemyShipX=enemyShipCurrentX;
+                parallaxShipObject.enemyShipVisible=enemyShipCurrentVisibility;
+                parallaxShipObject.pulsarCheckCollision();
+            }
         }
     }
 
