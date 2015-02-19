@@ -78,6 +78,7 @@ Page {
     ParticleSystem {
         id: pulsarShotParticles
         anchors.fill: parent
+        anchors.centerIn: parent
         paused: !applicationActive
 
 //        Component.onCompleted: console.log("Creating Pulsar Particle System " + pulsarShotParticles)
@@ -105,6 +106,7 @@ Page {
     ParticleSystem {
         id: enemyShotParticles
         anchors.fill: parent
+        anchors.centerIn: parent
         paused: !applicationActive
 
 //        Component.onCompleted: console.log("Creating Sandaar Particle System " + enemyShotParticles)

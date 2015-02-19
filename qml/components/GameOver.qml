@@ -8,7 +8,7 @@ Item {
         anchors.centerIn: parent
         rotation: -90
         color: "red"
-        opacity: 0.7
+        opacity: 1
         width: parent.height/3
         height: parent.width/3
 

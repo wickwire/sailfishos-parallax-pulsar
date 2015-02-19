@@ -10,7 +10,7 @@ Item{
         groups: ["pulsarShot"]
         source: "qrc:///images/star.png"
         color: "#0FF06600"
-        colorVariation: 0.3
+        //colorVariation: 0.3
     }
 
     Emitter {
