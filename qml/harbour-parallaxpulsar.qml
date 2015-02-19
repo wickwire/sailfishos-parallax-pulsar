@@ -37,7 +37,6 @@ ApplicationWindow
     objectName: "appWindow"
     initialPage: Component { HomePage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-
     signal appStateSignal(bool appState)
     onApplicationActiveChanged: {
         appStateSignal(Qt.application.active);
@@ -51,5 +50,11 @@ ApplicationWindow
 //                    + " Shortcut: " + Qt.ApplicationShortcut
                     + " Qt.application.active: " + Qt.application.active
                     );
+    }
+
+    Component.onDestruction: {
+        //stop the sensors
+        //destroy the components
+        console.log("turn off the lights");
     }
 }

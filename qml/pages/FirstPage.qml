@@ -44,6 +44,8 @@ Page {
     property variant parallaxShipObject
     property variant parallaxShotComponent
     property variant parallaxShotObject
+    property variant gameOverComponent
+    property variant gameOverObject
     property int enemyWaveTotalDelay
     property int pulsarLives : 3
     property int gameScore : 0
@@ -54,10 +56,20 @@ Page {
     signal parallaxPulsarBlasted
     property int enemyWaveCounter
 
-//    Image{
-//        anchors.fill: parent
-//        source: "qrc:///images/space001.jpg"
-//    }
+    signal appGoingForGameRestart
+    signal appGoingForHomePage
+
+    onAppGoingForGameRestart: {
+        console.log("Restarting Game");
+        //either options work. [W] unknown:134 - file:///usr/lib/qt5/qml/Sailfish/Silica/Page.qml:134: TypeError: Cannot read property of null
+        pageStack.replace("FirstPage.qml");
+    }
+
+    onAppGoingForHomePage: {
+        console.log("Back to HomePage");
+        //either options work. [W] unknown:134 - file:///usr/lib/qt5/qml/Sailfish/Silica/Page.qml:134: TypeError: Cannot read property of null
+        pageStack.navigateBack();
+    }
 
     GameBackground{
         id: gameBg
@@ -135,9 +147,10 @@ Page {
 
             ppulsarLivesTimer.restart()
         }
-//        else{
-//            console.log("Parallax Blasted, no more lives - Game Over!");
-//        }
+        else{
+            console.log("Parallax Blasted, no more lives - Game Over!");
+            gameOverObject = gameOverComponent.createObject(page,{"objectName": "gameOverPanel"});
+        }
 
     }
 
@@ -202,6 +215,7 @@ Page {
     {
         enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
         parallaxShipComponent = Qt.createComponent("../components/PPulsarHolder.qml");
+        gameOverComponent = Qt.createComponent("../components/GameOver.qml");
     }
 
     onEnemyShipXchanged:{

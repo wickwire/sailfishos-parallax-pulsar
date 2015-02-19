@@ -4,7 +4,6 @@ import "../components"
 import Sailfish.Silica 1.0
 
 Page {
-
     objectName: "initialPage"
     id: page
 
