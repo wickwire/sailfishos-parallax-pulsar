@@ -1,10 +1,10 @@
 import QtQuick 2.0
 
-Rectangle {
+Item {
     id: canvas
     width: page.width
     height: page.height
-    color: "black"
+    //color: "black"
 
     property int initialRunDuration : 30000
 
@@ -12,8 +12,6 @@ Rectangle {
     Image {
         id: image2
         source: "qrc:///images/background002.jpg"
-        fillMode: Image.PreserveAspectFit
-        smooth: true
 
         PropertyAnimation on y{
             id: img2run
@@ -36,8 +34,6 @@ Rectangle {
     Image {
         id: image1
         source: "qrc:///images/background001.jpg"
-        fillMode: Image.PreserveAspectFit
-        smooth: true
 
         PropertyAnimation on y{
             id: img1run

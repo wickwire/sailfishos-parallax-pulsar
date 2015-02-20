@@ -35,7 +35,7 @@ import "pages"
 ApplicationWindow
 {
     objectName: "appWindow"
-    initialPage: Component { HomePage { } }
+    initialPage: Component { FirstPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     signal appStateSignal(bool appState)
     onApplicationActiveChanged: {

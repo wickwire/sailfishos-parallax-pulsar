@@ -12,7 +12,7 @@
     <name>FirstPage</name>
     <message>
         <source>Show Page 2</source>
-        <translation>Zur Seite 2</translation>
+        <translation type="vanished">Zur Seite 2</translation>
     </message>
     <message>
         <source>UI Template</source>
