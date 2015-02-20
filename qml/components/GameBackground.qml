@@ -17,14 +17,14 @@ Item {
             id: img2run
             running: Qt.application.active
             duration: initialRunDuration*2
-            from: -canvas.height
+            from: -canvas.height+2
             to: canvas.height
         }
 
         onYChanged: {
             if(Math.floor(y) == 0){
                 //console.log("resetting image1");
-                img1run.from=-canvas.height;
+                img1run.from=-canvas.height+2;
                 img1run.duration=initialRunDuration*2;
                 img1run.restart();
             }
