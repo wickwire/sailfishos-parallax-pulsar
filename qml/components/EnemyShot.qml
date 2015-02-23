@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
+import QtMultimedia 5.0
 
 Rectangle{
     id: enemyShot
@@ -32,6 +33,10 @@ Rectangle{
         size: 40
         velocity: PointDirection { y: 512; }
         enabled: enemyShotHolder.sandaarShotEmitter
+
+//        onEmitParticles: {
+//            sandaarShotSnd.play();
+//        }
     }
 
     Timer{
@@ -45,6 +50,14 @@ Rectangle{
     function destroyShot(){
         enemyShotEmitter.enabled=false
         shotDestroyDelay.running=true
+    }
+
+    Audio {
+        id: sandaarShotSnd
+        autoLoad: false
+        autoPlay: false
+        source: "../soundeffects/sandaar.001.mp3"
+        volume: 0.1
     }
 }
 

@@ -45,7 +45,9 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/components/Parallax3DMesh.qml \
     qml/components/GameBackground.qml \
     qml/components/PPulsarGodGlow.qml \
-    qml/components/GameOver.qml
+    qml/components/GameOver.qml \
+    qml/components/GameSoundtrack.qml \
+    qml/soundtracks/*.mp3
 
 # to disable building translations every time, comment out the
 # following CONFIG line

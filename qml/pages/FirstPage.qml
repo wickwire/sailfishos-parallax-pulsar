@@ -71,6 +71,10 @@ Page {
         pageStack.navigateBack();
     }
 
+    GameSoundtrack{
+        id: gameSndTrack
+    }
+
     GameBackground{
         id: gameBg
     }

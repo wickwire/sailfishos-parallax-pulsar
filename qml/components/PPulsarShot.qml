@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
+import QtMultimedia 5.0
 
 Item{
     id: ppulsarShot
@@ -46,5 +47,13 @@ Item{
     Component.onCompleted:{
         ppulsarEmitterLifeSpan=parallaxPulsarShotEmitter.lifeSpan;
 //        console.log("Creating Pulsar Shot " + ppulsarShot);
+    }
+
+    MediaPlayer {
+        id: pulsarShotSnd
+        autoLoad: false
+        autoPlay: false
+        source: "../soundeffects/pulsar.001.mp3"
+        volume: 0.7
     }
 }
