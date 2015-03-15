@@ -38,6 +38,10 @@
 #include <QDebug>
 #include <QObject>
 #include <QQuickItem>
+#include <QQuickView>
+#include <QScreen>
+#include <QQmlContext>
+#include <QGuiApplication>
 
 int main(int argc, char *argv[])
 {
