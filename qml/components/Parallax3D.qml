@@ -35,7 +35,7 @@ Item3D {
                 id: parallaxHomeRotation
                 axis: Qt.vector3d(1, 0, 0)
                 NumberAnimation on angle {
-                    running: Qt.application.active
+                    running: applicationActive
                     loops: Animation.Infinite
                     from: 0
                     to: 360

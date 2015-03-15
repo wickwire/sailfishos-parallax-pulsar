@@ -31,9 +31,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
+import "components"
 
 ApplicationWindow
 {
+    GameSoundtrack{
+        id: gameSndTrack
+    }
+
+    property int sndTrackPos
     objectName: "appWindow"
     initialPage: Component { FirstPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -50,6 +56,16 @@ ApplicationWindow
 //                    + " Shortcut: " + Qt.ApplicationShortcut
                     + " Qt.application.active: " + Qt.application.active
                     );
+
+
+        if(!Qt.application.active){
+            sndTrackPos=gameSndTrack.position;
+            gameSndTrack.stop();
+        }
+        else{
+            gameSndTrack.seek(sndTrackPos);
+            gameSndTrack.play();
+        }
     }
 
     Component.onDestruction: {

@@ -15,7 +15,7 @@ Item {
 
         PropertyAnimation on y{
             id: img2run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration*2
             from: -canvas.height+2
             to: canvas.height
@@ -37,7 +37,7 @@ Item {
 
         PropertyAnimation on y{
             id: img1run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration
             from: 0
             to: canvas.height
@@ -59,7 +59,7 @@ Item {
 
         PropertyAnimation on y{
             id: planet1run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration*3
             from: -canvas.height
             to: canvas.height*1.5
@@ -75,7 +75,7 @@ Item {
 
         PropertyAnimation on y{
             id: planet2run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration*6
             from: -canvas.height*2.2
             to: canvas.height*2.2
@@ -90,7 +90,7 @@ Item {
 
         PropertyAnimation on y{
             id: asteroids001run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration/1.5
             from: -canvas.height
             to: canvas.height
@@ -105,7 +105,7 @@ Item {
 
         PropertyAnimation on y{
             id: asteroids002run
-            running: Qt.application.active
+            running: applicationActive
             duration: initialRunDuration/3
             from: -canvas.height*1.2
             to: canvas.height*1.2

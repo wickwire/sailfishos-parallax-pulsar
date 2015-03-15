@@ -62,6 +62,7 @@ Page {
     onAppGoingForGameRestart: {
         console.log("Restarting Game");
         //either options work. [W] unknown:134 - file:///usr/lib/qt5/qml/Sailfish/Silica/Page.qml:134: TypeError: Cannot read property of null
+        gameSndTrack.source="../soundtracks/level.00" + (Math.floor(Math.random() * 2) + 1) + ".mp3";
         pageStack.replace("FirstPage.qml");
     }
 
@@ -69,10 +70,6 @@ Page {
         console.log("Back to HomePage");
         //either options work. [W] unknown:134 - file:///usr/lib/qt5/qml/Sailfish/Silica/Page.qml:134: TypeError: Cannot read property of null
         pageStack.navigateBack();
-    }
-
-    GameSoundtrack{
-        id: gameSndTrack
     }
 
     GameBackground{
