@@ -198,7 +198,7 @@ Page {
 
     Timer{
         id: ppulsarLivesTimer
-        running: applicationActive
+        running: true
         repeat: false
         //interval: 3000
         onTriggered:{

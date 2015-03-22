@@ -20,7 +20,7 @@ Item{
 
     Timer{
         id: pulsarRespawnTimer
-        running: Qt.application.active
+        running: true
         repeat: false
         interval: 5000
         onTriggered: {
