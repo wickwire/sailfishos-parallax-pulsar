@@ -49,15 +49,35 @@ Page {
     property int enemyWaveTotalDelay
     property int pulsarLives : 3
     property int gameScore : 0
+    property int enemyWaveCounter
+    property string currentApplicationState
 
     signal receiveWaveTotalDelay(int totalDelay)
     signal enemyShipXchanged(int enemyShipCurrentX, bool enemyShipCurrentVisibility)
     signal enemyShipYchanged(int enemyShipCurrentY, bool enemyShipCurrentVisibility)
     signal parallaxPulsarBlasted
-    property int enemyWaveCounter
 
     signal appGoingForGameRestart
     signal appGoingForHomePage
+
+
+    Connections{
+            target: mainAppWindow
+            onApplicationActiveChanged:{
+                sailfishAppStateChanged();
+            }
+        }
+
+        function sailfishAppStateChanged(){
+            if(applicationActive){
+                currentApplicationState = "resumed";
+            }
+            else{
+                currentApplicationState = "paused";
+            }
+
+            console.log("@FirstPage >> currentApplicationState: " + currentApplicationState)
+        }
 
     onAppGoingForGameRestart: {
         console.log("Restarting Game");

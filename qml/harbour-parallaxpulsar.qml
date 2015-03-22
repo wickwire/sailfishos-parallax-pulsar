@@ -39,6 +39,8 @@ ApplicationWindow
         id: gameSndTrack
     }
 
+    id: mainAppWindow
+
     property int sndTrackPos
     objectName: "appWindow"
     initialPage: Component { FirstPage { } }
