@@ -8,10 +8,29 @@ Glow {
     samples: 16
     color: "white"
     source: ppulsarSvg
+
+    property bool invencibilityState : true
+
+    Connections{
+            target: mainAppWindow
+            onApplicationActiveChanged:{
+                sailfishAppStateChanged();
+            }
+        }
+
+    function sailfishAppStateChanged(){
+        if(applicationActive){
+           setInvencible.running=pulsarInvencibility;
+        }
+        else{
+           setInvencible.running=false;
+        }
+    }
+
     visible: pulsarInvencibility
 
     SequentialAnimation{
-
+        id: setInvencible
         running: pulsarInvencibility
         loops: Animation.Infinite
 
