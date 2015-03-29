@@ -6,7 +6,7 @@ WorldClock::WorldClock(QObject *parent) :
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(fireTimer()));
     //qDebug() << "Firing QTimer at WorldClock!";
-    timer->start(10000);
+    timer->start(100);
 }
 
 void WorldClock::fireTimer(){

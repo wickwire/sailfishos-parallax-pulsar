@@ -199,18 +199,18 @@ Page {
         enemyShotParticles.reset();
     }
 
-    Timer{
-        id: waveGenTimer
-        triggeredOnStart: true
-        interval: enemyWaveTotalDelay
-        running: applicationActive
-        repeat: true
-        onTriggered: {
-            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles,"sandaarHitAreaGoalState":true});
-            enemyWaveCounter++;
-//            console.log("created the enemy Wave " + enemyWaveObject.objectName);
-        }
-    }
+//    Timer{
+//        id: waveGenTimer
+//        triggeredOnStart: true
+//        interval: enemyWaveTotalDelay
+//        running: applicationActive
+//        repeat: true
+//        onTriggered: {
+//            enemyWaveObject = enemyWaveComponent.createObject(page,{"objectName": "enemyWave","sandaarShotSys":enemyShotParticles,"pulsarShotSystem":pulsarShotParticles,"sandaarHitAreaGoalState":true});
+//            enemyWaveCounter++;
+////            console.log("created the enemy Wave " + enemyWaveObject.objectName);
+//        }
+//    }
 
     Timer{
         id: ppulsarLivesTimer
@@ -218,7 +218,7 @@ Page {
         repeat: false
         //interval: 3000
         onTriggered:{
-            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar","sandaarShotSystem":enemyWaveObject.sandaarShotSys});
+            parallaxShipObject = parallaxShipComponent.createObject(page,{"objectName":"parallaxPulsar"/*,"sandaarShotSystem":enemyWaveObject.sandaarShotSys*/});
 //            console.log("Parallax Regenerated!");
             pulsarShotParticles.reset();
 
@@ -227,7 +227,7 @@ Page {
 
     Component.onCompleted:
     {
-        enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
+        //enemyWaveComponent = Qt.createComponent("../components/EnemyWave.qml");
         parallaxShipComponent = Qt.createComponent("../components/PPulsarHolder.qml");
         gameOverComponent = Qt.createComponent("../components/GameOver.qml");
     }
