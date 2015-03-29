@@ -7,4 +7,4 @@ Parallax Pulsar
 - Using the proximity sensor for firing (top right corner, opposite to the front camera)
 - Using the accelerometer sensor for controlling Parallax Pulsar
 
-#EOF1
+#EOF
