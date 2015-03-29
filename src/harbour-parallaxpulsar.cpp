@@ -53,10 +53,9 @@ int main(int argc, char *argv[])
 
     QThread* thread = new QThread;
     WorldClock* clock = new WorldClock();
-
     //activating the clock and sending it off to another thread
     clock->moveToThread(thread);
-    //QObject::connect(thread, SIGNAL(started()), clock, SLOT(fireTimer()),Qt::QueuedConnection);
+    QObject::connect(thread, SIGNAL(started()), clock, SLOT(fireTimer()),Qt::QueuedConnection);
     qDebug() << "QGuiApplication::instance()->thread()->currentThreadId(): " << QGuiApplication::instance()->thread()->currentThreadId();
     thread->start();
 
