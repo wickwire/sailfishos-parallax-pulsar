@@ -17,7 +17,8 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-parallaxpulsar.cpp \
     src/parallaxcontrols.cpp \
     src/parallaxcontrolsfilter.cpp \
-    src/parallaxweapon.cpp
+    src/parallaxweapon.cpp \
+    src/worldclock.cpp
 
 OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/cover/CoverPage.qml \
@@ -47,7 +48,8 @@ OTHER_FILES += qml/harbour-parallaxpulsar.qml \
     qml/components/PPulsarGodGlow.qml \
     qml/components/GameOver.qml \
     qml/components/GameSoundtrack.qml \
-    qml/soundtracks/*.mp3
+    qml/soundtracks/*.mp3 \
+    qml/components/GameClock.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -59,7 +61,8 @@ QT += sensors
 HEADERS += \
     src/parallaxcontrols.h \
     src/parallaxcontrolsfilter.h \
-    src/parallaxweapon.h
+    src/parallaxweapon.h \
+    src/worldclock.h
 
 RESOURCES += \
     resources.qrc

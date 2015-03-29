@@ -32,6 +32,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
 import QtQuick.Particles 2.0
+import WorldClock 1.0
 
 Page {
 
@@ -52,6 +53,8 @@ Page {
     property int enemyWaveCounter
     property string currentApplicationState
 
+    property string currentTimestamp
+
     signal receiveWaveTotalDelay(int totalDelay)
     signal enemyShipXchanged(int enemyShipCurrentX, bool enemyShipCurrentVisibility)
     signal enemyShipYchanged(int enemyShipCurrentY, bool enemyShipCurrentVisibility)
@@ -60,6 +63,15 @@ Page {
     signal appGoingForGameRestart
     signal appGoingForHomePage
 
+
+    WorldClock{
+        id: gmClock
+
+        onTestTimerChanged: {
+            currentTimestamp=new Date().toString();
+            console.log("@FirstPage: received timer signal " + currentTimestamp);
+        }
+    }
 
     Connections{
             target: mainAppWindow
@@ -90,6 +102,10 @@ Page {
         console.log("Back to HomePage");
         //either options work. [W] unknown:134 - file:///usr/lib/qt5/qml/Sailfish/Silica/Page.qml:134: TypeError: Cannot read property of null
         pageStack.navigateBack();
+    }
+
+    GameClock{
+        id: gameClock
     }
 
     GameBackground{

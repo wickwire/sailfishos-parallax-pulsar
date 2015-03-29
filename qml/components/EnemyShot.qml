@@ -16,6 +16,32 @@ Rectangle{
     //        console.log("Creating Enemy Shot " + enemyShot);
     //    }
 
+
+    property string currentTimestamp
+
+//    Connections{
+//        target: gmClock
+//        onTestTimerChanged:{
+//            currentTimestamp=new Date().toString();
+//            console.log("@EnemyShot: received timer signal " + currentTimestamp);
+//        }
+//    }
+
+
+
+
+
+
+
+
+//    Connections{
+//            target: gameClock
+//            onFireStuff:{
+//                currentTimestamp=new Date().toString();
+//                console.log("@EnemyShot: received timer signal " + currentTimestamp);
+//            }
+//        }
+
     ImageParticle {
         system: enemyShotParticles
         groups: ["enemyShot"]

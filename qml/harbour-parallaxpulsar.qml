@@ -35,6 +35,10 @@ import "components"
 
 ApplicationWindow
 {
+    GameClock{
+        id: gameWorldClock
+    }
+
     GameSoundtrack{
         id: gameSndTrack
     }

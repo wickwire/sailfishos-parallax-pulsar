@@ -21,6 +21,34 @@ Rectangle{
 
     signal waveDestroy
 
+    signal waveShipTimer
+    property string currentTimestamp
+
+
+    Connections{
+            target: gameClock
+            onFireStuff:{
+                currentTimestamp=new Date().toString();
+                //console.log("@EnemyWave: received timer signal " + currentTimestamp);
+            }
+        }
+
+//        function sailfishAppStateChanged(){
+//            if(applicationActive){
+//                currentApplicationState = "resumed";
+//            }
+//            else{
+//                currentApplicationState = "paused";
+//            }
+
+//            console.log("@FirstPage >> currentApplicationState: " + currentApplicationState)
+//        }
+
+//    onWaveShipTimer: {
+//        currentTimestamp=new Date(year, month, day, hours, minutes, seconds, milliseconds).toString();
+//        console.log("@EnemyWave: received timer signal " + currentTimestamp);
+//    }
+
     function sandaarDestroy(){
         for (var repeatArrayCnt = 0; repeatArrayCnt < enemyWavePair.length; repeatArrayCnt++) {
             if(sandaarShotDown == enemyWavePair[repeatArrayCnt].idx[1].sandaarID){

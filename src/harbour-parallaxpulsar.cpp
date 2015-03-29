@@ -33,8 +33,6 @@
 #endif
 
 #include <sailfishapp.h>
-#include "parallaxcontrols.h"
-#include "parallaxweapon.h"
 #include <QDebug>
 #include <QObject>
 #include <QQuickItem>
@@ -42,11 +40,27 @@
 #include <QScreen>
 #include <QQmlContext>
 #include <QGuiApplication>
+#include <QThread>
+
+#include "parallaxcontrols.h"
+#include "parallaxweapon.h"
+#include "worldclock.h"
 
 int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
+
+    QThread* thread = new QThread;
+    WorldClock* clock = new WorldClock();
+
+    //activating the clock and sending it off to another thread
+    clock->moveToThread(thread);
+    //QObject::connect(thread, SIGNAL(started()), clock, SLOT(fireTimer()),Qt::QueuedConnection);
+    qDebug() << "QGuiApplication::instance()->thread()->currentThreadId(): " << QGuiApplication::instance()->thread()->currentThreadId();
+    thread->start();
+
+    qmlRegisterType<WorldClock>("WorldClock", 1, 0, "WorldClock");
 
     ParallaxControls *accelControls = new ParallaxControls();
     ParallaxWeapon *weaponTrigger = new ParallaxWeapon();
